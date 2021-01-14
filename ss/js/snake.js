@@ -8,7 +8,7 @@ var score=0;
 var snakeDirection;
 var apple;
 var snake;
-
+var snakeLength=5;
 // function fabio()
 // {
 // var scelta=parseInt(document.getElementById('myselect').value);
@@ -48,18 +48,27 @@ var g_height = 26;
     }
 
 // all'inizio il serpente parte da qualche parte:
-var snake=g[g_width/2][3];
+var snakecoda=g[g_width/2][3];
+console.log(typeof snakecoda);
+var snaketesta=g[g_width/2+snakeLength][3];
+var snake=[];
+for (var i =g_width/2;i<=g_width/2+snakeLength; i++) {
+  snake.push(i);
+}
 console.log(snake);
+
 snakeDirection = 'R';
 
 // creo una funzione perché sta mela nel gioco viene creata ogni volta
 // che viene mangiata,e il serpente si allunga...seh vabbe
 
 function RandomApple(){
-var apple=g[Math.floor(Math.random()*(g_width+1))][Math.floor(Math.random()*(g_height+1))];
+ var apple=g[Math.floor(Math.random()*(g_width+1))][Math.floor(Math.random()*(g_height+1))];
 console.log(apple);
 return apple;
 }
+
+
 // posso provare generazione mela?è casuale
 
 
