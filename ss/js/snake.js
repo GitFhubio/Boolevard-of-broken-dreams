@@ -52,11 +52,13 @@ var snake=g[g_width/2][3];
 console.log(snake);
 snakeDirection = 'R';
 
+var apple=g[(g_width)*Math.random()][(g_height)*Math.random()]
+      console.log(apple);
 
 // posso provare generazione mela?è casuale
 
-var apple=Math.random();
-console.log(apple);
+
+
 
 // devo moltiplicare
 
