@@ -46,8 +46,9 @@ var g_height = 26;
         }
         g.push(row);
     }
-
+console.log(g[x][y]);
 }
+generaGrigliaXY();
 
 
   // if (event.keyCode == 40) {
@@ -107,7 +108,6 @@ var g_height = 26;
 // }
 // });
 
-}
 
 function TastoPremuto(event) {
     switch (event.keyCode) {
