@@ -6,7 +6,7 @@ $( document ).ready(function() {
 
 var score=0;
 var snakeDirection;
-var food;
+var apple;
 var snake;
 
 // function fabio()
@@ -51,6 +51,16 @@ var g_height = 26;
 var snake=g[g_width/2][3];
 console.log(snake);
 snakeDirection = 'R';
+
+
+// posso provare generazione mela?è casuale
+
+var apple=Math.random();
+console.log(apple);
+
+// devo moltiplicare
+
+
   // if (event.keyCode == 40) {
   //     navigazione('down');
   // }
