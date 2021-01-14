@@ -46,9 +46,10 @@ var g_height = 26;
         }
         g.push(row);
     }
-console.log(g[x][y]);
+console.log(g[2][5]);
 }
 generaGrigliaXY();
+
 
 
   // if (event.keyCode == 40) {
