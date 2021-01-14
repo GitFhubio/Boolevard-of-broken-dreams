@@ -30,7 +30,7 @@ var snake;
 // non va bene questo tipo di griglia numerica mi servono le coordinate
 // sennò non ne esco mai ed è impossibile renderlo parametrico
 
-function generaGrigliaXY(){
+
 var griglia = document.getElementById('griglia');
 var g=[];
 var g_width = 26;
@@ -46,12 +46,11 @@ var g_height = 26;
         }
         g.push(row);
     }
-console.log(g[2][5]);
-}
-generaGrigliaXY();
 
-
-
+// all'inizio il serpente parte da qualche parte:
+var snake=g[g_width/2][3];
+console.log(snake);
+snakeDirection = 'R';
   // if (event.keyCode == 40) {
   //     navigazione('down');
   // }
@@ -113,16 +112,16 @@ generaGrigliaXY();
 function TastoPremuto(event) {
     switch (event.keyCode) {
         case 38:
-      snakeDirection = 'Up';
+      Direction = 'U';
       break;
         case 40:
-       snakeDirection = 'Down';
+       Direction = 'D';
         break;
         case 37:
-        snakeDirection = 'Left';
+        Direction = 'L';
        break;
         case 39:
-        snakeDirection = 'Right';
+        Direction = 'R';
         break;
         default:
         break;
