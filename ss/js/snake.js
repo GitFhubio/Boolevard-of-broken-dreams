@@ -59,10 +59,10 @@ function TastoPremuto(event) {
 
 
 var score=0;
-var snakeDirection;
 var apple;
 var snake;
-var snakeLength=4;
+var snakeDirection;
+var Direction;
 // function fabio()
 // {
 // var scelta=parseInt(document.getElementById('myselect').value);
@@ -95,43 +95,120 @@ var Xsnake=3;
 var Ysnake=g_height/2;
 var snake=g[Ysnake][Xsnake];
 console.log(snake);
+Direction='Up';
 snakeDirection = 'Right';
-snake.element.className='snake';
+// snake.element.className='snake';
+
+
   // $("[number=4]").addClass('snake');
 // console.log($("[number=4]"));//Ma vaffanculo a te, i palazzi, i palazzinari, i maggiordomi, i cani, i giardini e l'anima de li mortacci tua.
-console.log(document.querySelector("div[number='4']"));
-switch (snakeDirection) {
-    case 'Right':
-snake.element.nextSibling.className='snake';
-snake.element.nextSibling.nextSibling.className='snake';
-snake.element.nextSibling.nextSibling.nextSibling.className='snake';
-snake.element.nextSibling.nextSibling.nextSibling.nextSibling.className='snake';
-snake.element.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.className='snake';//lasciatemi fare il coglione
-Xsnake=Xsnake+5;
-  break;
-    case 'Left':
+// console.log(document.querySelector("div[number='4']"));
+
+snake.element.classList.remove('snake');
+
+switch(Direction + "|" + snakeDirection) {
+    case "Up|Up":
+    g[Ysnake-1][Xsnake].element.className='snake';
+    g[Ysnake-2][Xsnake].element.className='snake';
+    g[Ysnake-3][Xsnake].element.className='snake';
+    g[Ysnake-4][Xsnake].element.className='snake';
+    g[Ysnake-5][Xsnake].element.className='snake testasnake';
+    Ysnake=Ysnake-5;
+    break;
+    break;
+    case "Right|Right":
+    snake.element.nextSibling.className='snake';
+    snake.element.nextSibling.nextSibling.className='snake';
+    snake.element.nextSibling.nextSibling.nextSibling.className='snake';
+    snake.element.nextSibling.nextSibling.nextSibling.nextSibling.className='snake';
+    snake.element.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.className='snake testasnake';//lasciatemi fare il coglione
+    break;
+    case "Left|Left":
     snake.element.previousSibling.className='snake';
     snake.element.previousSibling.previousSibling.className='snake';
     snake.element.previousSibling.previousSibling.previousSibling.className='snake';
     snake.element.previousSibling.previousSibling.previousSibling.previousSibling.className='snake';
-    snake.element.previousSibling.previousSibling.previousSibling.previousSibling.className='snake';
-Xsnake=Xsnake-5;
+    snake.element.previousSibling.previousSibling.previousSibling.previousSibling.className='snake testasnake';
+    // Xsnake=Xsnake-5;
+    // snake=g[Ysnake][Xsnake];
+    // snake.element.classList.add('testasnake');
     break;
-    case 'Up':
-   g[Ysnake-1][Xsnake].element.className='snake';
-   g[Ysnake-2][Xsnake].element.className='snake';
-   g[Ysnake-3][Xsnake].element.className='snake';
-   g[Ysnake-4][Xsnake].element.className='snake';
-   g[Ysnake-5][Xsnake].element.className='snake';
-   break;
-    case 'Down':
+    case "Down|Down":
     g[Ysnake+1][Xsnake].element.className='snake';
     g[Ysnake+2][Xsnake].element.className='snake';
     g[Ysnake+3][Xsnake].element.className='snake';
     g[Ysnake+4][Xsnake].element.className='snake';
-    g[Ysnake+5][Xsnake].element.className='snake';
+    g[Ysnake+4][Xsnake].element.className='snake testasnake';
+    Ysnake=Ysnake+5;
+    // snake=g[Ysnake][Xsnake];
+    // snake.element.classList.add('testasnake');
+    break;
+    case "Up|Left":
+    g[Ysnake-1][Xsnake].element.className='snake';
+    g[Ysnake-2][Xsnake].element.className='snake';
+    g[Ysnake-3][Xsnake].element.className='snake';
+    g[Ysnake-4][Xsnake].element.className='snake testasnake';
+    Ysnake=Ysnake-4;
+    // snake=g[Ysnake][Xsnake];
+    // snake.element.classList.add('testasnake');
+    break;
+    case "Up|Right":
+    g[Ysnake][Xsnake+5].element.className='snake';
+    g[Ysnake-1][Xsnake+5].element.className='snake';
+    g[Ysnake-2][Xsnake+5].element.className='snake';
+    g[Ysnake-3][Xsnake+5].element.className='snake';
+    g[Ysnake-4][Xsnake+5].element.className='snake testasnake';
+    Ysnake=Ysnake-4;
+    Xsnake=Xsnake+5;
+    // snake=g[Ysnake][Xsnake];
+    // snake.element.classList.add('testasnake');
+    break;
+    case "Down|Left":
+    g[Ysnake+1][Xsnake].element.className='snake';
+    g[Ysnake+2][Xsnake].element.className='snake';
+    g[Ysnake+3][Xsnake].element.className='snake';
+    g[Ysnake+4][Xsnake].element.className='snake';
+    Ysnake=Ysnake+4;
+    break;
+    case "Down|Right":
+    Ysnake=Ysnake+4;
+    g[Ysnake+1][Xsnake].element.className='snake';
+    g[Ysnake+2][Xsnake].element.className='snake';
+    g[Ysnake+3][Xsnake].element.className='snake';
+    g[Ysnake+4][Xsnake].element.className='snake';
+
+    break;
+    case "Right|Up":
+    g[Ysnake][Xsnake+1].element.className='snake';
+    g[Ysnake][Xsnake+2].element.className='snake';
+    g[Ysnake][Xsnake+3].element.className='snake';
+    g[Ysnake][Xsnake+4].element.className='snake';
+    Xsnake=Xsnake+4;
+    break;
+    case "Right|Down":
+    g[Ysnake][Xsnake+1].element.className='snake';
+    g[Ysnake][Xsnake+2].element.className='snake';
+    g[Ysnake][Xsnake+3].element.className='snake';
+    g[Ysnake][Xsnake+4].element.className='snake';
+    Xsnake=Xsnake+4;
+    break;
+    case "Left|Up":
+    g[Ysnake][Xsnake-1].element.className='snake';
+    g[Ysnake][Xsnake-2].element.className='snake';
+    g[Ysnake][Xsnake-3].element.className='snake';
+    g[Ysnake][Xsnake-4].element.className='snake';
+    Xsnake=Xsnake-4;
+    break;
+    case "Left|Down":
+    g[Ysnake][Xsnake-1].element.className='snake';
+    g[Ysnake][Xsnake-2].element.className='snake';
+    g[Ysnake][Xsnake-3].element.className='snake';
+    g[Ysnake][Xsnake-4].element.className='snake';
+    Xsnake=Xsnake-4;
     break;
 }
+
+
 // si prende con punto element no outerhtml ho perso un'ora uccido tutti
 function RandomApple(){
  var apple=g[Math.floor(Math.random()*(g_width+1))][Math.floor(Math.random()*(g_height+1))];
@@ -139,14 +216,6 @@ console.log(apple);
 return apple;
 }
 
-// if ($(this).hasClass('buono')){
-// // alert('Bravo,hai evitato mine');
-// $(this).addClass('verde-cliccato');
-//
-// }
-//  else if($(this).hasClass('malevolo')){
-// // alert('Hai preso una mina: hai perso');
-// $(this).addClass('rosso');
 // var audiofail = new Audio('css/exp.mp3');
 // audiofail.play();
 //  setTimeout(function(){ window.location.reload(false); }, 2000);
