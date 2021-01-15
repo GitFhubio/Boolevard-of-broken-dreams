@@ -86,7 +86,7 @@ console.log(snake.length);
 snakeDirection = 'R';
 
 // creo una funzione perché sta mela nel gioco viene creata ogni volta
-// che viene mangiata,e il serpente si allunga...seh vabbe
+// che viene mangiata,e il serpente si allunga
 
 function RandomApple(){
  var apple=g[Math.floor(Math.random()*(g_width+1))][Math.floor(Math.random()*(g_height+1))];
@@ -115,10 +115,22 @@ in tutto questo if
 
 xsnake o y snake = mela generata
 genero nuova mela e score ++
+e snakeLength++
 
 winning sempre
 while xnake++ -- ysnake++ -- =! ysnake xsnake e =! x e y appartengono a griglia
 }
+PROBLEMA piu grosso:
+come gestisco la length proprietà a schermo?
+
+
+
+
+
+
+
+
+
 
   // if (event.keyCode == 40) {
   //     navigazione('down');
