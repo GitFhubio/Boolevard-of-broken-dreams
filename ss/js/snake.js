@@ -79,9 +79,9 @@ var Xsnake=3;
 var Ysnake=g_height/2;
 var snake=g[Ysnake][Xsnake];
 console.log(snake);
-snakeDirection = 'Up';
+snakeDirection = 'Down';
 snake.element.className='snake';
-  $("[number=4]").addClass('snake');
+  // $("[number=4]").addClass('snake');
 // console.log($("[number=4]"));//Ma vaffanculo a te, i palazzi, i palazzinari, i maggiordomi, i cani, i giardini e l'anima de li mortacci tua.
 console.log(document.querySelector("div[number='4']"));
 switch (snakeDirection) {
@@ -102,24 +102,18 @@ Xsnake=Xsnake+5;
 Xsnake=Xsnake-5;
     break;
     case 'Up':
-    // nada non va
-  var y1=Ysnake+26;
-  var y2= Ysnake+52;
-  var y3=Ysnake+78;
-  var y4=Ysnake+104;
-  var y5=Ysnake+130;
-   g[y1][Xsnake].element.className='snake';
-   g[y2][Xsnake].element.className='snake';
-   g[y3][Xsnake].element.className='snake';
-   g[y4][Xsnake].element.className='snake';
-   g[y5][Xsnake].element.className='snake';
-// document.querySelector("div[number='']").className='snake';
-// document.querySelector("div[number='']").className='snake';
-// document.querySelector("div[number='']").className='snake';
-// document.querySelector("div[number='']").className='snake';
-// document.querySelector("div[number='']").className='snake';
+   g[Ysnake-1][Xsnake].element.className='snake';
+   g[Ysnake-2][Xsnake].element.className='snake';
+   g[Ysnake-3][Xsnake].element.className='snake';
+   g[Ysnake-4][Xsnake].element.className='snake';
+   g[Ysnake-5][Xsnake].element.className='snake';
    break;
     case 'Down':
+    g[Ysnake+1][Xsnake].element.className='snake';
+    g[Ysnake+2][Xsnake].element.className='snake';
+    g[Ysnake+3][Xsnake].element.className='snake';
+    g[Ysnake+4][Xsnake].element.className='snake';
+    g[Ysnake+5][Xsnake].element.className='snake';
     break;
 }
 // for (var i = 0; i < 5; i++) {
