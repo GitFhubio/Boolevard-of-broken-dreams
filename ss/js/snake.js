@@ -103,12 +103,39 @@ if direction u o d ysnake=[g_height/2]++ --
 
 
 
-else /
+else
 // (mi sa che è meglio lo switch pure qua)
+
+key U
+
 if direction l
-Xsnake -- e y snake keep
+Xsnake -- e ysnake++
 if direction r
-Xsnake ++ e y snake keep
+Xsnake ++ e ysnake ++
+
+key D
+
+if direction l
+Xsnake -- e ysnake--
+if direction r
+Xsnake ++ e ysnake --
+
+key L
+
+if direction u
+Xsnake -- e ysnake++
+if direction d
+Xsnake ++ e ysnake --
+
+key R
+
+if direction u
+Xsnake -- e ysnake++
+if direction d
+Xsnake ++ e ysnake --
+
+
+else if direction opposta do nothing
 
 
 in tutto questo if
@@ -122,14 +149,6 @@ while xnake++ -- ysnake++ -- =! ysnake xsnake e =! x e y appartengono a griglia
 }
 PROBLEMA piu grosso:
 come gestisco la length proprietà a schermo?
-
-
-
-
-
-
-
-
 
 
   // if (event.keyCode == 40) {
