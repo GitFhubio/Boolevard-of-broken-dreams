@@ -1,14 +1,36 @@
 // Gioco snake con griglia html/css
 
 $( document ).ready(function() {
-    console.log( "Vediamo se con JQuery ho vantaggi in un codice un pò più complesso" );
+    console.log( "Vediamo se con JQuery ho vantaggi in un codice un pò più complesso.Risposta no" );
 });
+
+function TastoPremuto(event) {
+    switch (event.keyCode) {
+        case 38:
+      Direction = 'U';
+      break;
+        case 40:
+       Direction = 'D';
+        break;
+        case 37:
+        Direction = 'L';
+       break;
+        case 39:
+        Direction = 'R';
+        break;
+        default:
+        break;
+    }
+    event.preventDefault();
+    // x evitare comportamento standard come scroll pagina-dopo consulto con alfredo
+}
+
 
 var score=0;
 var snakeDirection;
 var apple;
 var snake;
-var snakeLength=5;
+var snakeLength=4;
 // function fabio()
 // {
 // var scelta=parseInt(document.getElementById('myselect').value);
@@ -48,14 +70,18 @@ var g_height = 26;
     }
 
 // all'inizio il serpente parte da qualche parte:
-var snakecoda=g[g_width/2][3];
-console.log(typeof snakecoda);
-var snaketesta=g[g_width/2+snakeLength][3];
-var snake=[];
-for (var i =g_width/2;i<=g_width/2+snakeLength; i++) {
-  snake.push(i);
-}
+var Xsnake=[g_width/2];
+var Ysnake=[g_height/2];
+
+var snake=g[Xsnake][Ysnake];
 console.log(snake);
+console.log(snake.length);
+
+//perché poi varierà
+// for (var i =g_width/2;i<=g_width/2+snakeLength; i++) {
+//   snake.push(i);
+// }
+// console.log(snake);
 
 snakeDirection = 'R';
 
@@ -69,11 +95,30 @@ return apple;
 }
 
 
-// posso provare generazione mela?è casuale
+scrivo pseudocodice
+
+if direction=directionsnake
+if direction l o r Xsnake=[g_width/2]++ --
+if direction u o d ysnake=[g_height/2]++ --
 
 
-// devo moltiplicare
 
+else /
+// (mi sa che è meglio lo switch pure qua)
+if direction l
+Xsnake -- e y snake keep
+if direction r
+Xsnake ++ e y snake keep
+
+
+in tutto questo if
+
+xsnake o y snake = mela generata
+genero nuova mela e score ++
+
+winning sempre
+while xnake++ -- ysnake++ -- =! ysnake xsnake e =! x e y appartengono a griglia
+}
 
   // if (event.keyCode == 40) {
   //     navigazione('down');
@@ -132,27 +177,6 @@ return apple;
 // }
 // });
 
-
-function TastoPremuto(event) {
-    switch (event.keyCode) {
-        case 38:
-      Direction = 'U';
-      break;
-        case 40:
-       Direction = 'D';
-        break;
-        case 37:
-        Direction = 'L';
-       break;
-        case 39:
-        Direction = 'R';
-        break;
-        default:
-        break;
-    }
-    event.preventDefault();
-    // x evitare comportamento standard come scroll pagina-dopo consulto con alfredo
-}
 
 $("*").addClass('blue');
 $('button')
