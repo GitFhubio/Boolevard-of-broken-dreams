@@ -70,20 +70,19 @@ var g_height = 26;
     }
 
 // all'inizio il serpente parte da qualche parte:
-var Xsnake=[g_width/2];
-var Ysnake=[g_height/2];
-var snake=g[Xsnake][Ysnake];
-snakeDirection = 'R';
-console.log(snake);
-
 var griglia = document.getElementById('griglia');
 var quadrati=griglia.children; // omaggio a jquery,anche noi teniamo alla famiglia
 for (var i = 0; i < quadrati.length; i++) {
   quadrati[i].setAttribute('number',i);
 }
-
-
-
+var Xsnake=[3];
+var Ysnake=[g_height/2];
+var snake=g[Ysnake][Xsnake];
+snakeDirection = 'R';
+console.log(snake.element);
+console.log(quadrati[341]);
+quadrati[341].className='snake';
+// si prende con punto element no outerhtml ho perso un'ora uccido tutti
 function RandomApple(){
  var apple=g[Math.floor(Math.random()*(g_width+1))][Math.floor(Math.random()*(g_height+1))];
 console.log(apple);
