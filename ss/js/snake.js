@@ -72,18 +72,24 @@ var g_height = 26;
 // all'inizio il serpente parte da qualche parte:
 var Xsnake=[g_width/2];
 var Ysnake=[g_height/2];
-
 var snake=g[Xsnake][Ysnake];
+snakeDirection = 'R';
 console.log(snake);
-console.log(snake.length);
+
+var griglia = document.getElementById('griglia');
+var quadrati=griglia.children; // omaggio a jquery,anche noi teniamo alla famiglia
+for (var i = 0; i < quadrati.length; i++) {
+  quadrati[i].setAttribute('number',i);
+}
+
+// console.log(quadrati[5].getAttribute('number'));
+
 
 //perché poi varierà
 // for (var i =g_width/2;i<=g_width/2+snakeLength; i++) {
 //   snake.push(i);
 // }
 // console.log(snake);
-
-snakeDirection = 'R';
 
 // creo una funzione perché sta mela nel gioco viene creata ogni volta
 // che viene mangiata,e il serpente si allunga
@@ -95,61 +101,61 @@ return apple;
 }
 
 
-scrivo pseudocodice
-
-if direction=directionsnake
-if direction l o r Xsnake=[g_width/2]++ --
-if direction u o d ysnake=[g_height/2]++ --
-
-
-
-else
-// (mi sa che è meglio lo switch pure qua)
-
-key U
-
-if direction l
-Xsnake -- e ysnake++
-if direction r
-Xsnake ++ e ysnake ++
-
-key D
-
-if direction l
-Xsnake -- e ysnake--
-if direction r
-Xsnake ++ e ysnake --
-
-key L
-
-if direction u
-Xsnake -- e ysnake++
-if direction d
-Xsnake ++ e ysnake --
-
-key R
-
-if direction u
-Xsnake -- e ysnake++
-if direction d
-Xsnake ++ e ysnake --
-
-
-else if direction opposta do nothing
-
-
-in tutto questo if
-
-xsnake o y snake = mela generata
-genero nuova mela e score ++
-e snakeLength++
-
-winning sempre
-while xnake++ -- ysnake++ -- =! ysnake xsnake e =! x e y appartengono a griglia
-}
-PROBLEMA piu grosso:
-come gestisco la length proprietà a schermo?
-
+// scrivo pseudocodice
+//
+// if direction=directionsnake
+// if direction l o r Xsnake=[g_width/2]++ --
+// if direction u o d ysnake=[g_height/2]++ --
+//
+//
+//
+// else
+// // (mi sa che è meglio lo switch pure qua)
+//
+// key U
+//
+// if direction l
+// Xsnake -- e ysnake++
+// if direction r
+// Xsnake ++ e ysnake ++
+//
+// key D
+//
+// if direction l
+// Xsnake -- e ysnake--
+// if direction r
+// Xsnake ++ e ysnake --
+//
+// key L
+//
+// if direction u
+// Xsnake -- e ysnake++
+// if direction d
+// Xsnake ++ e ysnake --
+//
+// key R
+//
+// if direction u
+// Xsnake -- e ysnake++
+// if direction d
+// Xsnake ++ e ysnake --
+//
+//
+// else if direction opposta do nothing
+//
+//
+// in tutto questo if
+//
+// xsnake o y snake = mela generata
+// genero nuova mela e score ++
+// e snakeLength++
+//
+// winning sempre
+// while xnake++ -- ysnake++ -- =! ysnake xsnake e =! x e y appartengono a griglia
+// }
+// PROBLEMA piu grosso:
+// come gestisco la length proprietà a schermo?
+//
 
   // if (event.keyCode == 40) {
   //     navigazione('down');
