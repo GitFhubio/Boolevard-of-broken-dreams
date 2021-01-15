@@ -1,4 +1,36 @@
 // Gioco snake con griglia html/css
+// if direction=directionsnake if direction l o r Xsnake=[g_width/2]++ --
+// if direction u o d ysnake=[g_height/2]++ --
+// else
+// (mi sa che è meglio lo switch pure qua)
+// key U
+// if direction l
+// Xsnake -- e ysnake++
+// if direction r
+// Xsnake ++ e ysnake ++
+// key D
+// if direction l
+// Xsnake -- e ysnake--
+// if direction r
+// Xsnake ++ e ysnake --
+// key L
+// if direction u
+// Xsnake -- e ysnake++
+// if direction d
+// Xsnake ++ e ysnake --
+// key R
+// if direction u
+// Xsnake -- e ysnake++
+// if direction d
+// Xsnake ++ e ysnake --
+// else if direction opposta do nothing
+// in tutto questo if
+// xsnake o y snake = mela generata
+// genero nuova mela e score ++
+// e snakeLength++
+// winning sempre
+// while xnake++ -- ysnake++ -- =! ysnake xsnake e =! x e y appartengono a griglia
+// '
 
 $( document ).ready(function() {
     console.log( "Vediamo se con JQuery ho vantaggi in un codice un pò più complesso.Risposta no" );
@@ -37,22 +69,6 @@ var snakeLength=4;
 // return gioco(scelta);
 // }
 
-
-// var griglia= $('#griglia');
-// griglia.html('');
-// for (var x = 0; x < max; x++) {
-// if(x % 2 == 0)
-//         {griglia.append('<div class="quadrato pari" id="n'+x+'">'+x+'</div>');}
-//         else{
-//               griglia.append('<div class="quadrato dispari" id="n'+x+'">'+x+'</div>');
-//
-//       }
-//    }
-
-// non va bene questo tipo di griglia numerica mi servono le coordinate
-// sennò non ne esco mai ed è impossibile renderlo parametrico
-
-
 var griglia = document.getElementById('griglia');
 var g=[];
 var g_width = 26;
@@ -79,7 +95,7 @@ var Xsnake=3;
 var Ysnake=g_height/2;
 var snake=g[Ysnake][Xsnake];
 console.log(snake);
-snakeDirection = 'Down';
+snakeDirection = 'Right';
 snake.element.className='snake';
   // $("[number=4]").addClass('snake');
 // console.log($("[number=4]"));//Ma vaffanculo a te, i palazzi, i palazzinari, i maggiordomi, i cani, i giardini e l'anima de li mortacci tua.
@@ -116,73 +132,13 @@ Xsnake=Xsnake-5;
     g[Ysnake+5][Xsnake].element.className='snake';
     break;
 }
-// for (var i = 0; i < 5; i++) {
-// var NextDivs=
-// }
 // si prende con punto element no outerhtml ho perso un'ora uccido tutti
 function RandomApple(){
  var apple=g[Math.floor(Math.random()*(g_width+1))][Math.floor(Math.random()*(g_height+1))];
 console.log(apple);
 return apple;
 }
-//
-//
-// scrivo pseudocodice
-//
-// if direction=directionsnake
-// if direction l o r Xsnake=[g_width/2]++ --
-// if direction u o d ysnake=[g_height/2]++ --
-//
-//
-//
-// else
-// // (mi sa che è meglio lo switch pure qua)
-//
-// key U
-//
-// if direction l
-// Xsnake -- e ysnake++
-// if direction r
-// Xsnake ++ e ysnake ++
-//
-// key D
-//
-// if direction l
-// Xsnake -- e ysnake--
-// if direction r
-// Xsnake ++ e ysnake --
-//
-// key L
-//
-// if direction u
-// Xsnake -- e ysnake++
-// if direction d
-// Xsnake ++ e ysnake --
-//
-// key R
-//
-// if direction u
-// Xsnake -- e ysnake++
-// if direction d
-// Xsnake ++ e ysnake --
-//
-//
-// else if direction opposta do nothing
-//
-//
-// in tutto questo if
-//
-// xsnake o y snake = mela generata
-// genero nuova mela e score ++
-// e snakeLength++
-//
-// winning sempre
-// while xnake++ -- ysnake++ -- =! ysnake xsnake e =! x e y appartengono a griglia
-// }
 
-  // if (event.keyCode == 40) {
-  //     navigazione('down');
-  // }
 // if ($(this).hasClass('buono')){
 // // alert('Bravo,hai evitato mine');
 // $(this).addClass('verde-cliccato');
@@ -219,22 +175,6 @@ return apple;
 //      }
 //    })
 //
-// $(document).keydown(function(event){
-//   var quadrati= $('.quadrato');
-//   if (event.keyCode == 39) {
-//       for (var indicetesta = 113; indicetesta <119; indicetesta+=1) {
-//     testasnake=$(quadrati.eq(indicetesta));
-//     testasnake.removeClass();
-//     testasnake.addClass('quadrato divento-snake');
-//
-//   }
-//   for (var indicecoda = 109; indicecoda <114; indicecoda+=1) {
-// codasnake=$(quadrati.eq(indicecoda));
-// codasnake.removeClass('snake');
-//
-// }
-//
-// }
 // });
 
 
