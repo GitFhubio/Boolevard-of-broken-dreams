@@ -82,25 +82,15 @@ for (var i = 0; i < quadrati.length; i++) {
   quadrati[i].setAttribute('number',i);
 }
 
-// console.log(quadrati[5].getAttribute('number'));
 
-
-//perché poi varierà
-// for (var i =g_width/2;i<=g_width/2+snakeLength; i++) {
-//   snake.push(i);
-// }
-// console.log(snake);
-
-// creo una funzione perché sta mela nel gioco viene creata ogni volta
-// che viene mangiata,e il serpente si allunga
 
 function RandomApple(){
  var apple=g[Math.floor(Math.random()*(g_width+1))][Math.floor(Math.random()*(g_height+1))];
 console.log(apple);
 return apple;
 }
-
-
+//
+//
 // scrivo pseudocodice
 //
 // if direction=directionsnake
@@ -153,9 +143,6 @@ return apple;
 // winning sempre
 // while xnake++ -- ysnake++ -- =! ysnake xsnake e =! x e y appartengono a griglia
 // }
-// PROBLEMA piu grosso:
-// come gestisco la length proprietà a schermo?
-//
 
   // if (event.keyCode == 40) {
   //     navigazione('down');
@@ -220,3 +207,27 @@ $('button')
 .hover(function(){$(this).addClass('yellow');},function(){$(this).removeClass('yellow');})
 .dblclick(function(){alert('Tanto non vinci comunque');
 });
+
+
+// tu a snake gli dai una direzione iniziale, che è la direzione in cui si coloreranno i 5 quadratini, mettiamo direzione destra ok? e colori 5 quadratini sulla destra di base
+
+// devi usare i numeri delle celle come riferimento. se con la testa di snake sto al numero X, se voglio andare a destra allora dovrò avere una funzione che a partire da X mi colora i numeri in una determinata direzione, se a sinistra un'altra, se sopra ancora un'altra, se sotto un'altra ancora
+
+
+// snake sicuramente ogni tot, tipo ogni 500 millisecondi, deve andare avanti sempre di un quadratino verso una direzione x
+//
+// se fai così sappiamo che :
+// SE snake va verso destra, allora deve colorare la cella col numero successivo
+// SE snake va a sinistra, deve colorare la cella col numero precedente
+// SE snake va su, allora dovrà colorare la cella n attuale fratto qualcosa (devo un attimo provarmelo per capire)
+// SE snake va giu allora dovrà colorare la cella n attuale fratto qualcos' altro
+// eh sì devi avere un setInterval per l'avanzamento di snake no?
+// un set interval che gli dice che ogni secondo deve andare avanti di un quadratino rispetto alla posizione che gli dà la tastiera
+//
+// nel set interval ti fai una funzione che controlla quale sia la direzione data e da lì ti calcoli i quadratini da colorare
+
+// console.log(quadrati[5].getAttribute('number'));
+
+
+// creo una funzione perché sta mela nel gioco viene creata ogni volta
+// che viene mangiata,e il serpente si allunga
