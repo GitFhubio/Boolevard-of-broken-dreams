@@ -71,8 +71,8 @@ var Direction;
 
 var griglia = document.getElementById('griglia');
 var g=[];
-var g_width = 26;
-var g_height = 26;
+var g_width = 14;
+var g_height = 14;
     for (var y = 0; y < g_height; y++) {
         var row = [];
         for (var x = 0; x < g_width; x++) {
@@ -94,14 +94,23 @@ for (var i = 0; i < quadrati.length; i++) {
 var Xcoda=3;
 var Ycoda=g_height/2;
 var codaSnake=g[Ycoda][Xcoda];
-var Xtesta=7;
+var Ycorpo=g_height/2;
+var Xcorpo=4;
+// var Xcorpo=3;
+// var Ycorpo=g_height/2+1;
+var corpoSnake=g[Ycorpo][Xcorpo];
+var Xtesta=5;
 var Ytesta=g_height/2;
+// var Xtesta=3;
+// var Ytesta=g_height/2+2;
 var testaSnake=g[Ytesta][Xtesta];
 console.log(testaSnake);
 // Direction='Right'; // questo lo decommento per i test
 snakeDirection = 'Right';
 // codaSnake.element.className='snake';
-testaSnake.element.className='snake testasnake';
+testaSnake.element.className='snake testaSnake';
+corpoSnake.element.className='snake corpoSnake'
+codaSnake.element.className='snake codaSnake';
 
   // $("[number=4]").addClass('snake');
 // console.log($("[number=4]"));//Ma vaffanculo a te, i palazzi, i palazzinari, i maggiordomi, i cani, i giardini e l'anima de li mortacci tua.
@@ -112,46 +121,60 @@ testaSnake.element.className='snake testasnake';
 
 // Snake comportamento base:
 
-g[Ytesta][Xtesta].element.classList.remove('snake testaSnake');
-g[Ycoda][Xcoda].element.classList.remove('snake codaSnake');
 switch (snakeDirection){
 case 'Up':
+g[Ycoda][Xcoda].element.classList.remove('snake');
+g[Ycoda][Xcoda].element.classList.remove('codaSnake');
+g[Ycorpo-1][Xcorpo].element.classList='snake corpoSnake';
 g[Ytesta-1][Xtesta].element.className='snake testaSnake';
 g[Ycoda-1][Xcoda].element.className='snake codaSnake';
 break;
 case 'Down':
+g[Ycoda][Xcoda].element.classList.remove('snake');
+g[Ycoda][Xcoda].element.classList.remove('codaSnake');
+g[Ycorpo+1][Xcorpo].element.classList='snake corpoSnake';
 g[Ytesta+1][Xtesta].element.className='snake testaSnake';
 g[Ycoda+1][Xcoda].element.className='snake codaSnake';
 break;
 case 'Left':
+g[Ycoda][Xcoda].element.classList.remove('snake');
+g[Ycoda][Xcoda].element.classList.remove('codaSnake');
+g[Ycorpo][Xcorpo-1].element.classList='snake corpoSnake';
 g[Ytesta][Xtesta-1].element.className='snake testaSnake';
 g[Ycoda][Xcoda-1].element.className='snake codaSnake';
 break;
 case 'Right':
+g[Ycoda][Xcoda].element.classList.remove('snake');
+g[Ycoda][Xcoda].element.classList.remove('codaSnake');
+g[Ycorpo][Xcorpo+1].element.classList='snake corpoSnake';
 g[Ytesta][Xtesta+1].element.className='snake testaSnake';
 g[Ycoda][Xcoda+1].element.className='snake codaSnake';
 break;
 }
 
 
-
 // Cambio direzione da tastiera
 
-g[Ytesta][Xtesta].element.classList.remove('snake testaSnake');
- switch (Direction){
- case 'Up':
-g[Ytesta-1][Xtesta].element.className='snake testaSnake';
- break;
- case 'Down':
-g[Ytesta+1][Xtesta].element.className='snake testaSnake';
- break;
- case 'Left':
-g[Ytesta][Xtesta-1].element.className='snake testaSnake';
- break;
- case 'Right':
-g[Ytesta][Xtesta+1].element.className='snake testaSnake';
- break;
+// g[Ytesta][Xtesta].element.classList.remove('snake testaSnake');
+//  switch (Direction){
+//  case 'Up':
+// g[Ytesta-1][Xtesta].element.className='snake testaSnake';
+//  break;
+//  case 'Down':
+// g[Ytesta+1][Xtesta].element.className='snake testaSnake';
+//  break;
+//  case 'Left':
+// g[Ytesta][Xtesta-1].element.className='snake testaSnake';
+//  break;
+//  case 'Right':
+// g[Ytesta][Xtesta+1].element.className='snake testaSnake';
+//  break;
+// }
+
+if (snakeX < 0 || snakeY < 0 || snakeX >= g_width || snakeY >= g_heigth) {
+    avvio();
 }
+
 
 // quando il serpente si muove cioe sempre
 // la coda diventa ciò che era la testa prima?

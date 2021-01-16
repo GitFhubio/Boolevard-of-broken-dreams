@@ -119,10 +119,10 @@ transition:4s;
 
 #griglia{
   flex-wrap:wrap;
- width:676px;
+ width:420px;
 }
 #griglia div{
-width:26px;
-height:26px;
+width:30px;
+height:30px;
 border:1px solid black;
 }
