@@ -198,13 +198,6 @@ if (Xtesta < 0 || Ytesta < 0 || Xtesta >= g_width || Ytesta >= g_height) {
 //     break;
 // }
 
-// $("*").addClass('blue');
-$('button')
-.hover(function(){$(this).addClass('yellow');},function(){$(this).removeClass('yellow');})
-.dblclick(function(){alert('Tanto non vinci comunque');
-});
-
-
 // tu a snake gli dai una direzione iniziale, che è la direzione in cui si coloreranno i 5 quadratini, mettiamo direzione destra ok? e colori 5 quadratini sulla destra di base
 
 // devi usare i numeri delle celle come riferimento. se con la testa di snake sto al numero X, se voglio andare a destra allora dovrò avere una funzione che a partire da X mi colora i numeri in una determinata direzione, se a sinistra un'altra, se sopra ancora un'altra, se sotto un'altra ancora
