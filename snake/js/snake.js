@@ -1,6 +1,5 @@
 // __________f inserita onkeydown al body _________________
-// Ovviamente devo combinare le condizioni di  input e direzione naturale
-// ho solo creato una forma
+
 function TastoPremuto(event) {
     switch (event.keyCode) {
         case 38:
@@ -20,7 +19,7 @@ function TastoPremuto(event) {
     }
     event.preventDefault();
 }
-// _______________  funzione di gioco      ________________
+// _______________  funzione ausiliaria      ________________
 
 function RandomApple(){
 apple=g[Math.floor(Math.random()*g_width)][Math.floor(Math.random()*g_height)];
@@ -31,7 +30,7 @@ function start()
 {
     clock = setInterval(function(){game();}, 300);
 }
-
+// creo griglia,prima mela e snake iniziale on ready document
 $(document).ready(function(){
   griglia = document.getElementById('griglia');
   g=[];
@@ -76,8 +75,10 @@ codaSnake.element.classList.add('snake','codaSnake');
 RandomApple();
 
 })
+// parte il gioco vero e proprio
 
 function game(){
+
 // Snake comportamento base:
 
 function snakeNatural(){
@@ -219,121 +220,8 @@ g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
   snakeDirection='Left';
 }
 }
-// i cambi di direzione che non mi riescono
-
-
-// switch(Direction + "|" + snakeDirection) {
-//   // direzioni uguali o opposte(keeping)
-//     case "Right|Right":
-//     break;
-//     case "Left|Right":
-//     g[Ycoda][Xcoda].element.classList.remove('snake');
-//     g[Ycoda][Xcoda].element.classList.remove('codaSnake');
-//     g[Ycorpo][Xcorpo+1].element.classList.add('snake','corpoSnake');
-//     g[Ytesta][Xtesta+1].element.classList.add('snake','testaSnake');
-//     g[Ycoda][Xcoda+1].element.classList.add('snake','codaSnake');
-//     Xcoda++;
-//     Xtesta++;
-//     Xcorpo++;
-//     break;
-//     case "Left|Left":
-//     break;
-//     case "Right|Left":
-//     g[Ycoda][Xcoda].element.classList.remove('snake');
-//     g[Ycoda][Xcoda].element.classList.remove('codaSnake');
-//     g[Ycorpo][Xcorpo-1].element.classList.add('snake','corpoSnake');
-//     g[Ytesta][Xtesta-1].element.classList.add('snake','testaSnake');
-//     g[Ycoda][Xcoda-1].element.classList.add('snake','codaSnake');
-//     Xcoda--;
-//     Xtesta--;
-//     Xcorpo--;
-//     break;
-//     case "Up|Up":
-//     break;
-//     case "Up|Down":
-//     g[Ycoda][Xcoda].element.classList.remove('snake');
-//     g[Ycoda][Xcoda].element.classList.remove('codaSnake');
-//     g[Ycorpo][Xcorpo-1].element.classList.add('snake','corpoSnake');
-//     g[Ytesta][Xtesta-1].element.classList.add('snake','testaSnake');
-//     g[Ycoda][Xcoda-1].element.classList.add('snake','codaSnake');
-//     Xcoda++;
-//     Xtesta++;
-//     Xcorpo++;
-//     break;
-//     case "Down|Down":
-//     break;
-//     case "Down|Up":
-//     g[Ycoda][Xcoda].element.classList.remove('snake');
-//     g[Ycoda][Xcoda].element.classList.remove('codaSnake');
-//     g[Ycorpo][Xcorpo-1].element.classList.add('snake','corpoSnake');
-//     g[Ytesta][Xtesta-1].element.classList.add('snake','testaSnake');
-//     g[Ycoda][Xcoda-1].element.classList.add('snake','codaSnake');
-//     Xcoda--;
-//     Xtesta--;
-//     Xcorpo--;
-//     break;
-// // cambi di direzione(r/up e down,l/up e down/ ,up/right e left, down right e left)
-//     case "Right|Up":
-//     g[Ycoda][Xcoda].element.classList.remove('snake');
-//     g[Ycoda][Xcoda].element.classList.remove('codaSnake');
-//     g[Ycorpo-1][Xcorpo].element.classList.add('snake','corpoSnake');
-//     g[Ytesta][Xtesta+1].element.classList.add('snake','testaSnake');
-//     g[Ycoda-1][Xcoda].element.classList.add('snake','codaSnake');
-//     Ycoda--;
-//     Xtesta++;
-//     Ycorpo--;
-//     break;
-//     case "Right|Down":
-//     g[Ycoda][Xcoda].element.classList.remove('snake');
-//     g[Ycoda][Xcoda].element.classList.remove('codaSnake');
-//     g[Ycorpo+1][Xcorpo].element.classList.add('snake','corpoSnake');
-//     g[Ytesta][Xtesta+1].element.classList.add('snake','testaSnake');
-//     g[Ycoda+1][Xcoda].element.classList.add('snake','codaSnake');
-//     Ycoda++;
-//     Xtesta++;
-//     Ycorpo++;
-//     break;
-//     case "Left|Up":
-//     g[Ycoda][Xcoda].element.classList.remove('snake');
-//     g[Ycoda][Xcoda].element.classList.remove('codaSnake');
-//     g[Ycorpo+1][Xcorpo].element.classList.add('snake','corpoSnake');
-//     g[Ytesta][Xtesta-1].element.classList.add('snake','testaSnake');
-//     g[Ycoda+1][Xcoda].element.classList.add('snake','codaSnake');
-//     Ycoda--;
-//     Xtesta--;
-//     Ycorpo--;
-//     break;
-//     case "Left|Down":
-//     g[Ycoda][Xcoda].element.classList.remove('snake');
-//     g[Ycoda][Xcoda].element.classList.remove('codaSnake');
-//     g[Ycorpo+1][Xcorpo].element.classList.add('snake','corpoSnake');
-//     g[Ytesta][Xtesta-1].element.classList.add('snake','testaSnake');
-//     g[Ycoda+1][Xcoda].element.classList.add('snake','codaSnake');
-//     Ycoda++;
-//     Xtesta--;
-//     Ycorpo++;
-//     break;
-//     case "Up|Right":
-//     g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
-//     g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
-//     g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
-//     g[Ycorpo-1][Xcorpo+1].element.classList.add('snake','corpoSnake');
-//     g[Ytesta-1][Xtesta].element.classList.add('snake','testaSnake');
-//     g[Ycoda][Xcoda+2].element.classList.add('snake','codaSnake');
-//     break;
-//     case "Down|Right":
-//     g[Ycoda][Xcoda].element.classList.remove('snake');
-//     g[Ycoda][Xcoda].element.classList.remove('codaSnake');
-//     g[Ycorpo][Xcorpo+1].element.classList.add('snake','corpoSnake');
-//     g[Ytesta+1][Xtesta].element.classList.add('snake','testaSnake');
-//     g[Ycoda][Xcoda+1].element.classList.add('snake','codaSnake');
-//     Xcoda++;
-//     Ytesta++;
-//     Xcorpo++;
-//     break;
-// }
 // Queste condizioni dovevano essere solo sulla testa ma non sempre mangia la mela
-// quindi non sempre la testa è testa e va risolto
+// quindi non sempre la testa è testa e va risolto(restano classi teste code corpi non rimossi credo//bug)
 var punteggio=document.getElementById('punteggio');
 punteggio.innerHTML='<h2>Punteggio</h2>'+score;
 if( g[Ytesta][Xtesta].element.classList.contains('apple') || g[Ycoda][Xcoda].element.classList.contains('apple') ||
@@ -347,51 +235,22 @@ g[Ycorpo][Xcorpo].element.classList.contains('apple') )
 }
 console.log(Xtesta);
 console.log(Ytesta);
-// Il gioco non riesco a concluderlo
-// if (Xtesta<0 || Ytesta<0 || Xtesta>g_width || Ytesta>g_height)
-// {
 
+// il gioco non riuscivo a concluderlo né con condizioni sul numero di quadrati
+// verdi nella griglia né con Xsnake e Ysnake entro i limiti 0 dim max
+// per cui
     var tmp_glob = Xtesta;
     var tmp2_glob = Ytesta;
     setTimeout(function () {
         if (tmp_glob == Xtesta && tmp2_glob == Ytesta) {
-
             clearInterval(clock);
-             // setTimeout(function(){
             alert('hai perso');
            window.location.reload(false);
-         // },500);
             ;
         }
     }, 1000);
 
 // se le coordinate non variano nel giro di un secondo hai perso mado questa è clamorosa
-// Non riuscivo a farlo perdere in nessun modo ahah
-
-
-  // }
-
-
-
 
 
 }
-
-
-// snake sicuramente ogni tot, tipo ogni 500 millisecondi, deve andare avanti sempre di un quadratino verso una direzione x
-//
-// se fai così sappiamo che :
-// SE snake va verso destra, allora deve colorare la cella col numero successivo
-// SE snake va a sinistra, deve colorare la cella col numero precedente
-// SE snake va su, allora dovrà colorare la cella n attuale fratto qualcosa (devo un attimo provarmelo per capire)
-// SE snake va giu allora dovrà colorare la cella n attuale fratto qualcos' altro
-// eh sì devi avere un setInterval per l'avanzamento di snake no?
-// un set interval che gli dice che ogni secondo deve andare avanti di un quadratino rispetto alla posizione che gli dà la tastiera
-//
-// nel set interval ti fai una funzione che controlla quale sia la direzione data e da lì ti calcoli i quadratini da colorare
-
-// console.log(quadrati[5].getAttribute('number'));
-
-
-// creo una funzione perché sta mela nel gioco viene creata ogni volta
-// che viene mangiata,e il serpente si allunga
