@@ -332,22 +332,32 @@ g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
 //     Xcorpo++;
 //     break;
 // }
-
+// Queste condizioni dovevano essere solo sulla testa ma non sempre mangia la mela
+// quindi non sempre la testa è testa e va risolto
 var punteggio=document.getElementById('punteggio');
 punteggio.innerHTML='<h2>Punteggio</h2>'+score;
-if( g[Ytesta][Xtesta].element.classList.contains('apple'))
+if( g[Ytesta][Xtesta].element.classList.contains('apple') || g[Ycoda][Xcoda].element.classList.contains('apple') ||
+g[Ycorpo][Xcorpo].element.classList.contains('apple') )
 {
   g[Ytesta][Xtesta].element.classList.remove('apple');
+    g[Ycoda][Xcoda].element.classList.remove('apple');
+        g[Ycorpo][Xcorpo].element.classList.remove('apple');
  RandomApple();
  score++;
 }
 
+// Il gioco non riesco a concluderlo
 
-if (Xtesta <= 0 || Ytesta <= 0 || Xtesta >= g_width || Ytesta >= g_height) {
+if (Xtesta<0 || Ytesta<0 || Xtesta>=g_width || Ytesta>=g_height )
+
+ {
+   setTimeout(function(){alert('hai perso');
+ window.location.reload(false);},500);
+
 clearInterval(clock);
 }
-
 }
+
 
 // snake sicuramente ogni tot, tipo ogni 500 millisecondi, deve andare avanti sempre di un quadratino verso una direzione x
 //
