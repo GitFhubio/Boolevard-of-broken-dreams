@@ -118,6 +118,7 @@ transition:4s;
 }
 
 #griglia{
+  margin-left: 40px;
   flex-wrap:wrap;
  width:420px;
 }
@@ -128,4 +129,8 @@ border:1px solid black;
 }
 .apple{
 background-color: red;
+}
+#punteggio{
+  width:500px;
+  text-align: center;
 }
