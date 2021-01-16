@@ -21,6 +21,7 @@ function TastoPremuto(event) {
 }
 // _______________  funzione ausiliaria      ________________
 
+
 function RandomApple(){
 apple=g[Math.floor(Math.random()*g_width)][Math.floor(Math.random()*g_height)];
 // console.log(apple);
@@ -28,10 +29,12 @@ apple.element.classList.add('apple');
 }
 function start()
 {
-    clock = setInterval(function(){game();}, 300);
+
+  clock = setInterval(function(){game();}, 300);
 }
 // creo griglia,prima mela e snake iniziale on ready document
 $(document).ready(function(){
+
   griglia = document.getElementById('griglia');
   g=[];
   g_width = 14;
@@ -239,11 +242,13 @@ console.log(Ytesta);
 // il gioco non riuscivo a concluderlo né con condizioni sul numero di quadrati
 // verdi nella griglia né con Xsnake e Ysnake entro i limiti 0 dim max
 // per cui
+
     var tmp_glob = Xtesta;
     var tmp2_glob = Ytesta;
     setTimeout(function () {
         if (tmp_glob == Xtesta && tmp2_glob == Ytesta) {
             clearInterval(clock);
+            audio.pause();
             alert('hai perso');
            window.location.reload(false);
             ;
