@@ -130,16 +130,98 @@ if(snakeDirection==Direction || (snakeDirection=='Up' && Direction=='Down') || (
 {
   snakeNatural();
 }
-else{
-
-
-
-// i cambi di direzione che non mi riescono 
-
-
-
-
+else {//quanto segue sono i cambi di direzione prima di tornare naturale
+if (snakeDirection=='Right' && Direction=='Up'){
+g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
+g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
+g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
+  Xcorpo=Xcorpo+1;
+  Ycorpo=Ycorpo-1;
+  Ytesta=Ytesta-2;
+  Xcoda=Xcoda+2;
+  snakeDirection='Up';
+  // funziona
 }
+if (snakeDirection=='Right' && Direction=='Down'){
+g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
+g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
+g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
+  Xcorpo=Xcorpo+1;
+  Ycorpo=Ycorpo+1;
+  Ytesta=Ytesta+2;
+  Xcoda=Xcoda+2;
+  snakeDirection='Down';
+  // funziona
+}
+if (snakeDirection=='Up' && Direction=='Right'){
+g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
+g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
+g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
+  Xcorpo=Xcorpo+1;
+  Ycorpo=Ycorpo-1;
+  Ycoda=Ycoda-2;
+  Xtesta=Xtesta+2;
+  snakeDirection='Right';
+}
+// funziona(gesu cristo wannabe)
+if (snakeDirection=='Up' && Direction=='Left'){
+g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
+g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
+g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
+  Xcorpo=Xcorpo-1;
+  Ycorpo=Ycorpo-1;
+  Ycoda=Ycoda-2;
+  Xtesta=Xtesta-2;
+  snakeDirection='Left';
+  // funziona
+}
+if (snakeDirection=='Left' && Direction=='Up'){
+g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
+g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
+g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
+  Xcorpo=Xcorpo-1;
+  Ycorpo=Ycorpo-1;
+  Xcoda=Xcoda-2;
+  Ytesta=Ytesta-2;
+  snakeDirection='Up';
+  // funziona
+}
+if (snakeDirection=='Left' && Direction=='Down'){
+g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
+g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
+g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
+  Xcorpo=Xcorpo-1;
+  Ycorpo=Ycorpo+1;
+  Xcoda=Xcoda-2;
+  Ytesta=Ytesta+2;
+  snakeDirection='Down';
+  // funziona
+}
+if (snakeDirection=='Down' && Direction=='Right'){
+g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
+g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
+g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
+  Xcorpo=Xcorpo+1;
+  Ycorpo=Ycorpo+1;
+  Ycoda=Ycoda+2;
+  Xtesta=Xtesta+2;
+  snakeDirection='Right';
+  // funziona
+}
+if (snakeDirection=='Down' && Direction=='Left'){
+g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
+g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
+g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
+  Xcorpo=Xcorpo-1;
+  Ycorpo=Ycorpo+1;
+  Ycoda=Ycoda+2;
+  Xtesta=Xtesta-2;
+  snakeDirection='Left';
+}
+}
+// i cambi di direzione che non mi riescono
+
+
 // switch(Direction + "|" + snakeDirection) {
 //   // direzioni uguali o opposte(keeping)
 //     case "Right|Right":
@@ -260,85 +342,12 @@ if( g[Ytesta][Xtesta].element.classList.contains('apple'))
  score++;
 }
 
-// il finale funziona vabbè non ci voleva assai
 
-if (Xtesta < 0 || Ytesta < 0 || Xtesta >= g_width || Ytesta >= g_height) {
+if (Xtesta <= 0 || Ytesta <= 0 || Xtesta >= g_width || Ytesta >= g_height) {
 clearInterval(clock);
 }
 
 }
-
-// Gioco snake con griglia html/css
-// if direction=directionsnake if direction l o r Xsnake=[g_width/2]++ --
-// if direction u o d ysnake=[g_height/2]++ --
-// else
-// (mi sa che è meglio lo switch pure qua)
-// key U
-// if direction l
-// Xsnake -- e ysnake++
-// if direction r
-// Xsnake ++ e ysnake ++
-// key D
-// if direction l
-// Xsnake -- e ysnake--
-// if direction r
-// Xsnake ++ e ysnake --
-// key L
-// if direction u
-// Xsnake -- e ysnake++
-// if direction d
-// Xsnake ++ e ysnake --
-// key R
-// if direction u
-// Xsnake -- e ysnake++
-// if direction d
-// Xsnake ++ e ysnake --
-// else if direction opposta do nothing
-// in tutto questo if
-// xsnake o y snake = mela generata
-// genero nuova mela e score ++
-// e snakeLength++
-// winning sempre
-// while xnake++ -- ysnake++ -- =! ysnake xsnake e =! x e y appartengono a griglia
-// '
-
-// quando il serpente si muove cioe sempre
-// la coda diventa ciò che era la testa prima?
-
-// switch(Direction + "|" + snakeDirection) {
-//     case "Up|Left":
-//     g[Ytesta-1][Xtesta].element.className='snake';
-//
-//     break;
-//     case "Up|Right":
-//     g[Ytesta-1][Xtesta].element.className='snake';
-//
-//     break;
-//     case "Down|Left":
-//     g[Ytesta+1][Xtesta].element.className='snake';
-//     break;
-//     case "Down|Right":
-//     g[Ytesta+1][Xtesta].element.className='snake';
-//     break;
-//     case "Right|Up":
-//     g[Ytesta+1][Xtesta+1].element.className='snake';
-//     break;
-//     case "Right|Down":
-//     g[Ytesta+1][Xtesta+1].element.className='snake';
-//     break;
-//     case "Left|Up":
-//     g[Ytesta-1][Xtesta-1].element.className='snake';
-//
-//     break;
-//     case "Left|Down":
-//     g[Ytesta+1][Xtesta-1].element.className='snake';
-//     break;
-// }
-
-// tu a snake gli dai una direzione iniziale, che è la direzione in cui si coloreranno i 5 quadratini, mettiamo direzione destra ok? e colori 5 quadratini sulla destra di base
-
-// devi usare i numeri delle celle come riferimento. se con la testa di snake sto al numero X, se voglio andare a destra allora dovrò avere una funzione che a partire da X mi colora i numeri in una determinata direzione, se a sinistra un'altra, se sopra ancora un'altra, se sotto un'altra ancora
-
 
 // snake sicuramente ogni tot, tipo ogni 500 millisecondi, deve andare avanti sempre di un quadratino verso una direzione x
 //
