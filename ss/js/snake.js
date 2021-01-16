@@ -79,6 +79,8 @@ RandomApple();
 
 function game(){
 // Snake comportamento base:
+
+function snakeNatural(){
 switch (snakeDirection){
 case 'Up':
 g[Ycoda][Xcoda].element.classList.remove('snake');
@@ -121,33 +123,134 @@ Xtesta++;
 Xcorpo++;
 break;
 }
-// 
-//  switch (Direction){
-//  case 'Up':
-//  g[Ytesta][Xtesta].element.classList.remove('testaSnake');
-//  g[Ytesta][Xtesta].element.classList.remove('snake');
-// g[Ytesta-1][Xtesta].element.className='snake testaSnake';
-//  break;
-//  case 'Down':
-//  g[Ytesta][Xtesta].element.classList.remove('testaSnake');
-//  g[Ytesta][Xtesta].element.classList.remove('snake');
-// g[Ytesta+1][Xtesta].element.className='snake testaSnake';
-//  break;
-//  case 'Left':
-//  g[Ytesta][Xtesta].element.classList.remove('testaSnake');
-//  g[Ytesta][Xtesta].element.classList.remove('snake');
-// g[Ytesta][Xtesta-1].element.className='snake testaSnake';
-//  break;
-//  case 'Right':
-//  g[Ytesta][Xtesta].element.classList.remove('testaSnake');
-//  g[Ytesta][Xtesta].element.classList.remove('snake');
-// g[Ytesta][Xtesta+1].element.className='snake testaSnake';
-//  break;
+}
+
+if(snakeDirection==Direction || (snakeDirection=='Up' && Direction=='Down') || (snakeDirection=='Down' && Direction=='Up') || (snakeDirection=='Right' && Direction=='Left') ||
+(snakeDirection=='Left' && Direction=='Right'))
+{
+  snakeNatural();
+}
+else{
+
+
+
+// i cambi di direzione che non mi riescono 
+
+
+
+
+}
+// switch(Direction + "|" + snakeDirection) {
+//   // direzioni uguali o opposte(keeping)
+//     case "Right|Right":
+//     break;
+//     case "Left|Right":
+//     g[Ycoda][Xcoda].element.classList.remove('snake');
+//     g[Ycoda][Xcoda].element.classList.remove('codaSnake');
+//     g[Ycorpo][Xcorpo+1].element.classList.add('snake','corpoSnake');
+//     g[Ytesta][Xtesta+1].element.classList.add('snake','testaSnake');
+//     g[Ycoda][Xcoda+1].element.classList.add('snake','codaSnake');
+//     Xcoda++;
+//     Xtesta++;
+//     Xcorpo++;
+//     break;
+//     case "Left|Left":
+//     break;
+//     case "Right|Left":
+//     g[Ycoda][Xcoda].element.classList.remove('snake');
+//     g[Ycoda][Xcoda].element.classList.remove('codaSnake');
+//     g[Ycorpo][Xcorpo-1].element.classList.add('snake','corpoSnake');
+//     g[Ytesta][Xtesta-1].element.classList.add('snake','testaSnake');
+//     g[Ycoda][Xcoda-1].element.classList.add('snake','codaSnake');
+//     Xcoda--;
+//     Xtesta--;
+//     Xcorpo--;
+//     break;
+//     case "Up|Up":
+//     break;
+//     case "Up|Down":
+//     g[Ycoda][Xcoda].element.classList.remove('snake');
+//     g[Ycoda][Xcoda].element.classList.remove('codaSnake');
+//     g[Ycorpo][Xcorpo-1].element.classList.add('snake','corpoSnake');
+//     g[Ytesta][Xtesta-1].element.classList.add('snake','testaSnake');
+//     g[Ycoda][Xcoda-1].element.classList.add('snake','codaSnake');
+//     Xcoda++;
+//     Xtesta++;
+//     Xcorpo++;
+//     break;
+//     case "Down|Down":
+//     break;
+//     case "Down|Up":
+//     g[Ycoda][Xcoda].element.classList.remove('snake');
+//     g[Ycoda][Xcoda].element.classList.remove('codaSnake');
+//     g[Ycorpo][Xcorpo-1].element.classList.add('snake','corpoSnake');
+//     g[Ytesta][Xtesta-1].element.classList.add('snake','testaSnake');
+//     g[Ycoda][Xcoda-1].element.classList.add('snake','codaSnake');
+//     Xcoda--;
+//     Xtesta--;
+//     Xcorpo--;
+//     break;
+// // cambi di direzione(r/up e down,l/up e down/ ,up/right e left, down right e left)
+//     case "Right|Up":
+//     g[Ycoda][Xcoda].element.classList.remove('snake');
+//     g[Ycoda][Xcoda].element.classList.remove('codaSnake');
+//     g[Ycorpo-1][Xcorpo].element.classList.add('snake','corpoSnake');
+//     g[Ytesta][Xtesta+1].element.classList.add('snake','testaSnake');
+//     g[Ycoda-1][Xcoda].element.classList.add('snake','codaSnake');
+//     Ycoda--;
+//     Xtesta++;
+//     Ycorpo--;
+//     break;
+//     case "Right|Down":
+//     g[Ycoda][Xcoda].element.classList.remove('snake');
+//     g[Ycoda][Xcoda].element.classList.remove('codaSnake');
+//     g[Ycorpo+1][Xcorpo].element.classList.add('snake','corpoSnake');
+//     g[Ytesta][Xtesta+1].element.classList.add('snake','testaSnake');
+//     g[Ycoda+1][Xcoda].element.classList.add('snake','codaSnake');
+//     Ycoda++;
+//     Xtesta++;
+//     Ycorpo++;
+//     break;
+//     case "Left|Up":
+//     g[Ycoda][Xcoda].element.classList.remove('snake');
+//     g[Ycoda][Xcoda].element.classList.remove('codaSnake');
+//     g[Ycorpo+1][Xcorpo].element.classList.add('snake','corpoSnake');
+//     g[Ytesta][Xtesta-1].element.classList.add('snake','testaSnake');
+//     g[Ycoda+1][Xcoda].element.classList.add('snake','codaSnake');
+//     Ycoda--;
+//     Xtesta--;
+//     Ycorpo--;
+//     break;
+//     case "Left|Down":
+//     g[Ycoda][Xcoda].element.classList.remove('snake');
+//     g[Ycoda][Xcoda].element.classList.remove('codaSnake');
+//     g[Ycorpo+1][Xcorpo].element.classList.add('snake','corpoSnake');
+//     g[Ytesta][Xtesta-1].element.classList.add('snake','testaSnake');
+//     g[Ycoda+1][Xcoda].element.classList.add('snake','codaSnake');
+//     Ycoda++;
+//     Xtesta--;
+//     Ycorpo++;
+//     break;
+//     case "Up|Right":
+//     g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
+//     g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
+//     g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
+//     g[Ycorpo-1][Xcorpo+1].element.classList.add('snake','corpoSnake');
+//     g[Ytesta-1][Xtesta].element.classList.add('snake','testaSnake');
+//     g[Ycoda][Xcoda+2].element.classList.add('snake','codaSnake');
+//     break;
+//     case "Down|Right":
+//     g[Ycoda][Xcoda].element.classList.remove('snake');
+//     g[Ycoda][Xcoda].element.classList.remove('codaSnake');
+//     g[Ycorpo][Xcorpo+1].element.classList.add('snake','corpoSnake');
+//     g[Ytesta+1][Xtesta].element.classList.add('snake','testaSnake');
+//     g[Ycoda][Xcoda+1].element.classList.add('snake','codaSnake');
+//     Xcoda++;
+//     Ytesta++;
+//     Xcorpo++;
+//     break;
 // }
 
-
-// sta cosa sotto della mela magnata funziona mi sento tipo gesù,anzi vabbè
-// adamo
 var punteggio=document.getElementById('punteggio');
 punteggio.innerHTML='<h2>Punteggio</h2>'+score;
 if( g[Ytesta][Xtesta].element.classList.contains('apple'))
