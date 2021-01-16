@@ -1,5 +1,6 @@
 // __________f inserita onkeydown al body _________________
-
+// Ovviamente devo combinare le condizioni di  input e direzione naturale
+// ho solo creato una forma
 function TastoPremuto(event) {
     switch (event.keyCode) {
         case 38:
