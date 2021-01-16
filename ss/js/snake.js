@@ -22,57 +22,61 @@ function TastoPremuto(event) {
 // _______________  funzione di gioco      ________________
 
 function RandomApple(){
- var apple=g[Math.floor(Math.random()*g_width)][Math.floor(Math.random()*g_height)];
+apple=g[Math.floor(Math.random()*g_width)][Math.floor(Math.random()*g_height)];
 // console.log(apple);
-apple.element.className='apple';
+apple.element.classList.add('apple');
+}
+function start()
+{
+    clock = setInterval(function(){game();}, 500);
 }
 
-var griglia = document.getElementById('griglia');
-var g=[];
-var g_width = 14;
-var g_height = 14;
-    for (var y = 0; y < g_height; y++) {
-        var row = [];
-        for (var x = 0; x < g_width; x++) {
-            var cell = [];
-            cell.element = document.createElement('div');
+$(document).ready(function(){
+  griglia = document.getElementById('griglia');
+  g=[];
+  g_width = 14;
+  g_height = 14;
+      for (var y = 0; y < g_height; y++) {
+          var row = [];
+          for (var x = 0; x < g_width; x++) {
+              var cell = [];
+              cell.element = document.createElement('div');
 
-            griglia.appendChild(cell.element);
-            row.push(cell);
-        }
-        g.push(row);
-    }
-// all'inizio il serpente parte da qualche parte:
-var griglia = document.getElementById('griglia');
-var quadrati=griglia.children; // omaggio a jquery,anche noi teniamo alla famiglia
-for (var i = 0; i < quadrati.length; i++) {
-  quadrati[i].setAttribute('number',i);
-  quadrati[i].innerText=i;
-}
+              griglia.appendChild(cell.element);
+              row.push(cell);
+          }
+          g.push(row);
+      }
 
-
-// var Xcorpo=3;
-// var Ycorpo=g_height/2+1;
-// var Xtesta=3;
-// var Ytesta=g_height/2+2;
-
-RandomApple();
-
-var Xcoda=3;
-var Ycoda=g_height/2;
-var codaSnake=g[Ycoda][Xcoda];
-var Ycorpo=g_height/2;
-var Xcorpo=4;
-var corpoSnake=g[Ycorpo][Xcorpo];
-var Xtesta=5;
-var Ytesta=g_height/2;
-var testaSnake=g[Ytesta][Xtesta];
-console.log(testaSnake);
-
+  griglia = document.getElementById('griglia');
+  quadrati=griglia.children; // omaggio a jquery,anche noi teniamo alla famiglia
+  for (var i = 0; i < quadrati.length; i++) {
+    quadrati[i].setAttribute('number',i);
+    quadrati[i].innerText=i;
+  }
+score=0;
+Direction='Right';
+snakeDirection = 'Right';
+Xcoda=3;
+Ycoda=g_height/2;
+codaSnake=g[Ycoda][Xcoda];
+Ycorpo=g_height/2;
+Xcorpo=4;
+corpoSnake=g[Ycorpo][Xcorpo];
+Xtesta=5;
+Ytesta=g_height/2;
+testaSnake=g[Ytesta][Xtesta];
+// console.log(testaSnake);
 testaSnake.element.className='snake testaSnake';
 corpoSnake.element.className='snake corpoSnake';
 codaSnake.element.className='snake codaSnake';
 
+
+RandomApple();
+
+})
+
+function game(){
 // Snake comportamento base:
 switch (snakeDirection){
 case 'Up':
@@ -128,13 +132,19 @@ g[Ytesta][Xtesta+1].element.className='snake testaSnake';
  break;
 }
 
-// Direction='Right'; // questo lo decommento per i test
-// snakeDirection = 'Right';
+if( g[Ytesta][Xtesta].element.classList.contains('apple'))
+{
+ score++;
+ g[Ytesta][Xtesta].element.classList.remove('apple');
+ RandomApple();
+}
 
 if (Xtesta < 0 || Ytesta < 0 || Xtesta >= g_width || Ytesta >= g_height) {
-    end();
-    newgame();
+clearInterval(clock);
 }
+
+}
+
 // Gioco snake con griglia html/css
 // if direction=directionsnake if direction l o r Xsnake=[g_width/2]++ --
 // if direction u o d ysnake=[g_height/2]++ --
