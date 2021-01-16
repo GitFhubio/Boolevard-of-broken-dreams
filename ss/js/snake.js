@@ -1,3 +1,133 @@
+function TastoPremuto(event) {
+    switch (event.keyCode) {
+        case 38:
+      Direction = 'Up';
+      break;
+        case 40:
+       Direction = 'Down';
+        break;
+        case 37:
+        Direction = 'Left';
+       break;
+        case 39:
+        Direction = 'Right';
+        break;
+        default:
+        break;
+    }
+    event.preventDefault();
+}
+function RandomApple(){
+ var apple=g[Math.floor(Math.random()*g_width)][Math.floor(Math.random()*g_height)];
+// console.log(apple);
+apple.element.className='apple';
+}
+
+var griglia = document.getElementById('griglia');
+var g=[];
+var g_width = 14;
+var g_height = 14;
+    for (var y = 0; y < g_height; y++) {
+        var row = [];
+        for (var x = 0; x < g_width; x++) {
+            var cell = [];
+            cell.element = document.createElement('div');
+
+            griglia.appendChild(cell.element);
+            row.push(cell);
+        }
+        g.push(row);
+    }
+// all'inizio il serpente parte da qualche parte:
+var griglia = document.getElementById('griglia');
+var quadrati=griglia.children; // omaggio a jquery,anche noi teniamo alla famiglia
+for (var i = 0; i < quadrati.length; i++) {
+  quadrati[i].setAttribute('number',i);
+  quadrati[i].innerText=i;
+}
+
+
+// var Xcorpo=3;
+// var Ycorpo=g_height/2+1;
+// var Xtesta=3;
+// var Ytesta=g_height/2+2;
+
+RandomApple();
+
+var Xcoda=3;
+var Ycoda=g_height/2;
+var codaSnake=g[Ycoda][Xcoda];
+var Ycorpo=g_height/2;
+var Xcorpo=4;
+var corpoSnake=g[Ycorpo][Xcorpo];
+var Xtesta=5;
+var Ytesta=g_height/2;
+var testaSnake=g[Ytesta][Xtesta];
+console.log(testaSnake);
+
+testaSnake.element.className='snake testaSnake';
+corpoSnake.element.className='snake corpoSnake';
+codaSnake.element.className='snake codaSnake';
+
+// Snake comportamento base:
+function SnakeMovement(){
+switch (snakeDirection){
+case 'Up':
+g[Ycoda][Xcoda].element.classList.remove('snake');
+g[Ycoda][Xcoda].element.classList.remove('codaSnake');
+g[Ycorpo-1][Xcorpo].element.className='snake corpoSnake';
+g[Ytesta-1][Xtesta].element.className='snake testaSnake';
+g[Ycoda-1][Xcoda].element.className='snake codaSnake';
+break;
+case 'Down':
+g[Ycoda][Xcoda].element.classList.remove('snake');
+g[Ycoda][Xcoda].element.classList.remove('codaSnake');
+g[Ycorpo+1][Xcorpo].element.classList='snake corpoSnake';
+g[Ytesta+1][Xtesta].element.className='snake testaSnake';
+g[Ycoda+1][Xcoda].element.className='snake codaSnake';
+break;
+case 'Left':
+g[Ycoda][Xcoda].element.classList.remove('snake');
+g[Ycoda][Xcoda].element.classList.remove('codaSnake');
+g[Ycorpo][Xcorpo-1].element.className='snake corpoSnake';
+g[Ytesta][Xtesta-1].element.className='snake testaSnake';
+g[Ycoda][Xcoda-1].element.className='snake codaSnake';
+break;
+case 'Right':
+g[Ycoda][Xcoda].element.classList.remove('snake');
+g[Ycoda][Xcoda].element.classList.remove('codaSnake');
+g[Ycorpo][Xcorpo+1].element.className='snake corpoSnake';
+g[Ytesta][Xtesta+1].element.className='snake testaSnake';
+g[Ycoda][Xcoda+1].element.className='snake codaSnake';
+break;
+}
+}
+function InputMovement(){
+
+g[Ytesta][Xtesta].element.classList.remove('testaSnake');
+g[Ytesta][Xtesta].element.classList.remove('snake');
+ switch (Direction){
+ case 'Up':
+g[Ytesta-1][Xtesta].element.className='snake testaSnake';
+ break;
+ case 'Down':
+g[Ytesta+1][Xtesta].element.className='snake testaSnake';
+ break;
+ case 'Left':
+g[Ytesta][Xtesta-1].element.className='snake testaSnake';
+ break;
+ case 'Right':
+g[Ytesta][Xtesta+1].element.className='snake testaSnake';
+ break;
+}
+}
+// Direction='Right'; // questo lo decommento per i test
+snakeDirection = 'Right';
+
+if (Xtesta < 0 || Ytesta < 0 || Xtesta >= g_width || Ytesta >= g_height) {
+    end();
+    newgame();
+}
 // Gioco snake con griglia html/css
 // if direction=directionsnake if direction l o r Xsnake=[g_width/2]++ --
 // if direction u o d ysnake=[g_height/2]++ --
@@ -31,152 +161,6 @@
 // winning sempre
 // while xnake++ -- ysnake++ -- =! ysnake xsnake e =! x e y appartengono a griglia
 // '
-function TastoPremuto(event) {
-    switch (event.keyCode) {
-        case 38:
-      Direction = 'Up';
-      break;
-        case 40:
-       Direction = 'Down';
-        break;
-        case 37:
-        Direction = 'Left';
-       break;
-        case 39:
-        Direction = 'Right';
-        break;
-        default:
-        break;
-    }
-    event.preventDefault();
-    // x evitare comportamento standard come scroll pagina-dopo consulto con alfredo
-}
-function RandomApple(){
- var apple=g[Math.floor(Math.random()*g_width)][Math.floor(Math.random()*g_height)];
-// console.log(apple);
-apple.element.className='apple';
-}
-
-var score=0;
-var apple;
-var snake;
-var snakeDirection;
-var Direction;
-// function fabio()
-// {
-// var scelta=parseInt(document.getElementById('myselect').value);
-// return gioco(scelta);
-// }
-
-var griglia = document.getElementById('griglia');
-var g=[];
-var g_width = 14;
-var g_height = 14;
-    for (var y = 0; y < g_height; y++) {
-        var row = [];
-        for (var x = 0; x < g_width; x++) {
-            var cell = [];
-            cell.element = document.createElement('div');
-
-            griglia.appendChild(cell.element);
-            row.push(cell);
-        }
-        g.push(row);
-    }
-// all'inizio il serpente parte da qualche parte:
-var griglia = document.getElementById('griglia');
-var quadrati=griglia.children; // omaggio a jquery,anche noi teniamo alla famiglia
-for (var i = 0; i < quadrati.length; i++) {
-  quadrati[i].setAttribute('number',i);
-  quadrati[i].innerText=i;
-}
-
-
-RandomApple();
-
-var Xcoda=3;
-var Ycoda=g_height/2;
-var codaSnake=g[Ycoda][Xcoda];
-var Ycorpo=g_height/2;
-var Xcorpo=4;
-// var Xcorpo=3;
-// var Ycorpo=g_height/2+1;
-var corpoSnake=g[Ycorpo][Xcorpo];
-var Xtesta=5;
-var Ytesta=g_height/2;
-// var Xtesta=3;
-// var Ytesta=g_height/2+2;
-var testaSnake=g[Ytesta][Xtesta];
-console.log(testaSnake);
-
-// Direction='Right'; // questo lo decommento per i test
-snakeDirection = 'Right';
-// codaSnake.element.className='snake';
-testaSnake.element.className='snake testaSnake';
-corpoSnake.element.className='snake corpoSnake'
-codaSnake.element.className='snake codaSnake';
-
-  // $("[number=4]").addClass('snake');
-// console.log(document.querySelector("div[number='4']"));
-// quanto segue vale se faccio un cambio di direzione
-// se premo stessa direzione o opposta non succede niente
-
-// Snake comportamento base:
-
-switch (snakeDirection){
-case 'Up':
-g[Ycoda][Xcoda].element.classList.remove('snake');
-g[Ycoda][Xcoda].element.classList.remove('codaSnake');
-g[Ycorpo-1][Xcorpo].element.classList='snake corpoSnake';
-g[Ytesta-1][Xtesta].element.className='snake testaSnake';
-g[Ycoda-1][Xcoda].element.className='snake codaSnake';
-break;
-case 'Down':
-g[Ycoda][Xcoda].element.classList.remove('snake');
-g[Ycoda][Xcoda].element.classList.remove('codaSnake');
-g[Ycorpo+1][Xcorpo].element.classList='snake corpoSnake';
-g[Ytesta+1][Xtesta].element.className='snake testaSnake';
-g[Ycoda+1][Xcoda].element.className='snake codaSnake';
-break;
-case 'Left':
-g[Ycoda][Xcoda].element.classList.remove('snake');
-g[Ycoda][Xcoda].element.classList.remove('codaSnake');
-g[Ycorpo][Xcorpo-1].element.classList='snake corpoSnake';
-g[Ytesta][Xtesta-1].element.className='snake testaSnake';
-g[Ycoda][Xcoda-1].element.className='snake codaSnake';
-break;
-case 'Right':
-g[Ycoda][Xcoda].element.classList.remove('snake');
-g[Ycoda][Xcoda].element.classList.remove('codaSnake');
-g[Ycorpo][Xcorpo+1].element.classList='snake corpoSnake';
-g[Ytesta][Xtesta+1].element.className='snake testaSnake';
-g[Ycoda][Xcoda+1].element.className='snake codaSnake';
-break;
-}
-// Con input/AL CAMBIO DIREZIONE
-g[Ytesta][Xtesta].element.classList.remove('testaSnake');
-g[Ytesta][Xtesta].element.classList.remove('snake');
- switch (Direction){
- case 'Up':
-g[Ytesta-1][Xtesta].element.className='snake testaSnake';
- break;
- case 'Down':
-g[Ytesta+1][Xtesta].element.className='snake testaSnake';
- break;
- case 'Left':
-g[Ytesta][Xtesta-1].element.className='snake testaSnake';
- break;
- case 'Right':
-g[Ytesta][Xtesta+1].element.className='snake testaSnake';
- break;
-}
-
-
-if (Xtesta < 0 || Ytesta < 0 || Xtesta >= g_width || Ytesta >= g_height) {
-    end();
-    newgame();
-}
-
 
 // quando il serpente si muove cioe sempre
 // la coda diventa ciò che era la testa prima?
@@ -211,41 +195,7 @@ if (Xtesta < 0 || Ytesta < 0 || Xtesta >= g_width || Ytesta >= g_height) {
 //     break;
 // }
 
-
-// si prende con punto element no outerhtml ho perso un'ora uccido tutti
-
-// var audiofail = new Audio('css/exp.mp3');
-// audiofail.play();
-//  setTimeout(function(){ window.location.reload(false); }, 2000);
-// }
-
-//   var vid = document.getElementById("myVideo");
-//   vid.play();
-//   vid.style.opacity="1";
-//   var festa=document.getElementsByClassName("festa")[0];
-//   festa.innerText="Grandissimo, non ci sono mine nei paraggi della casella "+this.innerHTML+" !";
-//   var suggerimento=document.getElementById('suggerimento');
-//   setTimeout(function(){
-//     suggerimento.innerText='Suggerimento:applicare l\'ultimo punto può farti arrivare alla vittoria molto più facilmente!' ;
-//   },14000);
-//
-//
-//   vid.addEventListener("timeupdate", function(){
-//     if(this.currentTime >= 12) {
-//          this.pause();
-//          this.style.opacity="0";
-//          this.currentTime = 0;
-//          festa.innerText="";
-//          setTimeout(function(){
-//             suggerimento.style.display = "none";
-//           },10000);
-//      }
-//    })
-//
-// });
-
-
-$("*").addClass('blue');
+// $("*").addClass('blue');
 $('button')
 .hover(function(){$(this).addClass('yellow');},function(){$(this).removeClass('yellow');})
 .dblclick(function(){alert('Tanto non vinci comunque');
