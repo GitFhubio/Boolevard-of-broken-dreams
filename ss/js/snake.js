@@ -345,17 +345,36 @@ g[Ycorpo][Xcorpo].element.classList.contains('apple') )
  RandomApple();
  score++;
 }
-
+console.log(Xtesta);
+console.log(Ytesta);
 // Il gioco non riesco a concluderlo
+// if (Xtesta<0 || Ytesta<0 || Xtesta>g_width || Ytesta>g_height)
+// {
 
-if (Xtesta<0 || Ytesta<0 || Xtesta>=g_width || Ytesta>=g_height )
+    var tmp_glob = Xtesta;
+    var tmp2_glob = Ytesta;
+    setTimeout(function () {
+        if (tmp_glob == Xtesta && tmp2_glob == Ytesta) {
 
- {
-   setTimeout(function(){alert('hai perso');
- window.location.reload(false);},500);
+            clearInterval(clock);
+             // setTimeout(function(){
+            alert('hai perso');
+           window.location.reload(false);
+         // },500);
+            ;
+        }
+    }, 1000);
 
-clearInterval(clock);
-}
+// se le coordinate non variano nel giro di un secondo hai perso mado questa è clamorosa
+// Non riuscivo a farlo perdere in nessun modo ahah
+
+
+  // }
+
+
+
+
+
 }
 
 
