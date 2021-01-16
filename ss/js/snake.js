@@ -31,11 +31,6 @@
 // winning sempre
 // while xnake++ -- ysnake++ -- =! ysnake xsnake e =! x e y appartengono a griglia
 // '
-
-$( document ).ready(function() {
-    console.log( "Vediamo se con JQuery ho vantaggi in un codice un pò più complesso.Risposta no" );
-});
-
 function TastoPremuto(event) {
     switch (event.keyCode) {
         case 38:
@@ -56,7 +51,11 @@ function TastoPremuto(event) {
     event.preventDefault();
     // x evitare comportamento standard come scroll pagina-dopo consulto con alfredo
 }
-
+function RandomApple(){
+ var apple=g[Math.floor(Math.random()*g_width)][Math.floor(Math.random()*g_height)];
+// console.log(apple);
+apple.element.className='apple';
+}
 
 var score=0;
 var apple;
@@ -91,6 +90,10 @@ for (var i = 0; i < quadrati.length; i++) {
   quadrati[i].setAttribute('number',i);
   quadrati[i].innerText=i;
 }
+
+
+RandomApple();
+
 var Xcoda=3;
 var Ycoda=g_height/2;
 var codaSnake=g[Ycoda][Xcoda];
@@ -105,6 +108,7 @@ var Ytesta=g_height/2;
 // var Ytesta=g_height/2+2;
 var testaSnake=g[Ytesta][Xtesta];
 console.log(testaSnake);
+
 // Direction='Right'; // questo lo decommento per i test
 snakeDirection = 'Right';
 // codaSnake.element.className='snake';
@@ -168,9 +172,10 @@ g[Ytesta][Xtesta+1].element.className='snake testaSnake';
 }
 
 
-// if (snakeX < 0 || snakeY < 0 || snakeX >= g_width || snakeY >= g_heigth) {
-//     avvio();
-// }
+if (Xtesta < 0 || Ytesta < 0 || Xtesta >= g_width || Ytesta >= g_height) {
+    end();
+    newgame();
+}
 
 
 // quando il serpente si muove cioe sempre
@@ -208,11 +213,6 @@ g[Ytesta][Xtesta+1].element.className='snake testaSnake';
 
 
 // si prende con punto element no outerhtml ho perso un'ora uccido tutti
-function RandomApple(){
- var apple=g[Math.floor(Math.random()*(g_width+1))][Math.floor(Math.random()*(g_height+1))];
-console.log(apple);
-return apple;
-}
 
 // var audiofail = new Audio('css/exp.mp3');
 // audiofail.play();
