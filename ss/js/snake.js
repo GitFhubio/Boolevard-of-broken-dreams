@@ -113,9 +113,7 @@ corpoSnake.element.className='snake corpoSnake'
 codaSnake.element.className='snake codaSnake';
 
   // $("[number=4]").addClass('snake');
-// console.log($("[number=4]"));//Ma vaffanculo a te, i palazzi, i palazzinari, i maggiordomi, i cani, i giardini e l'anima de li mortacci tua.
 // console.log(document.querySelector("div[number='4']"));
-
 // quanto segue vale se faccio un cambio di direzione
 // se premo stessa direzione o opposta non succede niente
 
@@ -151,29 +149,28 @@ g[Ytesta][Xtesta+1].element.className='snake testaSnake';
 g[Ycoda][Xcoda+1].element.className='snake codaSnake';
 break;
 }
-
-
-// Cambio direzione da tastiera
-
-// g[Ytesta][Xtesta].element.classList.remove('snake testaSnake');
-//  switch (Direction){
-//  case 'Up':
-// g[Ytesta-1][Xtesta].element.className='snake testaSnake';
-//  break;
-//  case 'Down':
-// g[Ytesta+1][Xtesta].element.className='snake testaSnake';
-//  break;
-//  case 'Left':
-// g[Ytesta][Xtesta-1].element.className='snake testaSnake';
-//  break;
-//  case 'Right':
-// g[Ytesta][Xtesta+1].element.className='snake testaSnake';
-//  break;
-// }
-
-if (snakeX < 0 || snakeY < 0 || snakeX >= g_width || snakeY >= g_heigth) {
-    avvio();
+// Con input/AL CAMBIO DIREZIONE
+g[Ytesta][Xtesta].element.classList.remove('testaSnake');
+g[Ytesta][Xtesta].element.classList.remove('snake');
+ switch (Direction){
+ case 'Up':
+g[Ytesta-1][Xtesta].element.className='snake testaSnake';
+ break;
+ case 'Down':
+g[Ytesta+1][Xtesta].element.className='snake testaSnake';
+ break;
+ case 'Left':
+g[Ytesta][Xtesta-1].element.className='snake testaSnake';
+ break;
+ case 'Right':
+g[Ytesta][Xtesta+1].element.className='snake testaSnake';
+ break;
 }
+
+
+// if (snakeX < 0 || snakeY < 0 || snakeX >= g_width || snakeY >= g_heigth) {
+//     avvio();
+// }
 
 
 // quando il serpente si muove cioe sempre
