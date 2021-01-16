@@ -70,7 +70,6 @@ corpoSnake.element.className='snake corpoSnake';
 codaSnake.element.className='snake codaSnake';
 
 // Snake comportamento base:
-function SnakeMovement(){
 switch (snakeDirection){
 case 'Up':
 g[Ycoda][Xcoda].element.classList.remove('snake');
@@ -101,28 +100,32 @@ g[Ytesta][Xtesta+1].element.className='snake testaSnake';
 g[Ycoda][Xcoda+1].element.className='snake codaSnake';
 break;
 }
-}
-function InputMovement(){
 
-g[Ytesta][Xtesta].element.classList.remove('testaSnake');
-g[Ytesta][Xtesta].element.classList.remove('snake');
  switch (Direction){
  case 'Up':
+ g[Ytesta][Xtesta].element.classList.remove('testaSnake');
+ g[Ytesta][Xtesta].element.classList.remove('snake');
 g[Ytesta-1][Xtesta].element.className='snake testaSnake';
  break;
  case 'Down':
+ g[Ytesta][Xtesta].element.classList.remove('testaSnake');
+ g[Ytesta][Xtesta].element.classList.remove('snake');
 g[Ytesta+1][Xtesta].element.className='snake testaSnake';
  break;
  case 'Left':
+ g[Ytesta][Xtesta].element.classList.remove('testaSnake');
+ g[Ytesta][Xtesta].element.classList.remove('snake');
 g[Ytesta][Xtesta-1].element.className='snake testaSnake';
  break;
  case 'Right':
+ g[Ytesta][Xtesta].element.classList.remove('testaSnake');
+ g[Ytesta][Xtesta].element.classList.remove('snake');
 g[Ytesta][Xtesta+1].element.className='snake testaSnake';
  break;
 }
-}
+
 // Direction='Right'; // questo lo decommento per i test
-snakeDirection = 'Right';
+// snakeDirection = 'Right';
 
 if (Xtesta < 0 || Ytesta < 0 || Xtesta >= g_width || Ytesta >= g_height) {
     end();
