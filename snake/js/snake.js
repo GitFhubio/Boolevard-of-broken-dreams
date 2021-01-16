@@ -248,7 +248,6 @@ console.log(Ytesta);
     setTimeout(function () {
         if (tmp_glob == Xtesta && tmp2_glob == Ytesta) {
             clearInterval(clock);
-            audio.pause();
             alert('hai perso');
            window.location.reload(false);
             ;
