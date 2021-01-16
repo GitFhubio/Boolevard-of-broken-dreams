@@ -121,7 +121,7 @@ Xtesta++;
 Xcorpo++;
 break;
 }
-//
+// 
 //  switch (Direction){
 //  case 'Up':
 //  g[Ytesta][Xtesta].element.classList.remove('testaSnake');
@@ -148,13 +148,13 @@ break;
 
 // sta cosa sotto della mela magnata funziona mi sento tipo gesù,anzi vabbè
 // adamo
-
+var punteggio=document.getElementById('punteggio');
+punteggio.innerHTML='<h2>Punteggio</h2>'+score;
 if( g[Ytesta][Xtesta].element.classList.contains('apple'))
 {
   g[Ytesta][Xtesta].element.classList.remove('apple');
  RandomApple();
  score++;
-
 }
 
 // il finale funziona vabbè non ci voleva assai
