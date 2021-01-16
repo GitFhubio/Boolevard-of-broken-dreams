@@ -1,3 +1,5 @@
+// __________f inserita onkeydown al body _________________
+
 function TastoPremuto(event) {
     switch (event.keyCode) {
         case 38:
@@ -17,6 +19,8 @@ function TastoPremuto(event) {
     }
     event.preventDefault();
 }
+// _______________  funzione di gioco      ________________
+
 function RandomApple(){
  var apple=g[Math.floor(Math.random()*g_width)][Math.floor(Math.random()*g_height)];
 // console.log(apple);
