@@ -110,7 +110,7 @@ margin-left:20px;
   opacity:0.4;}
 .snake{
   background-color: green;
-  transition: 5s
+  transition: 0.5s;
 }
 .divento-snake{
 background-color: green;

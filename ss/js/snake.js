@@ -29,7 +29,7 @@ apple.element.classList.add('apple');
 }
 function start()
 {
-    clock = setInterval(function(){game();}, 500);
+    clock = setInterval(function(){game();}, 300);
 }
 
 $(document).ready(function(){
@@ -68,9 +68,9 @@ Xtesta=5;
 Ytesta=g_height/2;
 testaSnake=g[Ytesta][Xtesta];
 // console.log(testaSnake);
-testaSnake.element.className='snake testaSnake';
-corpoSnake.element.className='snake corpoSnake';
-codaSnake.element.className='snake codaSnake';
+testaSnake.element.classList.add('snake','testaSnake');
+corpoSnake.element.classList.add('snake','corpoSnake');
+codaSnake.element.classList.add('snake','codaSnake');
 
 
 RandomApple();
@@ -83,62 +83,81 @@ switch (snakeDirection){
 case 'Up':
 g[Ycoda][Xcoda].element.classList.remove('snake');
 g[Ycoda][Xcoda].element.classList.remove('codaSnake');
-g[Ycorpo-1][Xcorpo].element.className='snake corpoSnake';
-g[Ytesta-1][Xtesta].element.className='snake testaSnake';
-g[Ycoda-1][Xcoda].element.className='snake codaSnake';
+g[Ycorpo-1][Xcorpo].element.classList.add('snake','corpoSnake');
+g[Ytesta-1][Xtesta].element.classList.add('snake','testaSnake');
+g[Ycoda-1][Xcoda].element.classList.add('snake','codaSnake');
+Ycoda--;
+Ytesta--;
+Ycorpo--;
 break;
 case 'Down':
 g[Ycoda][Xcoda].element.classList.remove('snake');
 g[Ycoda][Xcoda].element.classList.remove('codaSnake');
-g[Ycorpo+1][Xcorpo].element.classList='snake corpoSnake';
-g[Ytesta+1][Xtesta].element.className='snake testaSnake';
-g[Ycoda+1][Xcoda].element.className='snake codaSnake';
+g[Ycorpo+1][Xcorpo].element.classList.add('snake','corpoSnake');
+g[Ytesta+1][Xtesta].element.classList.add('snake','testaSnake');
+g[Ycoda+1][Xcoda].element.classList.add('snake','codaSnake');
+Ycoda++;
+Ytesta++;
+Ycorpo++;
 break;
 case 'Left':
 g[Ycoda][Xcoda].element.classList.remove('snake');
 g[Ycoda][Xcoda].element.classList.remove('codaSnake');
-g[Ycorpo][Xcorpo-1].element.className='snake corpoSnake';
-g[Ytesta][Xtesta-1].element.className='snake testaSnake';
-g[Ycoda][Xcoda-1].element.className='snake codaSnake';
+g[Ycorpo][Xcorpo-1].element.classList.add('snake','corpoSnake');
+g[Ytesta][Xtesta-1].element.classList.add('snake','testaSnake');
+g[Ycoda][Xcoda-1].element.classList.add('snake','codaSnake');
+Xcoda--;
+Xtesta--;
+Xcorpo--;
 break;
 case 'Right':
 g[Ycoda][Xcoda].element.classList.remove('snake');
 g[Ycoda][Xcoda].element.classList.remove('codaSnake');
-g[Ycorpo][Xcorpo+1].element.className='snake corpoSnake';
-g[Ytesta][Xtesta+1].element.className='snake testaSnake';
-g[Ycoda][Xcoda+1].element.className='snake codaSnake';
+g[Ycorpo][Xcorpo+1].element.classList.add('snake','corpoSnake');
+g[Ytesta][Xtesta+1].element.classList.add('snake','testaSnake');
+g[Ycoda][Xcoda+1].element.classList.add('snake','codaSnake');
+Xcoda++;
+Xtesta++;
+Xcorpo++;
 break;
 }
+//
+//  switch (Direction){
+//  case 'Up':
+//  g[Ytesta][Xtesta].element.classList.remove('testaSnake');
+//  g[Ytesta][Xtesta].element.classList.remove('snake');
+// g[Ytesta-1][Xtesta].element.className='snake testaSnake';
+//  break;
+//  case 'Down':
+//  g[Ytesta][Xtesta].element.classList.remove('testaSnake');
+//  g[Ytesta][Xtesta].element.classList.remove('snake');
+// g[Ytesta+1][Xtesta].element.className='snake testaSnake';
+//  break;
+//  case 'Left':
+//  g[Ytesta][Xtesta].element.classList.remove('testaSnake');
+//  g[Ytesta][Xtesta].element.classList.remove('snake');
+// g[Ytesta][Xtesta-1].element.className='snake testaSnake';
+//  break;
+//  case 'Right':
+//  g[Ytesta][Xtesta].element.classList.remove('testaSnake');
+//  g[Ytesta][Xtesta].element.classList.remove('snake');
+// g[Ytesta][Xtesta+1].element.className='snake testaSnake';
+//  break;
+// }
 
- switch (Direction){
- case 'Up':
- g[Ytesta][Xtesta].element.classList.remove('testaSnake');
- g[Ytesta][Xtesta].element.classList.remove('snake');
-g[Ytesta-1][Xtesta].element.className='snake testaSnake';
- break;
- case 'Down':
- g[Ytesta][Xtesta].element.classList.remove('testaSnake');
- g[Ytesta][Xtesta].element.classList.remove('snake');
-g[Ytesta+1][Xtesta].element.className='snake testaSnake';
- break;
- case 'Left':
- g[Ytesta][Xtesta].element.classList.remove('testaSnake');
- g[Ytesta][Xtesta].element.classList.remove('snake');
-g[Ytesta][Xtesta-1].element.className='snake testaSnake';
- break;
- case 'Right':
- g[Ytesta][Xtesta].element.classList.remove('testaSnake');
- g[Ytesta][Xtesta].element.classList.remove('snake');
-g[Ytesta][Xtesta+1].element.className='snake testaSnake';
- break;
-}
+
+// sta cosa sotto della mela magnata funziona mi sento tipo gesù,anzi vabbè
+// adamo
 
 if( g[Ytesta][Xtesta].element.classList.contains('apple'))
 {
- score++;
- g[Ytesta][Xtesta].element.classList.remove('apple');
+  g[Ytesta][Xtesta].element.classList.remove('apple');
  RandomApple();
+ score++;
+
 }
+
+// il finale funziona vabbè non ci voleva assai
 
 if (Xtesta < 0 || Ytesta < 0 || Xtesta >= g_width || Ytesta >= g_height) {
 clearInterval(clock);
