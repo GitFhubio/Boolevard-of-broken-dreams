@@ -98,9 +98,9 @@ var Xtesta=7;
 var Ytesta=g_height/2;
 var testaSnake=g[Ytesta][Xtesta];
 console.log(testaSnake);
-Direction='Up';
-snakeDirection = 'Left';
-codaSnake.element.className='snake';
+Direction='Right';
+// snakeDirection = 'Up';
+// codaSnake.element.className='snake';
 testaSnake.element.className='snake';
 
   // $("[number=4]").addClass('snake');
@@ -108,130 +108,95 @@ testaSnake.element.className='snake';
 // console.log(document.querySelector("div[number='4']"));
 
 // quando parte il gioco
-codaSnake.element.classList.remove('snake');
+// codaSnake.element.classList.remove('snake');
 testaSnake.element.classList.remove('snake');
+// quanto segue vale se faccio un cambio di direzione
+// se premo stessa direzione o opposta non succede niente
  switch (Direction){
  case 'Up':
 g[Ytesta-1][Xtesta].element.className='snake';
  break;
  case 'Down':
-g[Ysnake+1][Xsnake].element.className='snake';
+g[Ytesta+1][Xtesta].element.className='snake';
  break;
  case 'Left':
-g[Ysnake][Xsnake-1].element.className='snake';
+g[Ytesta][Xtesta-1].element.className='snake';
  break;
  case 'Right':
-g[Ysnake][Xsnake+1].element.className='snake';
+g[Ytesta][Xtesta+1].element.className='snake';
  break;
 }
 
+// quando il serpente si muove cioe sempre
+// la coda diventa ciò che era la testa prima?
 
 
 
-// switch(Direction + "|" + snakeDirection) {
+switch(Direction + "|" + snakeDirection) {
+    case "Up|Left":
+    g[Ysnake-1][Xsnake].element.className='snake testasnake';
+    g[Ysnake-2][Xsnake].element.className='snake';
+    g[Ysnake-3][Xsnake].element.className='snake';
+    g[Ysnake-4][Xsnake].element.className='snake testasnake';
+    Ysnake=Ysnake-4;
+    snake=g[Ysnake][Xsnake];
+    snake.element.classList.add('testasnake');
+    break;
+    case "Up|Right":
+    // g[Ysnake][Xsnake+5].element.className='snake';
+    g[Ysnake-1][Xsnake].element.className='snake testasnake';
+    // g[Ysnake-2][Xsnake+5].element.className='snake';
+    // g[Ysnake-3][Xsnake+5].element.className='snake';
+    // g[Ysnake-4][Xsnake+5].element.className='snake testasnake';
+    // Ysnake=Ysnake-4;
+    // Xsnake=Xsnake+5;
+    // snake=g[Ysnake][Xsnake];
+    // snake.element.classList.add('testasnake');
+    break;
+    case "Down|Left":
+    g[Ysnake+1][Xsnake].element.className='snake testasnake';
+    // g[Ysnake+2][Xsnake].element.className='snake';
+    // g[Ysnake+3][Xsnake].element.className='snake';
+    // g[Ysnake+4][Xsnake].element.className='snake';
+    // Ysnake=Ysnake+4;
+    break;
+    case "Down|Right":
+    // Ysnake=Ysnake+4;
+    g[Ysnake+1][Xsnake].element.className='snake testasnake';
+    // g[Ysnake+2][Xsnake].element.className='snake';
+    // g[Ysnake+3][Xsnake].element.className='snake';
+    // g[Ysnake+4][Xsnake].element.className='snake';
 
-
-//     // case "Up|Up":
-//     // g[Ysnake-1][Xsnake].element.className='snake';
-//     // // g[Ysnake-2][Xsnake].element.className='snake';
-//     // // g[Ysnake-3][Xsnake].element.className='snake';
-//     // // g[Ysnake-4][Xsnake].element.className='snake';
-//     // // g[Ysnake-5][Xsnake].element.className='snake testasnake';
-//     // // Ysnake=Ysnake-5;
-//     // Ysnake=Ysnake-1;
-//     // break;
-//     // break;
-//     // case "Right|Right":
-//     // snake.element.nextSibling.className='snake testasnake';
-//     // snake.element.nextSibling.nextSibling.className='snake';
-//     // snake.element.nextSibling.nextSibling.nextSibling.className='snake';
-//     // snake.element.nextSibling.nextSibling.nextSibling.nextSibling.className='snake';
-//     // snake.element.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.className='snake testasnake';
-//     // break;
-//     // case "Left|Left":
-//     // snake.element.previousSibling.className='snake';
-//     // snake.element.previousSibling.previousSibling.className='snake';
-//     // snake.element.previousSibling.previousSibling.previousSibling.className='snake';
-//     // snake.element.previousSibling.previousSibling.previousSibling.previousSibling.className='snake';
-//     // snake.element.previousSibling.previousSibling.previousSibling.previousSibling.className='snake testasnake';
-//     // // Xsnake=Xsnake-5;
-//     // // snake=g[Ysnake][Xsnake];
-//     // // snake.element.classList.add('testasnake');
-//     // break;
-//     // case "Down|Down":
-//     // g[Ysnake+1][Xsnake].element.className='snake';
-//     // g[Ysnake+2][Xsnake].element.className='snake';
-//     // g[Ysnake+3][Xsnake].element.className='snake';
-//     // g[Ysnake+4][Xsnake].element.className='snake';
-//     // g[Ysnake+4][Xsnake].element.className='snake testasnake';
-//     // Ysnake=Ysnake+5;
-//     // snake=g[Ysnake][Xsnake];
-//     // snake.element.classList.add('testasnake');
-//     // break;
-//     case "Up|Left":
-//     g[Ysnake-1][Xsnake].element.className='snake testasnake';
-//     // g[Ysnake-2][Xsnake].element.className='snake';
-//     // g[Ysnake-3][Xsnake].element.className='snake';
-//     // g[Ysnake-4][Xsnake].element.className='snake testasnake';
-//     // Ysnake=Ysnake-4;
-//     // snake=g[Ysnake][Xsnake];
-//     // snake.element.classList.add('testasnake');
-//     break;
-//     case "Up|Right":
-//     // g[Ysnake][Xsnake+5].element.className='snake';
-//     g[Ysnake-1][Xsnake].element.className='snake testasnake';
-//     // g[Ysnake-2][Xsnake+5].element.className='snake';
-//     // g[Ysnake-3][Xsnake+5].element.className='snake';
-//     // g[Ysnake-4][Xsnake+5].element.className='snake testasnake';
-//     // Ysnake=Ysnake-4;
-//     // Xsnake=Xsnake+5;
-//     // snake=g[Ysnake][Xsnake];
-//     // snake.element.classList.add('testasnake');
-//     break;
-//     case "Down|Left":
-//     g[Ysnake+1][Xsnake].element.className='snake testasnake';
-//     // g[Ysnake+2][Xsnake].element.className='snake';
-//     // g[Ysnake+3][Xsnake].element.className='snake';
-//     // g[Ysnake+4][Xsnake].element.className='snake';
-//     // Ysnake=Ysnake+4;
-//     break;
-//     case "Down|Right":
-//     // Ysnake=Ysnake+4;
-//     g[Ysnake+1][Xsnake].element.className='snake testasnake';
-//     // g[Ysnake+2][Xsnake].element.className='snake';
-//     // g[Ysnake+3][Xsnake].element.className='snake';
-//     // g[Ysnake+4][Xsnake].element.className='snake';
-//
-//     break;
-//     case "Right|Up":
-//     g[Ysnake+1][Xsnake+1].element.className='snake testasnake';
-//     // g[Ysnake][Xsnake+2].element.className='snake';
-//     // g[Ysnake][Xsnake+3].element.className='snake';
-//     // g[Ysnake][Xsnake+4].element.className='snake';
-//     // Xsnake=Xsnake+4;
-//     break;
-//     case "Right|Down":
-//     g[Ysnake+1][Xsnake+1].element.className='snake testasnake';
-//     // g[Ysnake][Xsnake+2].element.className='snake';
-//     // g[Ysnake][Xsnake+3].element.className='snake';
-//     // g[Ysnake][Xsnake+4].element.className='snake';
-//     // Xsnake=Xsnake+4;
-//     break;
-//     case "Left|Up":
-//     g[Ysnake-1][Xsnake-1].element.className='snake testasnake';
-//     // g[Ysnake][Xsnake-2].element.className='snake';
-//     // g[Ysnake][Xsnake-3].element.className='snake';
-//     // g[Ysnake][Xsnake-4].element.className='snake';
-//     // Xsnake=Xsnake-4;
-//     break;
-//     case "Left|Down":
-//     g[Ysnake+1][Xsnake-1].element.className='snake testasnake';
-//     // g[Ysnake][Xsnake-2].element.className='snake';
-//     // g[Ysnake][Xsnake-3].element.className='snake';
-//     // g[Ysnake][Xsnake-4].element.className='snake';
-//     // Xsnake=Xsnake-4;
-//     break;
-// }
+    break;
+    case "Right|Up":
+    g[Ysnake+1][Xsnake+1].element.className='snake testasnake';
+    // g[Ysnake][Xsnake+2].element.className='snake';
+    // g[Ysnake][Xsnake+3].element.className='snake';
+    // g[Ysnake][Xsnake+4].element.className='snake';
+    // Xsnake=Xsnake+4;
+    break;
+    case "Right|Down":
+    g[Ysnake+1][Xsnake+1].element.className='snake testasnake';
+    // g[Ysnake][Xsnake+2].element.className='snake';
+    // g[Ysnake][Xsnake+3].element.className='snake';
+    // g[Ysnake][Xsnake+4].element.className='snake';
+    // Xsnake=Xsnake+4;
+    break;
+    case "Left|Up":
+    g[Ysnake-1][Xsnake-1].element.className='snake testasnake';
+    // g[Ysnake][Xsnake-2].element.className='snake';
+    // g[Ysnake][Xsnake-3].element.className='snake';
+    // g[Ysnake][Xsnake-4].element.className='snake';
+    // Xsnake=Xsnake-4;
+    break;
+    case "Left|Down":
+    g[Ysnake+1][Xsnake-1].element.className='snake testasnake';
+    // g[Ysnake][Xsnake-2].element.className='snake';
+    // g[Ysnake][Xsnake-3].element.className='snake';
+    // g[Ysnake][Xsnake-4].element.className='snake';
+    // Xsnake=Xsnake-4;
+    break;
+}
 
 
 // si prende con punto element no outerhtml ho perso un'ora uccido tutti
