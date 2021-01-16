@@ -138,8 +138,6 @@ break;
 // Cambio direzione da tastiera
 
 g[Ytesta][Xtesta].element.classList.remove('snake testaSnake');
-g[Ycoda][Xcoda].element.classList.remove('snake codaSnake');
-
  switch (Direction){
  case 'Up':
 g[Ytesta-1][Xtesta].element.className='snake testaSnake';
