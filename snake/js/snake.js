@@ -56,11 +56,13 @@ $(document).ready(function(){
       }
 
   griglia = document.getElementById('griglia');
-  quadrati=griglia.children; // omaggio a jquery,anche noi teniamo alla famiglia
-  for (var i = 0; i < quadrati.length; i++) {
-    quadrati[i].setAttribute('number',i);
-    quadrati[i].innerText=i;
-  }
+
+  // l'indice alla fine non l'ho usato quindi sta parte è inutile
+  // quadrati=griglia.children; // omaggio a jquery,anche noi teniamo alla famiglia
+  // for (var i = 0; i < quadrati.length; i++) {
+  //   quadrati[i].setAttribute('number',i);
+  //   quadrati[i].innerText=i;
+  // }
 score=0;
 Direction='Right';
 snakeDirection = 'Right';
@@ -230,13 +232,21 @@ g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
 // Queste condizioni dovevano essere solo sulla testa ma non sempre mangia la mela
 // quindi non sempre la testa è testa e va risolto(restano classi teste code corpi non rimossi credo//bug)
 var punteggio=document.getElementById('punteggio');
-punteggio.innerHTML='<h2>Punteggio</h2>'+score;
+punteggio.innerHTML='<h2>Punteggio</h2><p>'+score+'</p>';
+// if(score % 10 == 0 && score!=0)
+// {
+//
+// }
+
 if( g[Ytesta][Xtesta].element.classList.contains('apple') || g[Ycoda][Xcoda].element.classList.contains('apple') ||
 g[Ycorpo][Xcorpo].element.classList.contains('apple') )
 {
   g[Ytesta][Xtesta].element.classList.remove('apple');
     g[Ycoda][Xcoda].element.classList.remove('apple');
         g[Ycorpo][Xcorpo].element.classList.remove('apple');
+
+var eat = new Audio('css/eat.mp3');
+eat.play();
  RandomApple();
  score++;
 }
@@ -246,14 +256,15 @@ console.log(Ytesta);
 // il gioco non riuscivo a concluderlo né con condizioni sul numero di quadrati
 // verdi nella griglia né con Xsnake e Ysnake entro i limiti 0 dim max
 // per cui
-
+var fail = new Audio('css/fail.mp3');
     var tmp_glob = Xtesta;
     var tmp2_glob = Ytesta;
     setTimeout(function () {
         if (tmp_glob == Xtesta && tmp2_glob == Ytesta) {
             monster.pause();
+            fail.play();
             clearInterval(clock);
-            alert('hai perso');
+            alert('Hai perso!Ma se sei un cane perché vuoi essere un serpente?');
            window.location.reload(false);
             ;
         }
