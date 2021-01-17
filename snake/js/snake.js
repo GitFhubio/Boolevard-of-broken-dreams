@@ -234,7 +234,9 @@ var punteggio=document.getElementById('punteggio');
 punteggio.innerHTML='<h2>Punteggio</h2><p>'+score+'</p>';
 if(score % 10 == 0 && score!=0)
 {
-  clock = setInterval(function(){game();},4000);//in teoria dovevo stoppare clock1 e mettere un clock2...?non so perché sto numero...sono andato a tentativi per far aumentare la velocità ma senza farlo schizzare....a meno di 300 schizzava,al crescere oltre mille sempre meno...
+  clock = setInterval(function(){game();},4000);
+  // non va bene sta cosa,workaround,va fatto meglio
+  // non posso settare velocità ogni volta
 }
 
 if( g[Ytesta][Xtesta].element.classList.contains('apple') || g[Ycoda][Xcoda].element.classList.contains('apple') ||
