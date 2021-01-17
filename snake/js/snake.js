@@ -33,8 +33,7 @@ apple.element.classList.add('apple');
 }
 function start()
 {
-
-  clock = setInterval(function(){game();}, 300);
+  clock = setInterval(function(){game();},300);
 }
 // creo griglia,prima mela e snake iniziale on ready document
 $(document).ready(function(){
@@ -233,10 +232,10 @@ g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
 // quindi non sempre la testa è testa e va risolto(restano classi teste code corpi non rimossi credo//bug)
 var punteggio=document.getElementById('punteggio');
 punteggio.innerHTML='<h2>Punteggio</h2><p>'+score+'</p>';
-// if(score % 10 == 0 && score!=0)
-// {
-//
-// }
+if(score % 10 == 0 && score!=0)
+{
+  clock = setInterval(function(){game();},4000);//in teoria dovevo stoppare clock1 e mettere un clock2...?non so perché sto numero...sono andato a tentativi per far aumentare la velocità ma senza farlo schizzare....a meno di 300 schizzava,al crescere oltre mille sempre meno...
+}
 
 if( g[Ytesta][Xtesta].element.classList.contains('apple') || g[Ycoda][Xcoda].element.classList.contains('apple') ||
 g[Ycorpo][Xcorpo].element.classList.contains('apple') )
@@ -259,6 +258,8 @@ console.log(Ytesta);
 var fail = new Audio('css/fail.mp3');
     var tmp_glob = Xtesta;
     var tmp2_glob = Ytesta;
+
+    if(score<10){
     setTimeout(function () {
         if (tmp_glob == Xtesta && tmp2_glob == Ytesta) {
             fail.play();
@@ -269,8 +270,21 @@ var fail = new Audio('css/fail.mp3');
            window.location.reload(false);},1000);
         }
     }, 600);
-
+  }
+  else{
+    setTimeout(function () {
+        if (tmp_glob == Xtesta && tmp2_glob == Ytesta) {
+            fail.play();
+            monster.pause();
+            clearInterval(clock);
+            setTimeout(function () {
+            alert('Hai perso!');
+           window.location.reload(false);},1000);
+        }
+    }, 300);
+  }
 // se le coordinate non variano nel giro di 600ms(variano ogni 500ms) hai perso mado questa è clamorosa
 
+// ho fatto a 300 se ha aumentato velocità
 
 }
