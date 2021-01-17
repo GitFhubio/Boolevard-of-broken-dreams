@@ -261,16 +261,16 @@ var fail = new Audio('css/fail.mp3');
     var tmp2_glob = Ytesta;
     setTimeout(function () {
         if (tmp_glob == Xtesta && tmp2_glob == Ytesta) {
-            monster.pause();
             fail.play();
+            monster.pause();
             clearInterval(clock);
-            alert('Hai perso!Ma se sei un cane perché vuoi essere un serpente?');
-           window.location.reload(false);
-            ;
+            setTimeout(function () {
+            alert(' Hai perso! Ma se sei un cane perché vuoi essere un serpente?');
+           window.location.reload(false);},1000);
         }
-    }, 1000);
+    }, 600);
 
-// se le coordinate non variano nel giro di un secondo hai perso mado questa è clamorosa
+// se le coordinate non variano nel giro di 600ms(variano ogni 500ms) hai perso mado questa è clamorosa
 
 
 }
