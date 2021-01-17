@@ -1,5 +1,9 @@
 // __________f inserita onkeydown al body _________________
-
+document.addEventListener('keydown', musicPlay);
+function musicPlay() {
+    monster= document.getElementById('playAudio');
+    monster.play();
+}
 function TastoPremuto(event) {
     switch (event.keyCode) {
         case 38:
@@ -247,6 +251,7 @@ console.log(Ytesta);
     var tmp2_glob = Ytesta;
     setTimeout(function () {
         if (tmp_glob == Xtesta && tmp2_glob == Ytesta) {
+            monster.pause();
             clearInterval(clock);
             alert('hai perso');
            window.location.reload(false);
