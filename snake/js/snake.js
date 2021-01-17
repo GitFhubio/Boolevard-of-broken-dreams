@@ -289,4 +289,5 @@ var fail = new Audio('css/fail.mp3');
 
 // ho fatto a 300 se ha aumentato velocità
 
+// il workaround del setinterval nasce perché non so ricaricare la pagina con gioco di un livello diverso
 }
