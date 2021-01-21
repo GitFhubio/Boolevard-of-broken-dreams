@@ -240,6 +240,10 @@ if(score == 20)
 {  clearInterval(clock);
   start(160);
 }
+if(score == 30)
+{  clearInterval(clock);
+  start(130);
+}
 
 if( g[Ytesta][Xtesta].element.classList.contains('apple') || g[Ycoda][Xcoda].element.classList.contains('apple') ||
 g[Ycorpo][Xcorpo].element.classList.contains('apple') )
@@ -286,7 +290,7 @@ var fail = new Audio('css/fail.mp3');
            window.location.reload(false);},1000);
         }
     }, 300);
-  } else{
+  } else if(score>=20 && score <30){
     setTimeout(function () {
         if (tmp_glob == Xtesta && tmp2_glob == Ytesta) {
             fail.play();
@@ -297,6 +301,19 @@ var fail = new Audio('css/fail.mp3');
            window.location.reload(false);},1000);
         }
     }, 240);
+
+  } else{
+    setTimeout(function () {
+        if (tmp_glob == Xtesta && tmp2_glob == Ytesta) {
+            fail.play();
+            monster.pause();
+            clearInterval(clock);
+            setTimeout(function () {
+            alert('Hai perso!');
+           window.location.reload(false);},1000);
+        }
+    }, 200);
+
 
   }
 // se le coordinate non variano nel giro di 600ms(variano ogni 500ms) hai perso mado questa è clamorosa
