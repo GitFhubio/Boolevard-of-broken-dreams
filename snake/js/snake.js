@@ -31,9 +31,9 @@ apple=g[Math.floor(Math.random()*g_width)][Math.floor(Math.random()*g_height)];
 // console.log(apple);
 apple.element.classList.add('apple');
 }
-function start()
+function start(x)
 {
-  clock = setInterval(function(){game();},300);
+  clock = setInterval(function(){game();},x);
 }
 // creo griglia,prima mela e snake iniziale on ready document
 $(document).ready(function(){
@@ -232,11 +232,13 @@ g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
 // quindi non sempre la testa è testa e va risolto(restano classi teste code corpi non rimossi credo//bug)
 var punteggio=document.getElementById('punteggio');
 punteggio.innerHTML='<h2>Punteggio</h2><p>'+score+'</p>';
-if(score % 10 == 0 && score!=0)
-{
-  clock = setInterval(function(){game();},4000);
-  // non va bene sta cosa,workaround,va fatto meglio
-  // non posso settare velocità ogni volta
+if(score == 10)
+{  clearInterval(clock);
+  start(230);
+}
+if(score == 20)
+{  clearInterval(clock);
+  start(160);
 }
 
 if( g[Ytesta][Xtesta].element.classList.contains('apple') || g[Ycoda][Xcoda].element.classList.contains('apple') ||
@@ -273,7 +275,7 @@ var fail = new Audio('css/fail.mp3');
         }
     }, 600);
   }
-  else{
+  else if(score>=10 && score<20){
     setTimeout(function () {
         if (tmp_glob == Xtesta && tmp2_glob == Ytesta) {
             fail.play();
@@ -284,6 +286,18 @@ var fail = new Audio('css/fail.mp3');
            window.location.reload(false);},1000);
         }
     }, 300);
+  } else{
+    setTimeout(function () {
+        if (tmp_glob == Xtesta && tmp2_glob == Ytesta) {
+            fail.play();
+            monster.pause();
+            clearInterval(clock);
+            setTimeout(function () {
+            alert('Hai perso!');
+           window.location.reload(false);},1000);
+        }
+    }, 240);
+
   }
 // se le coordinate non variano nel giro di 600ms(variano ogni 500ms) hai perso mado questa è clamorosa
 
