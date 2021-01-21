@@ -6,16 +6,28 @@ function musicPlay() {
 }
 function TastoPremuto(event) {
     switch (event.keyCode) {
-        case 38:
+        case 38 :
       Direction = 'Up';
       break;
+      case 87 :
+    Direction = 'Up';
+    break;
         case 40:
        Direction = 'Down';
         break;
-        case 37:
+        case 83:
+       Direction = 'Down';
+        break;
+        case 37 :
         Direction = 'Left';
        break;
-        case 39:
+       case 65 :
+       Direction = 'Left';
+      break;
+        case 39 :
+        Direction = 'Right';
+        break;
+        case 68 :
         Direction = 'Right';
         break;
         default:
