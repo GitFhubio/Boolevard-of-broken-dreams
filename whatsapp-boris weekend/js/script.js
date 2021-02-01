@@ -3,106 +3,186 @@ let boolzapp = new Vue({
   data:{
 contacts: [
     {
-    name: 'Michele',
+    name: 'Stanis La Rochelle',
     avatar: '_1',
     matched:true,
     // michele è visibile se prendo visibile come proprietà che definisce chat aperta...gli altri li setto a false
     visible: true,
     messages: [
       {
-      date: '10/01/2020 15:30:55',
-      text: 'Hai portato a spasso il cane?',
+      date: '22/01/2020 11:12:55',
+      text: 'Tu ti devi trovare una pari grado,una camerierina',
+      status: 'received',
+      show:false
+      },
+      {
+      date: '22/01/2020 11:14:00',
+      text: 'Non pensi che stai esagerando Stanis?',
       status: 'sent',
       show:false
       },
       {
-      date: '10/01/2020 15:50:00',
-      text: 'Ricordati di dargli da mangiare',
-      status: 'sent',
-      show:false
-      },
-      {
-     date: '10/01/2020 16:15:22',
-     text: 'Tutto fatto!',
+     date: '22/01/2020 11:15:22',
+     text: 'Io credo che tu sia davvero un bravo ragazzo ma la tua provenienza operaia...',
     status: 'received',
-     show:false
-      }
+    show:false
+  },
+  {date: '22/01/2020 11:15:22',
+  text: 'Ma mio padre è ingegnere...',
+ status: 'sent',
+ show:false
+},
+{date: '22/01/2020 11:15:22',
+text: 'È ingegnere operaio!',
+status: 'received',
+show:false
+ }
     ],
     },
     {
-    name: 'Fabio',
+    name: 'Mariano',
     avatar: '_2',
     matched:true,
     visible: false,
     messages: [
       {
-      date: '20/03/2020 16:30:00',
-      text: 'Ciao come stai?',
-      status: 'sent',
-      show:false
-      },
-      {
-      date: '20/03/2020 16:30:55',
-      text: 'Bene grazie! Stasera ci vediamo?',
+      date: '10/01/2020 16:14:55',
+      text: 'Tocca a te',
       status: 'received',
       show:false
       },
       {
-      date: '20/03/2020 16:35:00',
-      text: 'Mi piacerebbe ma devo andare a fare la spesa.',
+      date: '10/01/2020 16:14:00',
+      text: 'Fammi essere felice...',
       status: 'sent',
       show:false
-      }
-    ],
+      },
+      {
+     date: '10/01/2020 16:15:22',
+     text: 'Nooo ma che è???Vorrei essere felice??Ma che è?Poi t\'ho detto d\'iniziare sempre con ti prego... ',
+    status: 'received',
+    show:false
+  },
+  {date: '10/01/2020 16:15:22',
+  text: 'Ti prego,vero...',
+ status: 'sent',
+ show:false
+},
+{date: '10/01/2020 16:16:22',
+text: 'Ma nooo ma è tardi è tardi ormai,sò tre ore che te lo dico.. ',
+status: 'received',
+show:false
+},
+{date: '10/01/2020 16:16:22',
+text: ' Qua siamo in due mi sembra che l\'unico tra noi due che sta facendo uno sforzo per evitare che io ti meni sono sempre io',
+status: 'received',
+show:false
+},
+{date: '10/01/2020 16:17:22',
+text: 'la stessa persona che prima o poi ti menerà...ma lo capisci?',
+status: 'received',
+show:false
+ }
+  ],
     },
     {
-    name: 'Samuele',
-    avatar: '_3',
+    name: 'Gianfranco',
+    avatar: '_9',
     visible: false,
     matched:true,
     messages: [
       {
       date: '28/03/2020 10:10:40',
-      text: 'La Marianna va in campagna',
+      text: 'Mai e poi mai svilire il ruolo del Parlamanto',
       status: 'received',
       show:false
       },
       {
-      date: '28/03/2020 10:20:10',
-      text: 'Sicuro di non aver sbagliato chat?',
-    status: 'sent',
+      date: '28/03/2020 10:11:10',
+      text: 'Ogni cittadino ha dei diritti ma anche dei doveri',
+    status: 'received',
     show:false
       },
       {
-      date: '30/01/2020 16:15:22',
-      text: 'Ah scusa!',
+      date: '29/01/2020 10:11:22',
+      text: 'Francamante',
       status: 'received',
       show:false
       }
     ],
     },
     {
-    name: 'Luisa',
+    name: 'Corinna',
     avatar: '_6',
     visible: false,
     matched:true,
     messages: [
       {
-      date: '10/01/2020 15:30:55',
-      text: 'Lo sai che ha aperto una nuova pizzeria?',
-      status: 'sent',
-      show:false
-      },
-      {
-      date: '29/01/2020 15:50:00',
-      text: 'Si, ma preferirei andare al cinema',
+      date: '17/01/2020 15:30:55',
+      text: 'È stato il gioie...',
       status: 'received',
       show:false
-      }
+    },
+    {
+    date: '17/01/2020 15:31:55',
+    text: 'È stato il gioieie...',
+    status: 'received',
+    show:false
+  },
+  {
+  date: '17/01/2020 15:32:55',
+  text: 'È stato il gioieie...',
+  status: 'received',
+  show:false
+},
+{
+date: '17/01/2020 18:43:55',
+text: 'È stato l\'orafo.',
+status: 'received',
+show:false
+}
+    ],
+    },
+    {
+    name: 'Renè',
+    avatar: '_5',
+    visible: false,
+    matched:true,
+    messages: [
+      {
+      date: '13/01/2020 18:46:55',
+      text: '...',
+      status: 'sent',
+      show:false
+    },
+    {
+    date: '13/01/2020 18:47:55',
+    text: 'Sei entratooo in campoooo testa di cazzoooo!!!',
+    status: 'received',
+    show:false
+  },
+  {
+  date: '13/01/2020 18:47:55',
+  text: 'sei uno stronzo m\'hai rovinato tutto,sei entratooo in campooo porca puttana',
+  status: 'received',
+  show:false
+},
+{
+date: '13/01/2020 18:48:55',
+text: 'vai viaa,non ti voglio vedere mai più,capito???',
+status: 'received',
+show:false
+},
+{
+date: '13/01/2020 18:48:55',
+text: 'testa di cazzo di merda vaffanculooo',
+status: 'received',
+show:false
+}
     ],
     },
   ],
-    admin: { name:'Marianna',
+    admin: { name:'Seppia',
       avatar:'_io',
       visible:false,
     },
