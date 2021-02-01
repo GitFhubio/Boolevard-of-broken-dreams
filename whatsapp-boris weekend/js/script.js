@@ -430,3 +430,29 @@ var messages=document.getElementsByClassName("messages");
 
 //      Nel bonus ho montato l'ora con mounted per cui posso fare f che se
 // l'ultimo messaggio è di oggi compare la data,altrimenti compare il giorno
+
+
+
+// DOMANDE PER ALFREDO /outside vue
+// PROBLEMA : necessità di usare js puro per fare effetti stilistici dinamici agendo su elementi dom vs renderizzazione vue
+// per fare effetto blur a tutti gli elementi tranne il dropdown
+// impossibile se il dropdown è figlio di qualcosa (ed è per forza figlio di qualcosa)
+// l'ho bypassato mettendo div vuoto nei padri in modo da agire sui fratelli,
+// con le sezioni senza legami di parentela ho potuto procedere tranquillamente
+// ho dato l'effetto blur al click sul dropdown con javascript puro e mi va in partenza,ma se la pagina si aggiorna dinamicamente con vue non funziona piu
+//
+// cosa strana perche sempre out of vue ho fatto funzione con event target per intercettare click outside dropdown in modo che se è aperto lo chiuda e quella funzione li invece funziona anche quando la pagina si aggiorna (ah questo mi sa che ho capito solo ora leggendola perche funziona ahah)
+
+// In vue è possibile fare lo stesso?come?neanche ci ho pensato
+
+// domande inside vue:
+
+// per eliminare elemento vue che scorro con ind in html posso usare splice ind 1 e forEach return ind!=index ,ma Vue delete è la terza via e funziona come splice
+// Ci sono effetti diversi o completamente equivalenti?
+//
+//
+// in html in vue scorro con un vfor contact index in contacts,da li in poi per prendere proprietà o continuare v for interni usare contact.qualcosa o contacts[index].qualcosa è sempre uguale?
+//
+//
+// le due soluzioni diverse che ho trovato in html per dropdown v-show vs :class
+// con v-show se ho aperto un dropdown mi sa che non riesco a chiuderlo quando ne apro un altro...ma questo forse se ci lavoro ci riesco ,non penso sia limite vue ma mio
