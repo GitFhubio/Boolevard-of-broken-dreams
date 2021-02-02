@@ -202,15 +202,23 @@ this.contacts[index].visible=true;
 ,
 addMessage:function(){
  let msg=this.newMessage;
+ let todayfull=this.todayfull;
   this.contacts.forEach((item, i) => {
   if(item.visible==true && msg!=''){
     // oppure item.messages.push()
       item.messages=[...item.messages,{
-      date:this.todayfull,
+      date:todayfull,
       text: msg,
       status: 'sent',
       show:false
-      }]; }
+      }];
+      setTimeout(function(){
+           item.messages=[...item.messages,{
+             text:'ok',
+             status:'received',
+             date:todayfull}]
+          },1000);
+    }
   });
   this.newMessage='';
 },
@@ -296,6 +304,23 @@ function blur(){
         if(event.target.className.includes('remove')){
        blur();
   }
+  })
+
+  let contacts= this.contacts;
+  document.body.addEventListener('click',function(){
+           for (let x = 0; x < dropdownContainer.length; x++) {
+             if(!event.target.className.includes('bubble-content') && !event.target.className.includes('into-bubble')){
+            blur();
+             if(dropdownContainer[x].className.includes('show')){
+               contacts.forEach((item, i) => {
+                       item.messages.forEach((el, v) => {
+                          el.show=false;
+                   });
+                   });
+           }
+          }
+
+      }
   })
   }
 
