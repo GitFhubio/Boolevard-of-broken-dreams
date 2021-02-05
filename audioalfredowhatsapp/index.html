@@ -95,7 +95,7 @@
               <div class="bubble-content flex" @click="dropdown(ind)">
                 <h3 class="into-bubble" v-if="contacts[activeIndex].messages.length > 0">{{message.text}}</h3>
                 <p class="into-bubble" v-if="contacts[activeIndex].messages.length > 0">{{message.date.slice(11,16)}}</p>
-                <audio v-if="message.recordedAudio.src!=''" :src="createBlobUrl(ind)" id="recordedAudio" controls></audio>
+                <audio style="width:300px;opacity:0.6;" v-if="message.recordedAudio.src!=''" :src="createBlobUrl(ind)" id="recordedAudio" controls></audio>
               </div>
               <div class="dropdown-container" :class="{show: contacts[activeIndex].messages[ind].show}" v-show="contacts[activeIndex].messages[ind].show">
                 <ul class="dropdown">
