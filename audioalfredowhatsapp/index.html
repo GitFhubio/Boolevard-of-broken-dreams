@@ -122,8 +122,7 @@
           </div>
           <input type="text" name="" v-model="newMessage" placeholder="Scrivi un messaggio" @keyup.enter="addMessage">
           <div class="icon-right flex">
-            <i class="fas fa-microphone" id="startRecord" aria-hidden="true" @click="startRecord"></i>
-           <i id="stopRecord" @click="stopRecord" disabled class="fas fa-microphone-slash"></i>
+           <i id="startRecord" @click="Recording" disabled class="fas fa-microphone"></i>
           </div>
         </div>
       </section>

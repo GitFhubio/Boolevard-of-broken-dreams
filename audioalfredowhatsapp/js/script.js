@@ -161,6 +161,7 @@ let boolzapp = new Vue({
     srca: undefined,
     srcb: undefined,
     audioChunks: undefined,
+    isRecording:false
   },
   methods: {
     nowActive: function (index) {
@@ -297,10 +298,8 @@ let boolzapp = new Vue({
     startRecord: function (e) {
       recordedAudio = document.getElementById('recordedAudio');
       startRecord = document.getElementById('startRecord');
-      stopRecord = document.getElementById('stopRecord');
       var audioChunks;
       startRecord.disabled = true;
-      stopRecord.disabled = false;
       // This will prompt for permission if not allowed earlier
       navigator.mediaDevices
         .getUserMedia({ audio: true })
@@ -323,11 +322,11 @@ let boolzapp = new Vue({
         'audio/webm',
         'audio/ogg',
       ].filter(MediaRecorder.isTypeSupported)[0];
-      if (
-        !this.contacts[this.activeIndex].messages[messageIndex].recordedAudio
-          .src
-      )
-        return null;
+      // if (
+      //   !this.contacts[this.activeIndex].messages[messageIndex].recordedAudio
+      //     .src
+      // )
+      //   return null;
       let blob = new Blob(
         this.contacts[this.activeIndex].messages[
           messageIndex
@@ -335,10 +334,22 @@ let boolzapp = new Vue({
         { type: mime }
       );
       return blob ? window.URL.createObjectURL(blob) : null;
+
     },
+    Recording(){
+
+      if (this.isRecording){
+        this.stopRecord();
+        this.isRecording=false;
+
+    } else{
+      this.startRecord();
+      this.isRecording=true;
+    }
+  }
+    ,
     stopRecord: function () {
       startRecord.disabled = false;
-      stopRecord.disabled = true;
       this.srca.stop();
       let item = this.contacts[this.activeIndex];
       let answer = this.Bot();
@@ -371,7 +382,7 @@ let boolzapp = new Vue({
           },
         ];
       }, 1000);
-    },
+    }
   },
   mounted() {
     this.nowTime();
