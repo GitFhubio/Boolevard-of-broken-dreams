@@ -1,6 +1,6 @@
 let boolzapp = new Vue({
-  el: "#boolzapp",
-  data:{
+  el: '#boolzapp',
+  data: {
     contacts: [
       {
         name: 'Michele',
@@ -11,32 +11,32 @@ let boolzapp = new Vue({
             date: '10/01/2020 15:30:55',
             text: 'Hai portato a spasso il cane?',
             status: 'sent',
-            show:false,
-            recordedAudio:{
-              src:'',
-              controls:false
-            }
+            show: false,
+            recordedAudio: {
+              src: '',
+              controls: false,
+            },
           },
           {
             date: '10/01/2020 15:50:00',
             text: 'Ricordati di dargli da mangiare',
             status: 'sent',
-            show:false,
-            recordedAudio:{
-              src:'',
-              controls:false
-            }
+            show: false,
+            recordedAudio: {
+              src: '',
+              controls: false,
+            },
           },
           {
             date: '10/01/2020 16:15:22',
             text: 'Tutto fatto!',
             status: 'received',
-            show:false,
-            recordedAudio:{
-              src:'',
-              controls:false
-            }
-          }
+            show: false,
+            recordedAudio: {
+              src: '',
+              controls: false,
+            },
+          },
         ],
       },
       {
@@ -48,33 +48,32 @@ let boolzapp = new Vue({
             date: '20/03/2020 16:30:00',
             text: 'Ciao come stai?',
             status: 'sent',
-            show:false,
-            recordedAudio:{
-              src:'',
-              controls:false
-            }
+            show: false,
+            recordedAudio: {
+              src: '',
+              controls: false,
+            },
           },
           {
             date: '20/03/2020 16:30:55',
             text: 'Bene grazie! Stasera ci vediamo?',
             status: 'received',
-            show:false,
-            recordedAudio:{
-              src:'',
-              controls:false
-            }
+            show: false,
+            recordedAudio: {
+              src: '',
+              controls: false,
+            },
           },
           {
             date: '20/03/2020 16:35:00',
             text: 'Mi piacerebbe ma devo andare a fare la spesa.',
             status: 'sent',
-            show:false,
-            recordedAudio:{
-              src:'',
-              controls:false
-            }
-
-          }
+            show: false,
+            recordedAudio: {
+              src: '',
+              controls: false,
+            },
+          },
         ],
       },
       {
@@ -86,32 +85,32 @@ let boolzapp = new Vue({
             date: '28/03/2020 10:10:40',
             text: 'La Marianna va in campagna',
             status: 'received',
-            show:false,
-            recordedAudio:{
-              src:'',
-              controls:false
-            }
+            show: false,
+            recordedAudio: {
+              src: '',
+              controls: false,
+            },
           },
           {
             date: '28/03/2020 10:20:10',
             text: 'Sicuro di non aver sbagliato chat?',
             status: 'sent',
-            show:false,
-            recordedAudio:{
-              src:'',
-              controls:false
+            show: false,
+            recordedAudio: {
+              src: '',
+              controls: false,
             },
           },
           {
             date: '28/03/2020 16:15:22',
             text: 'Ah scusa!',
             status: 'received',
-            show:false,
-            recordedAudio:{
-              src:'',
-              controls:false
+            show: false,
+            recordedAudio: {
+              src: '',
+              controls: false,
             },
-          }
+          },
         ],
       },
       {
@@ -123,295 +122,321 @@ let boolzapp = new Vue({
             date: '04/01/2021 09:11:10',
             text: 'Lo sai che ha aperto una nuova pizzeria?',
             status: 'sent',
-            show:false,
-            recordedAudio:{
-              src:'',
-              controls:false
+            show: false,
+            recordedAudio: {
+              src: '',
+              controls: false,
             },
           },
           {
             date: '04/02/2021 09:12:00',
             text: 'Si, ma preferirei andare al cinema',
             status: 'received',
-            recordedAudio:{
-              src:'',
-              controls:false
+            recordedAudio: {
+              src: '',
+              controls: false,
             },
-          }
+          },
         ],
       },
     ],
-    admin: { name:'Marianna',
-    avatar:'_io',
-    visible:false,
-  },
-  risposte : {
-    saluti : ['ciao','buongiorno','buonasera','buonanotte'],
-    affetto : ['ti amo','ti voglio bene','ti penso spesso'],
-    insulti : ['mi fai schifo','pezzo di merda','vaffanculo','stronzo'],
-    frasidablocco: ['che bello jQuery','la Casa di Carta è la mia serie preferita','mai visto Boris','I veri programmatori non usano framework']
-  },
-  newMessage:"",
-  answer:"",
-  today:"",
-  todayfull:"",
-  search:"",
-  activeIndex:0,
-  srca:undefined,
-  srcb:undefined
-}
-,methods:{
-
-  nowActive:function(index){
-    this.activeIndex=index;
-  }
-  ,
-  Bot:function(){
-    let output=this.answer;
-    let msg=this.newMessage;
-    let risposte=this.risposte;
-    let categorie = [].concat.apply([],Object.values(risposte));
-
-    if (categorie.includes(msg)){
-      if (risposte.saluti.includes(msg)){
-        output= msg+' a te'
-      }
-      if (risposte.insulti.includes(msg)){
-        output= 'Mi sembra un insulto gratuito'
-      }
-      if (risposte.affetto.includes(msg)){
-        output= msg+'anch\'io';
-      }
-      if(risposte.frasidablocco.includes(msg)){
-        output= 'Mi vedo costretto a bloccarti.';
-      }
-    } else {
-      output='ok';
-    }
-    return output;
-  },
-
-  contactLastDate:function(index){
-    const messages=this.contacts[index].messages;
-    const lastIndex=messages.length-1;
-    const lastDate=messages[lastIndex].date.slice(0,5);
-    return lastDate;
-  },
-
-  contactLastTime:function(index){
-    const messages=this.contacts[index].messages;
-    const lastIndex=messages.length-1;
-    const lastTime=messages[lastIndex].date.slice(11,16);
-    return lastTime;
-  },
-  addMessage:function(){
-    let msg=this.newMessage;
-    let todayfull=this.todayfull;
-    let item = this.contacts[this.activeIndex];
-    let answer=this.Bot();
-
-    if( msg!=''){
-      item.messages=[...item.messages,{
-        date:todayfull,
-        text: msg,
-        status: 'sent',
-        show:false
-      }];
-      setTimeout(function(){
-        item.messages=[...item.messages,{
-          text:answer,
-          status:'received',
-          recordedAudio:{
-            src:'',
-            controls:false
-          },
-          show:false,
-          date:todayfull}]
-        },1000);
-      }
-      this.newMessage='';
+    admin: { name: 'Marianna', avatar: '_io', visible: false },
+    risposte: {
+      saluti: ['ciao', 'buongiorno', 'buonasera', 'buonanotte'],
+      affetto: ['ti amo', 'ti voglio bene', 'ti penso spesso'],
+      insulti: ['mi fai schifo', 'pezzo di merda', 'vaffanculo', 'stronzo'],
+      frasidablocco: [
+        'che bello jQuery',
+        'la Casa di Carta è la mia serie preferita',
+        'mai visto Boris',
+        'I veri programmatori non usano framework',
+      ],
     },
-    searchUser:function(){
-      let search=this.search;
+    newMessage: '',
+    answer: '',
+    today: '',
+    todayfull: '',
+    search: '',
+    activeIndex: 0,
+    srca: undefined,
+    srcb: undefined,
+    audioChunks: undefined,
+  },
+  methods: {
+    nowActive: function (index) {
+      this.activeIndex = index;
+    },
+    Bot: function () {
+      let output = this.answer;
+      let msg = this.newMessage;
+      let risposte = this.risposte;
+      let categorie = [].concat.apply([], Object.values(risposte));
+      if (categorie.includes(msg)) {
+        if (risposte.saluti.includes(msg)) {
+          output = msg + ' a te';
+        }
+        if (risposte.insulti.includes(msg)) {
+          output = 'Mi sembra un insulto gratuito';
+        }
+        if (risposte.affetto.includes(msg)) {
+          output = msg + "anch'io";
+        }
+        if (risposte.frasidablocco.includes(msg)) {
+          output = 'Mi vedo costretto a bloccarti.';
+        }
+      } else {
+        output = 'ok';
+      }
+      return output;
+    },
+    contactLastDate: function (index) {
+      const messages = this.contacts[index].messages;
+      const lastIndex = messages.length - 1;
+      const lastDate = messages[lastIndex].date.slice(0, 5);
+      return lastDate;
+    },
+    contactLastTime: function (index) {
+      const messages = this.contacts[index].messages;
+      const lastIndex = messages.length - 1;
+      const lastTime = messages[lastIndex].date.slice(11, 16);
+      return lastTime;
+    },
+    addMessage: function () {
+      let msg = this.newMessage;
+      let todayfull = this.todayfull;
+      let item = this.contacts[this.activeIndex];
+      let answer = this.Bot();
+      if (msg != '') {
+        item.messages = [
+          ...item.messages,
+          {
+            date: todayfull,
+            text: msg,
+            status: 'sent',
+            recordedAudio: {
+              src: '',
+              controls: false,
+            },
+            show: false,
+          },
+        ];
+        setTimeout(function () {
+          item.messages = [
+            ...item.messages,
+            {
+              text: answer,
+              status: 'received',
+              recordedAudio: {
+                src: '',
+                controls: false,
+              },
+              show: false,
+              date: todayfull,
+            },
+          ];
+        }, 1000);
+      }
+      this.newMessage = '';
+    },
+    searchUser: function () {
+      let search = this.search;
       this.contacts.forEach((item, i) => {
-        if(search!='' && !item.name.toLowerCase().startsWith(search.toLowerCase())){
-          item.visible=false; }
-          else if(search==''){
-            item.visible=true;
-          }
+        if (
+          search != '' &&
+          !item.name.toLowerCase().startsWith(search.toLowerCase())
+        ) {
+          item.visible = false;
+        } else if (search == '') {
+          item.visible = true;
+        }
+      });
+    },
+    dropdown(ind) {
+      // se è aperto chiudilo altrimenti ho cliccato per aprire,quindi chiudi gli altri se sono aperti
+      let thisContact = this.contacts[this.activeIndex];
+      if (thisContact.messages[ind].show == true) {
+        thisContact.messages[ind].show = false;
+      } else {
+        thisContact.messages.forEach((el, v) => {
+          el.show = false;
         });
-      },
-      dropdown(ind){
-        // se è aperto chiudilo altrimenti ho cliccato per aprire,quindi chiudi gli altri se sono aperti
-        let thisContact = this.contacts[this.activeIndex];
-        if (thisContact.messages[ind].show==true){
-          thisContact.messages[ind].show=false;
-        }else{
-          thisContact.messages.forEach((el, v) => {
-            el.show=false;
-          });
-          thisContact.messages[ind].show=true;
+        thisContact.messages[ind].show = true;
+      }
+    },
+    removeMessage(ind) {
+      let thisContact = this.contacts[this.activeIndex];
+      thisContact.messages.splice(ind, 1);
+      thisContact.messages.forEach((el, v) => {
+        el.show = false;
+      });
+      // Vue.delete(contact.messages,ind); alternativa
+    },
+    // funzione aggiuntiva per calcolare tempo
+    dateTime: function () {
+      // console.log((new Date).toLocaleDateString());
+      // sarebbe stata più facile da usare ma ha problemi zero e avrei dovuto fare
+      // slice di lunghezza diversa se data è 3/10 o 10/10
+      // per cui l'ho fatto manualmente nella versione pre-refactoring ma poi ho importato dayjs
+      this.today = dayjs().format('DD/MM');
+      this.todayfull = dayjs().format('DD/MM/YYYY HH:mm');
+    },
+    nowTime() {
+      this.dateTime(dayjs());
+    },
+    LastChatToday: function (index) {
+      if (
+        this.contacts[index].messages[
+          this.contacts[index].messages.length - 1
+        ].date.slice(0, 5) == this.today
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    startRecord: function (e) {
+      recordedAudio = document.getElementById('recordedAudio');
+      startRecord = document.getElementById('startRecord');
+      stopRecord = document.getElementById('stopRecord');
+      var audioChunks;
+      startRecord.disabled = true;
+      stopRecord.disabled = false;
+      // This will prompt for permission if not allowed earlier
+      navigator.mediaDevices
+        .getUserMedia({ audio: true })
+        .then((stream) => {
+          this.audioChunks = [];
+          this.srca = new MediaRecorder(stream);
+          this.srca.ondataavailable = (e) => {
+            if (e.data.size > 0) {
+              this.audioChunks.push(e.data);
+            }
+          };
+          this.srca.start();
+        })
+        .catch((e) => console.log(e));
+    },
+    createBlobUrl: function (messageIndex) {
+      const mime = [
+        'audio/wav',
+        'audio/mpeg',
+        'audio/webm',
+        'audio/ogg',
+      ].filter(MediaRecorder.isTypeSupported)[0];
+      if (
+        !this.contacts[this.activeIndex].messages[messageIndex].recordedAudio
+          .src
+      )
+        return null;
+      let blob = new Blob(
+        this.contacts[this.activeIndex].messages[
+          messageIndex
+        ].recordedAudio.src,
+        { type: mime }
+      );
+      return blob ? window.URL.createObjectURL(blob) : null;
+    },
+    stopRecord: function () {
+      startRecord.disabled = false;
+      stopRecord.disabled = true;
+      this.srca.stop();
+      let item = this.contacts[this.activeIndex];
+      let answer = this.Bot();
+      item.messages = [
+        ...item.messages,
+        {
+          date: this.todayfull,
+          text: '',
+          recordedAudio: {
+            src: this.audioChunks,
+            controls: true,
+          },
+          status: 'sent',
+          show: false,
+        },
+      ];
+      let that = this;
+      setTimeout(function () {
+        item.messages = [
+          ...item.messages,
+          {
+            text: answer,
+            status: 'received',
+            recordedAudio: {
+              src: '',
+              controls: false,
+            },
+            show: false,
+            date: that.todayfull,
+          },
+        ];
+      }, 1000);
+    },
+  },
+  mounted() {
+    this.nowTime();
+    setInterval(this.nowTime, 1000);
+  },
+  // updated invece viene chiamato ogni volta che c'è un rerender del componente(in vue il dom dipende dai dati quindi in pratica ogni volta che un dato cambia)
+  updated: function () {
+    // funzione per dare blur al click su dropdown,ho usato layer in absolute con z-index minore di z-index dropdown e applicato backdrop-filter (che fa il blur di ciò che è sotto il layer non del layer stesso)
+    const messages = document.getElementsByClassName('messages');
+    const overlay = document.getElementsByClassName('overlay')[0];
+    const chat = document.querySelector('.chat');
+    const dropdownContainer = document.getElementsByClassName(
+      'dropdown-container'
+    );
+    function blur() {
+      if (overlay.className.includes('blur')) {
+        overlay.classList.remove('blur');
+      }
+    }
+    for (let v = 0; v < messages.length; v++) {
+      messages[v].addEventListener('click', function () {
+        if (!overlay.className.includes('blur')) {
+          overlay.classList.add('blur');
+        }
+        if (messages.length == 0) {
+          blur();
+        }
+      });
+    }
+    document.body.addEventListener('click', function (event) {
+      if (event.target.className.includes('remove')) {
+        blur();
+      }
+    });
+    console.log(messages);
+    // divClone = recordedAudio.cloneNode(true);
+    // console.log(divClone);
+    //  for (let v = 0; v < messages.length; v++) {
+    //  if(messages[v].firstChild.firstChild.innerHTML==''){
+    //  messages[v].firstChild.lastChild.style.cssText="position:relative;left:270px;top:30px;"
+    //  messages[v].appendChild(divClone);
+    //  divClone.style.cssText = "width:500px;right:80px;top:22px;opacity:0.5; position: relative";
+    //
+    //    }
+    //  }
+    // funzione per intercettare click outside dropdown per chiudere dropdown
+    let contacts = this.contacts;
+    document.body.addEventListener('click', function () {
+      for (let x = 0; x < dropdownContainer.length; x++) {
+        if (
+          !event.target.className.includes('bubble-content') &&
+          !event.target.className.includes('into-bubble')
+        ) {
+          blur();
+          if (dropdownContainer[x].className.includes('show')) {
+            contacts.forEach((item, i) => {
+              item.messages.forEach((el, v) => {
+                el.show = false;
+              });
+            });
+          }
         }
       }
-      ,
-      removeMessage(ind){
-        let thisContact = this.contacts[this.activeIndex];
-        thisContact.messages.splice(ind,1);
-        thisContact.messages.forEach((el, v) => {
-          el.show=false;
-        });
-        // Vue.delete(contact.messages,ind); alternativa
-      }
-      ,
-      // funzione aggiuntiva per calcolare tempo
-      dateTime:function(){
-        // console.log((new Date).toLocaleDateString());
-        // sarebbe stata più facile da usare ma ha problemi zero e avrei dovuto fare
-        // slice di lunghezza diversa se data è 3/10 o 10/10
-         // per cui l'ho fatto manualmente nella versione pre-refactoring ma poi ho importato dayjs
-        this.today=dayjs().format('DD/MM')
-        this.todayfull=dayjs().format('DD/MM/YYYY HH:mm')
-      }
-      ,
-      nowTime(){
-        this.dateTime(dayjs());
-      },
-      LastChatToday:function(index){
-
-        if(this.contacts[index].messages[this.contacts[index].messages.length-1].date.slice(0,5) == this.today){
-          return true }
-          else {
-            return false;
-          }
-
-        },
-        playRecord:function(element,audioChunks){
-          blob = new Blob(audioChunks,{type:'audio/x-mpeg-3'});
-          const blab=URL.createObjectURL(blob);
-          element.targetValue.src=blab;
-          element.targetValue.click();
-          console.log(blab);
-        },
-startRecord:function(e){
-recordedAudio=document.getElementById('recordedAudio');
-startRecord=document.getElementById('startRecord');
-stopRecord=document.getElementById('stopRecord');
-  var audioChunks;
-  startRecord.disabled = true;
-  stopRecord.disabled=false;
-  // This will prompt for permission if not allowed earlier
-  navigator.mediaDevices.getUserMedia({audio:true})
-    .then(stream => {
-      audioChunks = [];
-      this.srca = new MediaRecorder(stream);
-      this.srca.ondataavailable = e => {
-        audioChunks.push(e.data);
-      }
-    if (this.srca.state == "inactive"){
-      blob = new Blob(audioChunks,{type:'audio/x-mpeg-3'});
-      this.srcb=URL.createObjectURL(blob);
-    }
-    this.srca.start();
-    this.srcb=audioChunks;
-    })
-    .catch(e=>console.log(e));
-}
-,
-stopRecord:function(){
-  startRecord.disabled = false;
-  stopRecord.disabled=true;
-  this.srca.stop();
-  let item = this.contacts[this.activeIndex];
-  let answer=this.Bot();
-    item.messages=[...item.messages,{
-      date:this.todayfull,
-      text: '',
-      recordedAudio:{
-        src:this.srcb,
-        controls:true
-      },
-      status: 'sent',
-      show:false
-    }];
-      let that=this;
-    setTimeout(function(){
-      item.messages=[...item.messages,{
-        text:answer,
-        status:'received',
-        recordedAudio:{
-          src:'',
-          controls:false
-        },
-        show:false,
-        date:that.todayfull}]
-      },1000);
-
-}
-
-}
-,
-      mounted() {
-        this.nowTime();
-        setInterval(this.nowTime,1000);
-      },
-
-      // updated invece viene chiamato ogni volta che c'è un rerender del componente(in vue il dom dipende dai dati quindi in pratica ogni volta che un dato cambia)
-      updated:function(){
-        // funzione per dare blur al click su dropdown,ho usato layer in absolute con z-index minore di z-index dropdown e applicato backdrop-filter (che fa il blur di ciò che è sotto il layer non del layer stesso)
-        const messages=document.getElementsByClassName("messages");
-        const overlay=document.getElementsByClassName('overlay')[0];
-        const chat=document.querySelector(".chat")
-        const dropdownContainer=document.getElementsByClassName('dropdown-container');
-        function blur(){
-          if (overlay.className.includes('blur')){
-            overlay.classList.remove('blur');}
-          }
-          for (let v = 0; v < messages.length; v++) {
-            messages[v].addEventListener('click',function(){
-              if (!overlay.className.includes('blur')){
-                overlay.classList.add('blur')}
-                if (messages.length==0){
-                  blur();
-                }
-              })}
-              document.body.addEventListener('click',function(event){
-                if(event.target.className.includes('remove')){
-                  blur();
-                }
-              })
-console.log(messages);
-             // divClone = recordedAudio.cloneNode(true);
-             // console.log(divClone);
-             //  for (let v = 0; v < messages.length; v++) {
-             //  if(messages[v].firstChild.firstChild.innerHTML==''){
-             //  messages[v].firstChild.lastChild.style.cssText="position:relative;left:270px;top:30px;"
-             //  messages[v].appendChild(divClone);
-             //  divClone.style.cssText = "width:500px;right:80px;top:22px;opacity:0.5; position: relative";
-             //
-             //    }
-             //  }
-
-              // funzione per intercettare click outside dropdown per chiudere dropdown
-
-
-              let contacts= this.contacts;
-              document.body.addEventListener('click',function(){
-                for (let x = 0; x < dropdownContainer.length; x++) {
-                  if(!event.target.className.includes('bubble-content') && !event.target.className.includes('into-bubble')){
-                    blur();
-                    if(dropdownContainer[x].className.includes('show')){
-                      contacts.forEach((item, i) => {
-                        item.messages.forEach((el, v) => {
-                          el.show=false;
-                        });
-                      });
-                    }
-                  }
-
-                }
-              })
-              // https://stackoverflow.com/questions/270612/scroll-to-bottom-of-div
-              chat.scrollTop = chat.scrollHeight;
-            }
-
-          });
+    });
+    // https://stackoverflow.com/questions/270612/scroll-to-bottom-of-div
+    chat.scrollTop = chat.scrollHeight;
+  },
+});
