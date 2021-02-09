@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- google fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- fontsAwesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <!-- style.css-->
+    <link rel="stylesheet" href="css/style.css">
+    <title>BOOLZAP</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- day js per avere la data real time -->
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+  </head>
+  <body>
+    <!-- VUE.JS OPERATIONAL AREA NOT DELETE-->
+    <div id="app">
+      <!-- CLONE OF DOM-->
+      <div id="dom-wrapper">
+        <!-- TOTAL PAGE-->
+        <div class="page-wrapper flex">
+          <!-- SIDE BAR SECTION-->
+          <div class="sidebar-box">
+
+            <div class="sidebar-top flex" @click="closeMenu()">
+              <div class="user-box-data left">
+                <img src="img/avatar_2.jpg" alt="">
+                <div class="name-data">
+                  <span>Nome Utente</span>
+                </div>
+              </div>
+              <div class="sidebar-iconBoxRight" @click="closeMenu()">
+                <i class="fas fa-circle-notch"></i>
+                <i class="fas fa-comment-alt"></i>
+                <i class="fas fa-ellipsis-v"></i>
+              </div>
+            </div>
+
+            <div class="sidebar-popup-box flex" @click="closeMenu()">
+              <div class="logo-popup-container">
+                <i class="fas fa-bell-slash"></i>
+              </div>
+              <div class="text-popup-box">
+                <div class="text-popup">
+                  <span>Rivevi notifiche di nuovi messaggi</span>
+                </div>
+                <span class="underline-textLink">Attiva notifiche desktop</span>
+              </div>
+            </div>
+
+            <div class="sidebar-search-box flex" @click="closeMenu()">
+              <div class="input-container flex">
+                <i class="fas fa-search"></i>
+                <input type="text" name="" value="" placeholder="Cerca o inizia nuova chat" v-model="search" @keyup="isSearch(search, contacts)">
+              </div>
+            </div>
+
+            <div class="sidebar-msgContact-box " @click="closeMenu()">
+              <ul>
+                <li :class="'flex contact-item ' + changeColorSelected(index)" v-for="(element, index) in contacts"  @click="extractContact(index)" v-if="element.visible === true">
+                  <div class="user-box-data ">
+                    <img :src="'img/avatar' + element.avatar + '.jpg'" alt="">
+                    <div class="user-data">
+                      <div class="name-data">
+                        <span>{{element.name}}</span>
+
+                      </div>
+                      <div class="access-data">
+                        <span>{{lastMsgPreview(index)}}</span>
+                      </div>
+
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+          <!-- SIDE BAR SECTION-->
+          <!-- MAIN SECTION-->
+          <div class="main-box">
+            <!-- main-TOP -->
+            <div class="main-top-box flex"  @click="closeMenu()">
+              <!-- contact chat box  -->
+              <div class="user-box-data left">
+
+                <img :src="'img/avatar' + contacts[dynamicIndex].avatar + '.jpg'" alt="">
+                <div class="user-data"  >
+                  <div class="name-data" >
+                    <!-- under this not definitive line-->
+                    <span >{{contacts[dynamicIndex].name}}</span>
+                  </div>
+                  <div class="access-data">
+                    <!-- under this not definitive line-->
+                    <span>Ultimo accesso alle: {{contactLastAccess(dynamicIndex)}}</span>
+                  </div>
+                </div>
+              </div>
+              <!-- contact chat box  -->
+              <!-- main-top icons -->
+              <div class="sidebar-iconBoxRight">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-paperclip"></i>
+                <i class="fas fa-ellipsis-v"></i>
+              </div>
+              <!-- /main-top icons -->
+            </div>
+            <!-- /main-TOP -->
+            <!-- main-CENTRAL -->
+            <div class="main-central-box">
+              <div v-for="(message, index) in contacts[dynamicIndex].messages" :class="'msgBalloon clearfix ' + message.status" >
+                {{message.text}}
+                <div class="button-msgMenu" @click="msgMenuVisible(index, dynamicIndex)">
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <!-- dropdown menu -->
+                <div class="msg-menu" v-if="activeMsg.show && activeMsg.index === index"  @click="closeMenu()">
+                  <ul>
+                    <li>Message Info</li>
+                    <li @click="deleteMsg(index)">Delete Message</li>
+                  </ul>
+                </div>
+                <!-- dropdown menu -->
+
+                <span class="msg-hours">{{onlyHours(index, dynamicIndex)}}</span>
+              </div>
+            </div>
+            <!-- /main-CENTRAL -->
+            <!-- main-BOTTOM -->
+            <div class="main-bottom-box flex" @click="closeMenu()">
+              <div class="mainBottomIcon-container">
+                <i class="far fa-smile"></i>
+              </div>
+              <div class="mainBottomInput-container">
+                <input type="text" name="" value="" placeholder="Scrivi un messaggio" v-model="typingText" @keyup.enter="sendMsg(dynamicIndex, typingText)">
+              </div>
+              <div class="mainBottomIcon-container">
+                <i class="fas fa-microphone"></i>
+              </div>
+            </div>
+            <!-- /main-BOTTOM -->
+          </div>
+          <!-- /MAIN SECTION-->
+        </div>
+        <!-- /TOTAL PAGE-->
+      </div>
+      <!-- /CLONE OF DOM-->
+    </div>
+    <!-- /VUE.JS OPERATIONAL AREA NOT DELETE-->
+    <script src="js/script.js"></script>
+  </body>
+</html>

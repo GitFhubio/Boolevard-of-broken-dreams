@@ -1,0 +1,309 @@
+/*>>>>>>>>>>>>>>>>>>>>>>>>> UTILITY <<<<<<<<<<<<<<<<<<<<<*/
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Lato', sans-serif;
+}
+ul {
+  list-style: none;
+}
+.flex {
+  display: flex;
+}
+
+.clearfix {
+  content: '';
+  clear: both;
+  display: table;
+}
+/*>>>>>>>>>>>>>>>>>>>>> LAYOUT STRUCUTRE <<<<<<<<<<<<<<<<<<<<<<<<<*/
+/*ALERT: l'attributo id dom-wrapper contiene tutta la pagina*/
+#dom-wrapper {
+  background-image: linear-gradient(rgb(0, 150, 136),rgb(0, 150, 136));
+  background-repeat: no-repeat;
+  background-size: 100% 15%;
+  background-color: rgb(217, 219, 215);
+  width: 100vw;
+  height: 100vh;
+  padding: 20px 0px;
+}
+/*ALERT: l'attributo class page-wrapper contiene tutto il layout della pagina*/
+.page-wrapper {
+  margin: 0 auto;
+  width: 80%;
+  min-width: 950px;
+  height: 100%;
+  min-height: 200px;
+}
+.sidebar-box {
+  display: inline-block;
+  width: 530px;
+  height: 100%;
+  border-right: 1px solid rgb(22, 20, 109);
+}
+.sidebar-top {
+  width: 100%;
+  height: 85px;
+  background-color: rgb(214, 214, 214);
+  justify-content: space-between;
+}
+.sidebar-popup-box {
+  width: 100%;
+  height: 100px;
+  background-color: rgb(123, 218, 250);
+}
+.sidebar-search-box {
+  width: 100%;
+  height: 60px;
+  background-color: rgb(214, 214, 214);
+}
+.sidebar-msgContact-box {
+  width: 100%;
+  height:calc(100% - 245px);
+  background-color: rgb(214, 214, 214);
+  overflow-y: auto;
+}
+.main-box {
+  display: inline-block;
+  width: calc(100% - 530px);
+  height: 100%;
+}
+.main-top-box {
+  width: 100%;
+  height: 85px;
+  background-color: rgb(214, 214, 214);
+  justify-content: space-between;
+}
+.main-central-box {
+  width: 100%;
+  height:calc(100% - 170px);
+  background-image: url("../img/mine.jpg");
+  overflow-y: auto;
+  padding: 15px 80px; /*padding chat msgBalloon*/
+}
+.main-bottom-box {
+  width: 100%;
+  height: 85px;
+  background-color: rgb(214, 214, 214);
+  align-items: center;
+  justify-content: space-between;
+}
+/*>>>>>>>>>>>>>>>>>>>>>>>>> STYLE CONTENT <<<<<<<<<<<<<<<<<<<<<<<<<*/
+/*+++++sidebar++++*/
+.user-box-data {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+.user-box-data img {
+  width: 55px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 15px;
+  cursor: pointer;
+}
+div[class$="iconBoxRight"] {
+  display: flex;
+  align-items: center;
+  font-size: 28px;
+  color: rgb(165, 165, 165);
+  margin-right: 15px;
+}
+div[class$="iconBoxRight"] > i,
+div[class^="mainBottomIcon"] > i {
+  margin: 0px 12px;
+  cursor: pointer;
+}
+.name-data {
+  font-size: 18px;
+  font-weight: 300;
+  cursor: pointer;
+}
+.access-data {
+  color: rgb(165, 165, 165);
+  font-size: 15px;
+  cursor: pointer;
+}
+.sidebar-popup-box {
+  align-items: center;
+  padding-left: 15px;
+}
+.logo-popup-container {
+  margin-right: 15px;
+}
+.logo-popup-container i {
+  font-size: 28px;
+  color: rgb(123, 218, 250);
+  border-radius: 50%;
+  padding: 15px;
+  background-color: rgb(255, 255, 255);
+}
+.sidebar-popup-box .underline-textLink {
+  font-size: 15px;
+  color: rgb(91, 157, 159);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.sidebar-search-box {
+  align-items: center;
+  padding: 10px 15px;
+}
+.input-container {
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  width:100%;
+  height: 100%;
+  border-radius: 3px;
+  padding-left: 20px;
+}
+.input-container i {
+  vertical-align: middle;
+  margin-right: 20px;
+  color: rgb(165, 165, 165);
+  cursor: pointer;
+}
+.input-container input {
+  width: 90%;
+  font-size: 15px;
+  border: none;
+}
+.input-container input:focus {
+  outline: none;
+}
+.contact-item {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: 100px;
+  align-items: center;
+  margin-bottom: 1px;
+  cursor: pointer;
+}
+.contact-item:hover {
+  background-color: rgb(218, 218, 218);
+}
+.selected-contact {
+  background-color: rgb(218, 218, 218);
+}
+/*++++++++main central msg balloon++++++*/
+
+.msgBalloon {
+  right: 0px;
+  max-width: 280px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 10px 20px 20px 10px;
+  box-shadow: 2px 3px 4px rgb(91, 114, 134);
+  cursor: pointer;
+  position:relative;
+}
+.sent {    /*colore background msgBalloon user*/
+  background-color: rgb(183, 209, 168);
+  float: right;
+}
+.received {   /*colore background msgBalloon contact*/
+  background-color: rgb(255, 255, 255);
+  float: left;
+}
+.msgBalloon.sent::after,   /*arrow of balloon general L-R*/
+.msgBalloon.received::before  {
+  content: "";
+  width: 0px;
+  height: 0px;
+  border-bottom: 20px solid transparent;
+  position: absolute;
+  top: 0px;
+}
+.text-inBalloon {
+  position: relative;
+}
+
+.msgBalloon.received::before {     /*arrow left of balloon*/
+  border-top: 25px solid rgb(255, 255, 255);
+  border-left: 25px solid transparent;
+  border-top-left-radius: 5px;
+  transform: translateX(-60%);
+  left: 0px;
+}
+
+.msgBalloon.sent::after {        /*arrow right of balloon*/
+  border-top: 25px solid rgb(183, 209, 168);
+  border-right: 25px solid transparent;
+  border-top-right-radius: 5px;
+  transform: translateX(60%);
+  right: 0px;
+}
+
+.msg-hours {
+  font-size: 10px;
+  color: rgb(165, 165, 165);
+  position: absolute;
+  right: 0;
+  bottom: 0px;
+  padding: 2px;
+}
+.msg-hours::after {
+  font-weight: 700;
+  content: "\f560";
+  display: inline-block;
+  font-family: "Font Awesome 5 Free";
+  margin-left: 5px;
+}
+/*finestra per cancellare i messaggi*/
+.button-msg {
+  position: relative;
+}
+.button-msgMenu > i{ /*freccia menu msg*/
+  position: absolute;
+  right: 5px;
+  top:0;
+  z-index: 100;
+  color: rgb(165, 165, 165);
+  display: none;
+}
+.msgBalloon:hover .button-msgMenu > i {
+  display: block;
+}
+.msg-menu {
+  width: 150px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 2px 3px 4px rgb(91, 114, 134);
+  position: absolute;
+  z-index: 200;
+  right: 5px;
+  top: 15px;
+}
+.msg-menu li {
+  padding: 15px;
+  line-height: 30px;
+  color: rgb(145, 145, 145);
+}
+.msg-menu li:hover {
+  background-color: rgb(218,218,218);
+  display:block;
+}
+
+.activeMenu {
+  display: block;
+}
+/*++++++++main bottom++++++*/
+div[class^="mainBottomIcon"] {
+  display: flex;
+  align-items: center;
+  font-size: 28px;
+  color: rgb(91, 114, 134);
+  margin-right: 15px;
+}
+.mainBottomInput-container {
+  width: 98%;
+}
+.mainBottomInput-container > input {
+  width: 98%;
+  line-height: 60px;
+  padding-left: 15px;
+  border-radius: 4px;
+  border: none;
+}
+.mainBottomInput-container > input:focus {
+  outline-color: rgb(91, 114, 134);
+}
