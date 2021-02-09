@@ -88,14 +88,6 @@ nav {
 main {
   width:100%;
 }
-#shaving{
-  position:relative;
-  top:-20px;
-}
-#shaving .container{
-  background-color:red;
-}
-
 .icons li {
   display:inline-block;
   position:relative;
