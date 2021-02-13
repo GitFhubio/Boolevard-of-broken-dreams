@@ -56,7 +56,7 @@
   </div>
 </div>
 </section>
-<section class="secind">
+<section class="second">
   <div class="container">
 <div class="row">
 <div class="col-12 text-center">
@@ -88,7 +88,7 @@
 </div>
 
 </div>
-
+</div>
 </section>
 <section id="third">
 <div class="container">
@@ -126,6 +126,7 @@
 
 <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
 </div>
 </div>
 </section>
@@ -196,9 +197,9 @@
 </div>
 </div>
 </footer>
-<div id="slider_horizontal" class="container" style="overflow-x:auto;">
+<div id="slider_horizontal" style="overflow-x:auto;margin:0 auto;">
 <div class="row" style="width:max-content;">
-<div v-for="(img,ind) in imgs" class="prova" style="display:inline-block;width:600px;border:1px solid red;">
+<div v-for="(img,ind) in imgs" class="prova" style="width:600px;border:1px solid red;">
   <img src="https://sites.google.com/a/netcmmi.com/share/_/rsrc/1473734124982/img/png/s/star-e01.png" alt="">
     </div>
     </div>
@@ -209,8 +210,7 @@
     <a @click="slideHorizontal(index, 'slider_horizontal')"><i :class="index === positionDotHorizontal ? 'dot_active': ''" class="fas fa-circle"></i></a>
   </div>
 </div>
-
-  </div>
+</div>
     <script type="text/javascript" src="action.js"></script>
   </body>
 </html>
