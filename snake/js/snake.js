@@ -161,7 +161,6 @@ g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
   Ytesta=Ytesta-2;
   Xcoda=Xcoda+2;
   snakeDirection='Up';
-  // funziona
 }
 if (snakeDirection=='Right' && Direction=='Down'){
 g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
@@ -172,7 +171,6 @@ g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
   Ytesta=Ytesta+2;
   Xcoda=Xcoda+2;
   snakeDirection='Down';
-  // funziona
 }
 if (snakeDirection=='Up' && Direction=='Right'){
 g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
@@ -184,7 +182,6 @@ g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
   Xtesta=Xtesta+2;
   snakeDirection='Right';
 }
-// funziona(gesu cristo wannabe)
 if (snakeDirection=='Up' && Direction=='Left'){
 g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
 g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
@@ -194,7 +191,6 @@ g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
   Ycoda=Ycoda-2;
   Xtesta=Xtesta-2;
   snakeDirection='Left';
-  // funziona
 }
 if (snakeDirection=='Left' && Direction=='Up'){
 g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
@@ -205,7 +201,6 @@ g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
   Xcoda=Xcoda-2;
   Ytesta=Ytesta-2;
   snakeDirection='Up';
-  // funziona
 }
 if (snakeDirection=='Left' && Direction=='Down'){
 g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
@@ -216,7 +211,6 @@ g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
   Xcoda=Xcoda-2;
   Ytesta=Ytesta+2;
   snakeDirection='Down';
-  // funziona
 }
 if (snakeDirection=='Down' && Direction=='Right'){
 g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
@@ -227,7 +221,6 @@ g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
   Ycoda=Ycoda+2;
   Xtesta=Xtesta+2;
   snakeDirection='Right';
-  // funziona
 }
 if (snakeDirection=='Down' && Direction=='Left'){
 g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
@@ -244,17 +237,21 @@ g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
 // quindi non sempre la testa è testa e va risolto(restano classi teste code corpi non rimossi credo//bug)
 var punteggio=document.getElementById('punteggio');
 punteggio.innerHTML='<h2>Punteggio</h2><p>'+score+'</p>';
-if(score == 10)
-{  clearInterval(clock);
-  start(230);
-}
-if(score == 20)
-{  clearInterval(clock);
-  start(160);
-}
-if(score == 30)
-{  clearInterval(clock);
-  start(130);
+switch (score){
+ case 10 :
+  clearInterval(clock);
+    start(230);
+    break;
+
+ case 20:
+  clearInterval(clock);
+    start(160);
+    break;
+
+ case 30:
+  clearInterval(clock);
+    start(130);
+    break;
 }
 
 if( g[Ytesta][Xtesta].element.classList.contains('apple') || g[Ycoda][Xcoda].element.classList.contains('apple') ||
@@ -269,12 +266,6 @@ eat.play();
  RandomApple();
  score++;
 }
-console.log(Xtesta);
-console.log(Ytesta);
-
-// il gioco non riuscivo a concluderlo né con condizioni sul numero di quadrati
-// verdi nella griglia né con Xsnake e Ysnake entro i limiti 0 dim max
-// per cui
 var fail = new Audio('css/fail.mp3');
     var tmp_glob = Xtesta;
     var tmp2_glob = Ytesta;
@@ -328,9 +319,8 @@ var fail = new Audio('css/fail.mp3');
 
 
   }
-// se le coordinate non variano nel giro di 600ms(variano ogni 500ms) hai perso mado questa è clamorosa
+// se le coordinate non variano nel giro di 600ms(variano ogni 500ms) hai perso
 
 // ho fatto a 300 se ha aumentato velocità
 
-// il workaround del setinterval nasce perché non so ricaricare la pagina con gioco di un livello diverso
 }
