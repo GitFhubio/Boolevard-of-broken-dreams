@@ -4,6 +4,7 @@ function musicPlay() {
     monster= document.getElementById('playAudio');
     monster.play();
 }
+monster= document.getElementById('playAudio');
 function TastoPremuto(event) {
     switch (event.keyCode) {
         case 38 :
@@ -36,7 +37,6 @@ function TastoPremuto(event) {
     event.preventDefault();
 }
 // _______________  funzione ausiliaria      ________________
-
 
 function RandomApple(){
 apple=g[Math.floor(Math.random()*g_width)][Math.floor(Math.random()*g_height)];
@@ -269,20 +269,7 @@ eat.play();
 var fail = new Audio('css/fail.mp3');
     var tmp_glob = Xtesta;
     var tmp2_glob = Ytesta;
-
-    if(score<10){
-    setTimeout(function () {
-        if (tmp_glob == Xtesta && tmp2_glob == Ytesta) {
-            fail.play();
-            monster.pause();
-            clearInterval(clock);
-            setTimeout(function () {
-            alert(' Hai perso! Ma se sei un cane perché vuoi essere un serpente?');
-           window.location.reload(false);},1000);
-        }
-    }, 600);
-  }
-  else if(score>=10 && score<20){
+ if(score<20){
     setTimeout(function () {
         if (tmp_glob == Xtesta && tmp2_glob == Ytesta) {
             fail.play();
@@ -319,6 +306,7 @@ var fail = new Audio('css/fail.mp3');
 
 
   }
+
 // se le coordinate non variano nel giro di 600ms(variano ogni 500ms) hai perso
 
 // ho fatto a 300 se ha aumentato velocità
