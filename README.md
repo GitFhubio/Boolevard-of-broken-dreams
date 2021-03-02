@@ -1,15 +1,15 @@
 # Boolevard of broken dreams
 
-Questo è un off-topic dove mi rifugio quando il mondo là fuori va a rotoli, cioè sempre.
-
+Il mondo è un grandissimo mosaico amici miei,ma credetemi:questo è davvero imperdibile.
 **Tecnologie utilizzate**
 
 - PHP
 - JS
 - JQuery (...)
 
- _Elleh_
+ _Elleh_ :espressione di stizza cui mi lascio andare qualcosa non va nel codice
 
+![Screenshot](ibra.jpg)
 
 ```php  
 
@@ -20,23 +20,14 @@ echo "questo è un codice php!";
 ?>
 
 ```
-```html  
-
-<html>
-
-<p>questo è un codice html!</p>
 
 
-</html>
-```
+## Note:
 
-## Traccia esercizio:
+Sono progetti a cui ho avuto poco tempo per lavorare durante il corso Boolean, quindi andrebbero rivisti per un refactoring.
 
-Stampare a schermo una decina di dischi musicali (vedi screenshot) in due modi diversi:
+**1^ CAMPO MINATO**: Simula campo minato.
 
-**1^ MILESTONE**: Solo con l’utilizzo di PHP, che stampa direttamente i dischi in pagina: al caricamento della pagina ci saranno tutti i dischi.
+**2^ SNAKE** : Simula Snake.
 
-**2^ MILESTONE** Attraverso l’utilizzo di AJAX: al caricamento della pagina ajax chiederà attraverso una chiamata i dischi a php e li stamperà.
-
-**Opzionale**:
-Attraverso un’altra chiamata ajax, filtrare gli album per genere
+**3^ BAGHEERA** : Progetto con paginator PHP.
