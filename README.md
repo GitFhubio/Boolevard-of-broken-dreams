@@ -1,6 +1,6 @@
 # Boolevard of broken dreams
 
-Il mondo è un grandissimo mosaico amici miei,ma credetemi:questo è davvero imperdibile.
+Il mondo è un grandissimo mosaico amici miei,ma credetemi: questo è davvero imperdibile.
 
 **Tecnologie utilizzate**
 
@@ -12,7 +12,7 @@ Il mondo è un grandissimo mosaico amici miei,ma credetemi:questo è davvero imp
 
 ## Note:
 
-Sono progetti a cui ho avuto poco tempo per lavorare durante il corso Boolean, quindi andrebbero rivisti per un refactoring.
+Lista dei progetti contenuti nella cartella:
 
 **1^ CAMPO MINATO**: Simula campo minato.
 
