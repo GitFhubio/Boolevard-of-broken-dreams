@@ -24,7 +24,7 @@ echo "questo è un codice php!";
 
 <html>
 
-echo "questo è un codice html!";
+<p>questo è un codice html!</p>
 
 
 </html>
