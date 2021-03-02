@@ -1,29 +1,34 @@
-# Boolean - DISCHI Exercise Structure
+# Boolevard of broken dreams
 
-Questa è la struttura base per l'esercizio dove affronto lo sviluppo di frontend e backend con chiamata ajax.
+Questo è un off-topic dove mi rifugio quando il mondo là fuori va a rotoli, cioè sempre.
 
 **Tecnologie utilizzate**
 
 - PHP
 - JS
-- VUEJS (facoltativo) + AXIOS
-- oppure: jQuery per chiamata ajax  
-- json_encode
-- require_once
+- JQuery (...)
 
+ _Elleh_
 
-Inoltre con questo README mi sto anche esercitando a scrivere qualcosa in _markdown_.
-
-Ad esempio questo qui è un codice php in markdown.
 
 ```php  
+
 <?php
 
 echo "questo è un codice php!";
 
 ?>
-```
 
+```
+```html  
+
+<html>
+
+echo "questo è un codice html!";
+
+
+</html>
+```
 
 ## Traccia esercizio:
 
