@@ -1,6 +1,7 @@
 # Boolevard of broken dreams
 
-Il mondo è un grandissimo mosaico amici miei,ma credetemi:questo è davvero imperdibile.
+Il mondo è un grandissimo mosaico amici miei,ma credetemi:questo è davvero imperdibile.\
+
 **Tecnologie utilizzate**
 
 - PHP
