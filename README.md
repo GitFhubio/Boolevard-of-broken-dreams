@@ -20,8 +20,6 @@ echo "questo è un codice php!";
 ?>
 
 ```
-
-
 ## Note:
 
 Sono progetti a cui ho avuto poco tempo per lavorare durante il corso Boolean, quindi andrebbero rivisti per un refactoring.
