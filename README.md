@@ -20,7 +20,7 @@ Sono progetti a cui ho avuto poco tempo per lavorare durante il corso Boolean, q
 
 **3^ BAGHEERA** : Progetto con paginator PHP per switchare fogli stile.
 
-**4^ BOOTSTRAP4/SASS** : Progetto del corso Boolean con implementazione della possibilità di inviare messaggi vocali tramite settaggio del MediaRecorder.
+**4^ BOOTSTRAP4/SASS** : Override Sass Bootstrap4 per scrivere stile più velocemente.
 
 **5^ BOOLZAPP/MEDIARECORDER** : Progetto del corso Boolean con implementazione della possibilità di inviare messaggi vocali tramite settaggio del MediaRecorder.
 
