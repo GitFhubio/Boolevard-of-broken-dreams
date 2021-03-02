@@ -9,7 +9,7 @@ Il mondo è un grandissimo mosaico amici miei,ma credetemi:questo è davvero imp
 
  _Elleh_ :espressione di stizza cui mi lascio andare qualcosa non va nel codice
 
-![Screenshot](ibra.jpg)
+![Screenshot](ibra.jpg) :reazione quando riesco
 
 ```php  
 
