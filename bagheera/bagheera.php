@@ -6,18 +6,18 @@
     <meta name="description" content="Questo è il forum di Bagheera">
     <link rel="stylesheet" href="css/style.css" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  </head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,500;1,700&display=swap" rel="stylesheet">
+</head>
   <body>
     <div class="wrapper">
 
 
 <header>
-  <div class="Peppe">
-
-
-  <h1>Questo è l'header di BagheeraNews</h1>
+  <div>
+  <h1>BagheeraNews</h1>
 </div>
-<a href="javascript:void(0)" onclick="stoggle()" ><img class="logo" src="http://via.placeholder.com/90" alt="logo del sito"></a>
+
 </header>
 
 <div id="sidebar">
