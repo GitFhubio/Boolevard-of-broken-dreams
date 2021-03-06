@@ -1,6 +1,6 @@
 # Boolevard of broken dreams
 
-Il mondo è un grandissimo mosaico amici miei,ma credetemi: questo è davvero imperdibile.
+Il mondo è un grandissimo mosaico amici miei, ma credetemi: questo è davvero imperdibile.
 
 **Tecnologie utilizzate**
 
@@ -22,7 +22,9 @@ Lista dei progetti contenuti nella cartella:
 
 **4^ BOOTSTRAP4/SASS** : Override Sass Bootstrap4 per scrivere stile più velocemente.
 
-**5^ BOOLZAPP/MEDIARECORDER** : Progetto del corso Boolean con implementazione della possibilità di inviare messaggi vocali tramite settaggio del MediaRecorder.
+**5^ BOOLZAPP/MEDIARECORDER** : Progetto del corso Boolean con implementazione della possibilità di inviare messaggi vocali tramite settaggio del MediaRecorder.(feat. Alfredo)
+
+**6^ BROJECTS** : Creazione lista webinars con animations varie on hover, filtrabili tramite doppia select con opzioni della seconda in funzione delle opzioni della prima. Bonus con contatori numerici che si avviano allo scroll tramite InterectionObserver.
 
 
 <!-- _Elleh_ :espressione di stizza cui mi lascio andare qualcosa non va nel codice
