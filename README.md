@@ -24,7 +24,7 @@ Lista dei progetti contenuti nella cartella:
 
 **5^ BOOLZAPP/MEDIARECORDER** : Progetto del corso Boolean con implementazione della possibilità di inviare messaggi vocali tramite settaggio del MediaRecorder.(feat. Alfredo)
 
-**6^ BROJECTS** : Creazione lista webinars con animations varie on hover, filtrabili tramite doppia select con opzioni della seconda in funzione delle opzioni della prima. Bonus con contatori numerici che si avviano allo scroll tramite InterectionObserver.
+**6^ BROJECTS** : Creazione lista webinars con animations varie on hover, filtrabili tramite doppia select con opzioni della seconda in funzione delle opzioni della prima. Bonus con contatori numerici che si avviano allo scroll tramite InterectionObserver. Versione base con dato json disponibile in vue data, versione avanzata con chiamata axios.
 
 
 <!-- _Elleh_ :espressione di stizza cui mi lascio andare qualcosa non va nel codice
