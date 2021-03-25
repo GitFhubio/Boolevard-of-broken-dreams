@@ -3,6 +3,9 @@ document.addEventListener('keydown', musicPlay);
 function musicPlay() {
   monster= document.getElementById('playAudio');
   monster.play();
+  // alcuni browser tipo Chrome non permettono più autoplay al'onload 
+  // firefox si,per permettere di sentire sottofondo musicale
+  // ovunque lo lego al keydown
 }
 monster= document.getElementById('playAudio');
 function TastoPremuto(event) {
@@ -82,7 +85,6 @@ $(document).ready(function(){
   testaSnake.element.classList.add('snake','testaSnake');
   corpoSnake.element.classList.add('snake','corpoSnake');
   codaSnake.element.classList.add('snake','codaSnake');
-
 
   RandomApple();
 
@@ -225,7 +227,6 @@ function game(){
       snakeDirection='Left';
     }
   }
-
   // Fisso livelli di difficoltà crescente
   var punteggio=document.getElementById('punteggio');
   punteggio.innerHTML='<h2>Punteggio</h2><p>'+score+'</p>';
@@ -234,12 +235,10 @@ function game(){
     clearInterval(clock);
     start(230);
     break;
-
     case 20:
     clearInterval(clock);
     start(160);
     break;
-
     case 30:
     clearInterval(clock);
     start(130);
@@ -300,13 +299,7 @@ function game(){
               window.location.reload(false);},1000);
             }
           }, 200);
-
-
-
-
           // se le coordinate non variano nel giro di 600ms(variano ogni 500ms) hai perso
-
           // ho fatto a 300 se ha aumentato velocità
-
         }
       }
