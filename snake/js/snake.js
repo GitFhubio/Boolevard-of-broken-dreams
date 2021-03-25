@@ -49,7 +49,7 @@ function start(x)
 }
 // creo griglia,prima mela e snake iniziale on ready document
 $(document).ready(function(){
-
+  // procedura per crearmi griglia con coordinate x e y
   griglia = document.getElementById('griglia');
   g=[];
   g_width = 14;
@@ -233,7 +233,8 @@ function game(){
       snakeDirection='Left';
     }
   }
-  // Queste condizioni dovevano essere solo sulla testa ma non sempre mangia la mela
+
+  // Fisso livelli di difficoltà crescente
   var punteggio=document.getElementById('punteggio');
   punteggio.innerHTML='<h2>Punteggio</h2><p>'+score+'</p>';
   switch (score){
@@ -268,7 +269,11 @@ function game(){
   var fail = new Audio('css/fail.mp3');
   var tmp_glob = Xtesta;
   var tmp2_glob = Ytesta;
-  if(score<20){
+
+// si può usare switch non necessariamente per verificare valori esatti
+// ma anche range
+  switch (true){
+    case score<20:
     setTimeout(function () {
       if (tmp_glob == Xtesta && tmp2_glob == Ytesta) {
         fail.play();
@@ -279,7 +284,8 @@ function game(){
           window.location.reload(false);},1000);
         }
       }, 300);
-    } else if(score>=20 && score <30){
+      break;
+      case score<=20 && score<30 :
       setTimeout(function () {
         if (tmp_glob == Xtesta && tmp2_glob == Ytesta) {
           fail.play();
@@ -290,8 +296,8 @@ function game(){
             window.location.reload(false);},1000);
           }
         }, 240);
-
-      } else{
+        break;
+        default:
         setTimeout(function () {
           if (tmp_glob == Xtesta && tmp2_glob == Ytesta) {
             fail.play();
@@ -304,10 +310,11 @@ function game(){
           }, 200);
 
 
+
+
+          // se le coordinate non variano nel giro di 600ms(variano ogni 500ms) hai perso
+
+          // ho fatto a 300 se ha aumentato velocità
+
         }
-
-        // se le coordinate non variano nel giro di 600ms(variano ogni 500ms) hai perso
-
-        // ho fatto a 300 se ha aumentato velocità
-
       }
