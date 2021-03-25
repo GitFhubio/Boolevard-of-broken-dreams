@@ -3,8 +3,6 @@ document.addEventListener('keydown', musicPlay);
 function musicPlay() {
   monster= document.getElementById('playAudio');
   monster.play();
-// certi browser tipo chrome hanno bloccato l'autoplay onload quindi
-// per far avviare il sottofondo del gioco lo lego al keydown
 }
 monster= document.getElementById('playAudio');
 function TastoPremuto(event) {
