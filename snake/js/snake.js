@@ -3,7 +3,7 @@ document.addEventListener('keydown', musicPlay);
 function musicPlay() {
   monster= document.getElementById('playAudio');
   monster.play();
-  // alcuni browser tipo Chrome non permettono più autoplay al'onload 
+  // alcuni browser tipo Chrome non permettono più autoplay al'onload
   // firefox si,per permettere di sentire sottofondo musicale
   // ovunque lo lego al keydown
 }
@@ -140,143 +140,138 @@ function game(){
     }
   }
 
-  if(snakeDirection==Direction || (snakeDirection=='Up' && Direction=='Down') || (snakeDirection=='Down' && Direction=='Up') || (snakeDirection=='Right' && Direction=='Left') ||
-  (snakeDirection=='Left' && Direction=='Right'))
-  {
+  switch(true){
+    case snakeDirection==Direction:
+    case snakeDirection=='Up' && Direction=='Down':
+    case snakeDirection=='Down' && Direction=='Up':
+    case snakeDirection=='Right' && Direction=='Left':
+    case snakeDirection=='Left' && Direction=='Right':
     snakeNatural();
-  }
-  else {//quanto segue sono i cambi di direzione prima di tornare naturale
-    if (snakeDirection=='Right' && Direction=='Up'){
-      g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
-      g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
-      g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
-      Xcorpo=Xcorpo+1;
-      Ycorpo=Ycorpo-1;
-      Ytesta=Ytesta-2;
-      Xcoda=Xcoda+2;
-      snakeDirection='Up';
-    }
-    if (snakeDirection=='Right' && Direction=='Down'){
-      g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
-      g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
-      g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
-      Xcorpo=Xcorpo+1;
-      Ycorpo=Ycorpo+1;
-      Ytesta=Ytesta+2;
-      Xcoda=Xcoda+2;
-      snakeDirection='Down';
-    }
-    if (snakeDirection=='Up' && Direction=='Right'){
-      g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
-      g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
-      g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
-      Xcorpo=Xcorpo+1;
-      Ycorpo=Ycorpo-1;
-      Ycoda=Ycoda-2;
-      Xtesta=Xtesta+2;
-      snakeDirection='Right';
-    }
-    if (snakeDirection=='Up' && Direction=='Left'){
-      g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
-      g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
-      g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
-      Xcorpo=Xcorpo-1;
-      Ycorpo=Ycorpo-1;
-      Ycoda=Ycoda-2;
-      Xtesta=Xtesta-2;
-      snakeDirection='Left';
-    }
-    if (snakeDirection=='Left' && Direction=='Up'){
-      g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
-      g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
-      g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
-      Xcorpo=Xcorpo-1;
-      Ycorpo=Ycorpo-1;
-      Xcoda=Xcoda-2;
-      Ytesta=Ytesta-2;
-      snakeDirection='Up';
-    }
-    if (snakeDirection=='Left' && Direction=='Down'){
-      g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
-      g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
-      g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
-      Xcorpo=Xcorpo-1;
-      Ycorpo=Ycorpo+1;
-      Xcoda=Xcoda-2;
-      Ytesta=Ytesta+2;
-      snakeDirection='Down';
-    }
-    if (snakeDirection=='Down' && Direction=='Right'){
-      g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
-      g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
-      g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
-      Xcorpo=Xcorpo+1;
-      Ycorpo=Ycorpo+1;
-      Ycoda=Ycoda+2;
-      Xtesta=Xtesta+2;
-      snakeDirection='Right';
-    }
-    if (snakeDirection=='Down' && Direction=='Left'){
-      g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
-      g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
-      g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
-      Xcorpo=Xcorpo-1;
-      Ycorpo=Ycorpo+1;
-      Ycoda=Ycoda+2;
-      Xtesta=Xtesta-2;
-      snakeDirection='Left';
-    }
-  }
-  // Fisso livelli di difficoltà crescente
-  var punteggio=document.getElementById('punteggio');
-  punteggio.innerHTML='<h2>Punteggio</h2><p>'+score+'</p>';
-  switch (score){
-    case 10 :
-    clearInterval(clock);
-    start(230);
     break;
-    case 20:
-    clearInterval(clock);
-    start(160);
+    case snakeDirection=='Right' && Direction=='Up':
+    g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
+    g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
+    g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
+    Xcorpo=Xcorpo+1;
+    Ycorpo=Ycorpo-1;
+    Ytesta=Ytesta-2;
+    Xcoda=Xcoda+2;
+    snakeDirection='Up';
     break;
-    case 30:
-    clearInterval(clock);
-    start(130);
+    case snakeDirection=='Right' && Direction=='Down':
+    g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
+    g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
+    g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
+    Xcorpo=Xcorpo+1;
+    Ycorpo=Ycorpo+1;
+    Ytesta=Ytesta+2;
+    Xcoda=Xcoda+2;
+    snakeDirection='Down';
+    break;
+    case snakeDirection=='Up' && Direction=='Right':
+    g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
+    g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
+    g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
+    Xcorpo=Xcorpo+1;
+    Ycorpo=Ycorpo-1;
+    Ycoda=Ycoda-2;
+    Xtesta=Xtesta+2;
+    snakeDirection='Right';
+    break;
+    case snakeDirection=='Up' && Direction=='Left':
+    g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
+    g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
+    g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
+    Xcorpo=Xcorpo-1;
+    Ycorpo=Ycorpo-1;
+    Ycoda=Ycoda-2;
+    Xtesta=Xtesta-2;
+    snakeDirection='Left';
+    break;
+    case snakeDirection=='Left' && Direction=='Up':
+    g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
+    g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
+    g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
+    Xcorpo=Xcorpo-1;
+    Ycorpo=Ycorpo-1;
+    Xcoda=Xcoda-2;
+    Ytesta=Ytesta-2;
+    snakeDirection='Up';
+    break;
+    case snakeDirection=='Left' && Direction=='Down':
+    g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
+    g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
+    g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
+    Xcorpo=Xcorpo-1;
+    Ycorpo=Ycorpo+1;
+    Xcoda=Xcoda-2;
+    Ytesta=Ytesta+2;
+    snakeDirection='Down';
+    break;
+    case snakeDirection=='Down' && Direction=='Right':
+    g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
+    g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
+    g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
+    Xcorpo=Xcorpo+1;
+    Ycorpo=Ycorpo+1;
+    Ycoda=Ycoda+2;
+    Xtesta=Xtesta+2;
+    snakeDirection='Right';
+    break;
+    case snakeDirection=='Down' && Direction=='Left':
+    g[Ycoda][Xcoda].element.classList.remove('snake','codaSnake');
+    g[Ytesta][Xtesta].element.classList.remove('snake','testaSnake');
+    g[Ycorpo][Xcorpo].element.classList.remove('snake','corpoSnake');
+    Xcorpo=Xcorpo-1;
+    Ycorpo=Ycorpo+1;
+    Ycoda=Ycoda+2;
+    Xtesta=Xtesta-2;
+    snakeDirection='Left';
+    break;
+    default:
     break;
   }
 
-  if( g[Ytesta][Xtesta].element.classList.contains('apple') || g[Ycoda][Xcoda].element.classList.contains('apple') ||
-  g[Ycorpo][Xcorpo].element.classList.contains('apple') )
-  {
-    g[Ytesta][Xtesta].element.classList.remove('apple');
-    g[Ycoda][Xcoda].element.classList.remove('apple');
-    g[Ycorpo][Xcorpo].element.classList.remove('apple');
-
-    var eat = new Audio('css/eat.mp3');
-    eat.play();
-    RandomApple();
-    score++;
-  }
-  var fail = new Audio('css/fail.mp3');
-  var tmp_glob = Xtesta;
-  var tmp2_glob = Ytesta;
-
-// si può usare switch non necessariamente per verificare valori esatti
-// ma anche range
-  switch (true){
-    case score<20:
-    setTimeout(function () {
-      if (tmp_glob == Xtesta && tmp2_glob == Ytesta) {
-        fail.play();
-        monster.pause();
-        clearInterval(clock);
-        setTimeout(function () {
-          alert('Hai perso!');
-          window.location.reload(false);},1000);
-        }
-      }, 300);
+    // Fisso livelli di difficoltà crescente
+    var punteggio=document.getElementById('punteggio');
+    punteggio.innerHTML='<h2>Punteggio</h2><p>'+score+'</p>';
+    switch (score){
+      case 10 :
+      clearInterval(clock);
+      start(230);
       break;
-      case score<=20 && score<30 :
+      case 20:
+      clearInterval(clock);
+      start(160);
+      break;
+      case 30:
+      clearInterval(clock);
+      start(130);
+      break;
+    }
+console.log(g[Ytesta][Xtesta]);
+    if( g[Ytesta][Xtesta].element.classList.contains('apple')
+    || g[Ycoda][Xcoda].element.classList.contains('apple') ||
+    g[Ycorpo][Xcorpo].element.classList.contains('apple')
+  )
+    {
+      g[Ytesta][Xtesta].element.classList.remove('apple');
+      g[Ycoda][Xcoda].element.classList.remove('apple');
+      g[Ycorpo][Xcorpo].element.classList.remove('apple');
+
+      var eat = new Audio('css/eat.mp3');
+      eat.play();
+      RandomApple();
+      score++;
+    }
+    var fail = new Audio('css/fail.mp3');
+    var tmp_glob = Xtesta;
+    var tmp2_glob = Ytesta;
+
+    // si può usare switch non necessariamente per verificare valori esatti
+    // ma anche range
+    switch (true){
+      case score<20:
       setTimeout(function () {
         if (tmp_glob == Xtesta && tmp2_glob == Ytesta) {
           fail.play();
@@ -286,9 +281,9 @@ function game(){
             alert('Hai perso!');
             window.location.reload(false);},1000);
           }
-        }, 240);
+        }, 300);
         break;
-        default:
+        case score<=20 && score<30 :
         setTimeout(function () {
           if (tmp_glob == Xtesta && tmp2_glob == Ytesta) {
             fail.play();
@@ -298,8 +293,20 @@ function game(){
               alert('Hai perso!');
               window.location.reload(false);},1000);
             }
-          }, 200);
-          // se le coordinate non variano nel giro di 600ms(variano ogni 500ms) hai perso
-          // ho fatto a 300 se ha aumentato velocità
+          }, 240);
+          break;
+          default:
+          setTimeout(function () {
+            if (tmp_glob == Xtesta && tmp2_glob == Ytesta) {
+              fail.play();
+              monster.pause();
+              clearInterval(clock);
+              setTimeout(function () {
+                alert('Hai perso!');
+                window.location.reload(false);},1000);
+              }
+            }, 200);
+            // se le coordinate non variano nel giro di 600ms(variano ogni 500ms) hai perso
+            // ho fatto a 300 se ha aumentato velocità
+          }
         }
-      }
