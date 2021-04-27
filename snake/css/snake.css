@@ -1,112 +1,114 @@
-*{
-
-padding: 0;
-box-sizing: border-box;
-margin: 0;
+* {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
 }
-body{
-
-  background-image: url('snake.jpg');
+body {
+  background-image: url("snake.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: rgba(255,255,255,0.8);
+  background-color: rgba(255, 255, 255, 0.8);
   background-blend-mode: lighten;
 }
-.quadrato{
-  width:40px;
-  height:40px;
-  border:1px solid black;
+.quadrato {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
   transition-duration: 1s;
 }
 
-.rosso{
+.rosso {
   background-color: red;
 }
-.verde{
+.verde {
   background-color: green;
 }
 
-.festa{
+.festa {
   font-size: 17px;
-  color:black;
+  color: black;
   font-weight: 900;
 }
-#griglia{
-  display:flex;
-align-items: center;
+#griglia {
+  display: flex;
+  align-items: center;
 }
 
-.verde-cliccato{
+.verde-cliccato {
   background-color: green;
-  position:relative;
+  position: relative;
+}
+.verde-cliccato:after {
+  content: "";
+  top: 0;
+  right: 2px;
+  position: absolute;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  width: 2px;
+  height: 5px;
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+}
 
+.legenda {
+  width: 500px;
 }
-.verde-cliccato:after{
-  content:"";
-top:0;
-right:2px;
-position:absolute;
--webkit-transform: rotate(45deg);
--ms-transform: rotate(45deg);
-transform: rotate(45deg);
-width: 2px;
-height: 5px;
-border: solid #000;
-border-width: 0 2px 2px 0;
-}
-
-.legenda{
-  width:500px;
-}
-.container{
-  width:500px;
+.container {
+  width: 500px;
   align-items: center;
   margin-left: 40px;
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 
-.blue{color:darkblue;}
-.yellow{background-color:yellow;}
-
-.pari{
-  background-color: #eee;
-  opacity:0.4;
+.blue {
+  color: darkblue;
 }
-.pari{
+.yellow {
+  background-color: yellow;
+}
+
+.pari {
+  background-color: #eee;
+  opacity: 0.4;
+}
+.pari {
   background-color: #ccc;
-  opacity:0.4;}
-.snake{
+  opacity: 0.4;
+}
+.snake {
   background-color: green;
   transition: 0.5s;
 }
-.divento-snake{
-background-color: green;
-transition:4s;
+.divento-snake {
+  background-color: green;
+  transition: 4s;
 }
 
-#griglia{
-  flex-wrap:wrap;
- width:420px;
+#griglia {
+  flex-wrap: wrap;
+  width: 420px;
 }
-#griglia div{
-width:30px;
-height:30px;
-border:1px solid black;
+#griglia div {
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
 }
-.apple{
-background-color: red;
+.apple {
+  background-color: red;
 }
-#punteggio{
-  margin:20px 0;
-  width:400px;
+#punteggio {
+  margin: 20px 0;
+  width: 400px;
   text-align: center;
 }
 
-h1{
-  margin:20px 0;
+h1 {
+  margin: 20px 0;
 }
-#punteggio p{
+#punteggio p {
   font-size: 20px;
   font-weight: 700;
 }

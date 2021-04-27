@@ -1,26 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Snake</title>
-  <link rel="stylesheet" href="css/snake.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Snake</title>
+    <link rel="stylesheet" href="css/snake.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
   <body onload="start(300)" onkeydown="TastoPremuto(event)">
-
     <div class="container">
       <h1>Snake</h1>
-      <div id="griglia">
-      </div>
-     <div id="punteggio">
-
-     </div>
-<audio autoplay loop  id="playAudio">
-    <source src="css/monster.mp3" type="audio/mp3">
-</audio>
+      <div id="griglia"></div>
+      <div id="punteggio"></div>
+      <audio autoplay loop id="playAudio">
+        <source src="css/monster.mp3" type="audio/mp3" />
+      </audio>
     </div>
     <script src="js/snake.js" charset="utf-8"></script>
   </body>
-  </html>
+</html>
