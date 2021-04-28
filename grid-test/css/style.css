@@ -5,8 +5,8 @@
   .container{
 display:grid;
 /* width:100vw; */
-/* grid-template-columns: 1fr 1fr 1fr;  
-grid-template-columns:repeat(3,1fr); 
+ /* grid-template-columns: 1fr 1fr 1fr;  */
+/* grid-template-columns:repeat(3,1fr); 
 grid-template-columns:repeat(3,minmax(500px,auto));  */
 grid-template-columns:repeat(auto-fit,minmax(200px,auto)); 
 gap:10px;
