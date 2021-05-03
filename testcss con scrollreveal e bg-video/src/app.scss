@@ -1,0 +1,311 @@
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+
+// base style
+body{
+    font-family: 'Inter', sans-serif;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+h1,h2,h3,h4,h5,p{
+    color:#000;
+    padding-bottom:30px;
+}
+p{
+    line-height:28px;
+    color:#666;
+    font-weight:300;
+}
+
+
+.big-text{
+    font-size: 70px;
+    font-weight:900;
+}
+.med-text{
+    font-size: 40px;
+}
+.normal-text{
+    font-size: 20px;
+}
+.small-text{
+    font-size: 14px;
+}
+.intro-text{
+    text-transform: uppercase;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.button{
+    padding:18px 28px;
+    background-color:#316bff;
+    color:#fff;
+    display:inline-block;
+    border-radius:4px;
+}
+
+@media (max-width:768px){
+  .big-text{
+      font-size:40px;
+  }  
+}
+
+// header
+.header{
+    z-index:10;
+display:flex;
+width:100%;
+position:fixed;
+top:0;
+left:50%;
+transform:translateX(-50%);
+padding:30px;
+max-width:1350px;
+}
+.logo{
+    z-index:1;
+}
+.menu{
+    transition:all 1s cubic-bezier(0.215, 0.65, 0.355, 1);
+    z-index:0;
+    width:100%;
+    li{display:inline-block;
+     a{
+         color:#fff;
+         padding:15px;
+         display:block; // mi serve senno il padding su inline fa difetto
+     }
+    }
+}
+
+.cta{}
+.hamburger{
+    display:none;
+}
+
+@media (max-width:768px){
+
+    .cta{
+        display:none;
+    }
+    .menu{
+        position:absolute;
+        padding-top:80px;
+        top:0;
+        right:-100%;//cosi lo traslo fuori dallo schermo per l'animazione
+        background:#000;
+        height:100vh;
+        li{
+            display:block;
+            a{
+            padding:15px 30px;
+            font-size:20px;
+            }
+        }
+    }
+    .menu--open{right:0%;
+
+    }
+    .hamburger{
+        display:block;
+        width:30px;
+        height:30px;
+        position:absolute;
+        top:40px;
+        right:40px;
+        span{
+            background:#fff;
+            height:3px;
+            margin-bottom:5px;
+            width:100%;
+            display:block; //essendo span devo darglielo per farlo allargare
+        }
+
+    }
+}
+// hero
+.hero::after{
+    content:' ';
+    width:100%;
+    height:100%;
+    position:absolute;
+    display:block;
+    background:#000;
+    opacity:0.4;
+    top:0;
+    left:0;
+}
+.hero{
+    position:relative;
+    overflow:hidden;
+    height:100vh;
+     display:flex;
+     width:100%;
+     align-items:center;
+     background: linear-gradient(0deg, rgba(0,0,0,.1), rgba(0,0,0,0.9)),url('../img/bg-video.png') no-repeat center center;
+     background-size:cover;
+     &__content{
+         z-index:1;
+         position:relative; //va messo senno non si piglia z-index
+         padding:30px;
+         width:100%;
+         max-width:1350px;
+         margin:0 auto;
+         h1,p{
+             color:#fff;
+         }
+     }
+}
+
+#video-back{
+position:absolute;
+z-index:0;
+min-width:100%;
+min-height:100%;
+bottom:0;
+left:0;
+}
+
+//poster
+
+.poster{
+    display:flex;
+    align-items:center;
+    height:100vh;
+    width: 100%;
+    &__img{
+        width:65%;
+        height:100%;
+        img{
+            object-fit: cover;
+            width:100%;
+            height:100%;
+        }
+
+    }
+    &__content{
+        padding:50px;
+        width:35%;
+    }
+}
+
+@media (max-width:768px){
+.poster{
+    flex-wrap:wrap;
+    height:auto;
+    &__img,&__content{
+        width:100%;
+    }
+}
+}
+//bg cover
+
+.bg-cover{
+    display:flex;
+    padding:100px 0;
+    background: linear-gradient(0deg, rgba(0,0,0,.7), rgba(0,0,0,0.7)),url('../img/bg-video.png') no-repeat center center;
+     background-size:cover;
+    &__text,&__title{
+     width:50%;
+    }
+    &__text{
+        padding:30px;
+    }
+    &__title{
+        padding:50px;
+     display:flex;
+     align-items:center;
+    }
+}
+
+@media (max-width:768px){
+    .bg-cover{flex-wrap:wrap;
+        height:auto;
+        &__text,&__title{
+         width:100%;
+        }
+    }
+}
+
+//grid
+
+.grid{
+    display:flex;
+    max-width:1350px;
+    padding:0 30px;
+    margin:0 auto;
+    .col{
+        width:100%;
+    }
+}
+@media (max-width:768px){
+    .grid{
+        flex-wrap:wrap;
+    }
+}
+//carousel
+
+.main-carousel{
+    padding:40px 0;
+  .carousel-cell{
+      height:350px;
+      width:350px;
+      margin-right:40px;
+      &__content{
+          width:100%;
+          height:100%;
+        background-color:#6adf91;
+        border-radius:100%;
+        line-height:350px;
+        text-align: center;
+      }
+  }
+}
+
+//panel-blue
+.panel-blue{
+    background-color:#4bb1e9;
+    padding:100px 30px;
+    
+}
+.panel-blue__text{
+    display:flex;
+    align-items:center;
+}
+.dot{
+    height:250px;
+    width:250px;
+    background-color:#6adf91;
+    border-radius:100%;
+    line-height:250px;
+    text-align:center;
+    display:inline-block;
+    margin-right:40px;
+    margin-bottom:40px;
+}
+
+//footer
+
+.footer{
+    background-color:#010e30;
+    padding:150px 0;
+}
+
+//helpers
+
+.mt-1{margin-top:50px;}
+.mt-2{margin-top:100px;}
+.mt-3{margin-top:150px;}
+
+.tw{
+    color:#fff;
+}
+
