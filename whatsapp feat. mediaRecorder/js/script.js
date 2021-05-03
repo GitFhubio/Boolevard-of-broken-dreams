@@ -390,6 +390,7 @@ let boolzapp = new Vue({
   },
   // updated invece viene chiamato ogni volta che c'è un rerender del componente(in vue il dom dipende dai dati quindi in pratica ogni volta che un dato cambia)
   updated: function () {
+
     // funzione per dare blur al click su dropdown,ho usato layer in absolute con z-index minore di z-index dropdown e applicato backdrop-filter (che fa il blur di ciò che è sotto il layer non del layer stesso)
     const messages = document.getElementsByClassName('messages');
     const overlay = document.getElementsByClassName('overlay')[0];
