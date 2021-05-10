@@ -3,7 +3,7 @@
 
 Vue.config.devtools = true;
 
-var app = Vue.component("App",
+Vue.component("App",
 {
   template:`
   <div class="container" style="display:flex;justify-content:center;">
