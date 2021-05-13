@@ -1,0 +1,27 @@
+.suggestions-box{
+   .list-users-suggested{
+       .user-suggested-li{
+           .suggested-user{
+           display:flex;
+           align-items:center;
+           .container-imgUser-story{
+              width:50px;
+              height:50px;
+              margin-bottom:10px;
+               img{width:100%;
+                  height:100%;
+                 border-radius:100%;
+               object-fit: cover;}
+           }
+            h5{
+                margin-left:20px;
+            }
+            &-left{
+                display:flex;
+                align-items:center;
+                width:70%;
+            }
+           }
+       }
+   }
+ }
