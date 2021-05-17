@@ -62,7 +62,7 @@ grid-template-rows: 200px 400px 300px;
   grid-template-rows:1fr 1fr;
 }
   /* fr vale come fraction,quindi se a row ne metto 1,va a tutto schermo a 100vh,
-  se ne metto due,le tre colonne hanno 50vh,se ne metto tre 33vh;  */
+  se ne metto due,le colonne hanno 50vh,se ne metto tre 33vh;  */
   /* se non dico niente sull'altezza, le rows si adattano al contenuto */
 /* se pero metto 100vh all'altezza del contenitore, ho 3 altezze uguali del 33% grazie a 1fr; */
 /* } */

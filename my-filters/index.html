@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Esercizio Javascript</title>
+    <meta name="description" content="Esercizio">
+  </head>
+  <body>
+    <input type="file" id="img-button" onchange="previewFile()">
+    <img src="#" alt="" id="img">
+    <button onclick="deletefilters()"></button>
+<input id="grayscale" type="range" min="0" max="100" onchange="filter(this.id,this.value,'%')">
+<input type="range" id="blur" min="0" max="5" onchange="filter(this.id,this.value,'px')">
+<input type="range" id="brightness" min="0" max="100" onchange="filter(this.id,this.value,'%')">
+<!-- Jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="js/script.js">
+
+</script>
+  </body>
+</html>
