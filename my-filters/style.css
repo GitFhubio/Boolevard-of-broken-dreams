@@ -1,0 +1,24 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#img-button{
+  position:absolute;
+  left:0;
+  top:0;
+}
+.wrapper{
+  width:100%;
+  height:100vh;
+  max-width:1200px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content: center;
+}
+.top-section,.filters-container{
+display:flex;
+flex-direction:column;
+align-items: center;
+}
