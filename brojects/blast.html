@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>vue-todolist</title>
+<!-- Google fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Ubuntu&display=swap" rel="stylesheet">
+<!-- Fontawesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+<!-- Vuejs -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<!-- Main style -->
+<link rel="stylesheet" href="./css/style-bonus.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<style>
+    #app{
+    margin:20px;
+    width:30vw;
+    }
+    .result{
+        margin-top:20px;
+    }
+select {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-padding-end: 20px;
+    -moz-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -moz-padding-start: 2px;
+    background-color: #ffb71b; /* Fallback color if gradients are not supported */
+    background-image: url(../images/select-arrow.png), -webkit-linear-gradient(top, #E5E5E5, #F4F4F4); /* For Chrome and Safari */
+    background-image: url(../images/select-arrow.png), -moz-linear-gradient(top, #E5E5E5, #F4F4F4); /* For old Firefox (3.6 to 15) */
+    background-image: url(../images/select-arrow.png), -ms-linear-gradient(top, #E5E5E5, #F4F4F4); /* For pre-releases of Internet Explorer  10*/
+    background-image: url(../images/select-arrow.png), -o-linear-gradient(top, #E5E5E5, #F4F4F4); /* For old Opera (11.1 to 12.0) */
+    background-image: url(../images/select-arrow.png), linear-gradient(to bottom, #E5E5E5, #F4F4F4); /* Standard syntax; must be last */
+    background-position: center right;
+    background-repeat: no-repeat;
+    border: 1px solid #AAA;
+    border-radius: 2px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    color: #black;
+    font-size: inherit;
+    margin: 0;
+    overflow: hidden;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+
+
+button {
+  background-color: #ffb71b;
+  border: none;
+  color: #000;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+
+
+</style>
+
+</head>
+<body>
+
+<i class="fas fa-cloud"></i>
+
+<div id="app" class="d-flex flex-column">
+<h2>What is the data center?</h2>
+<select name="" id="" v-model="selecttimezone">
+<option v-for="data in datas" >{{data.timezone}}</option>
+</select>
+<h2>What is the node type?</h2>
+<select name="" id="" v-model="selectnode">
+<option v-for="(key,data) in datas[0].content" >{{data}}</option>
+</select>
+
+<!-- <h2>What is the currency?</h2>
+<select type="number" v-model="selectcurrency" >
+  <option value="1">INTERNATIONAL USD</option>
+  <option value="0.91">EUROPE EUR</option>
+  <option value="71">INDIA INR</option>
+  <option value="1.1">INDIA USD</option>
+  <option value="3.6">BRAZIL BRL</option>
+  <option value="1.33">CANADA CAD</option>
+  <option value="1.2">CHINA USD</option>
+  <option value="1">THAIWAN USD</option>
+  <option value="0.7">UK GBP</option>
+  <option value="1200">SOUTH KOREA KRW</option>
+  <option value="110">JAPAN JPY</option>
+  <option value="1">NORTH AMERICA USD</option>
+  <option value="1">Elastic Currency Units</option>
+</select> -->
+
+<h2>What is the currency?</h2>
+<select type="number"  v-model="selectcurrency" >
+  <option v-for="(el,ind) in currencies" :value="el.value">{{el.name}}</option>
+</select>
+
+<h2>How many nodes?</h2>
+<input type="number" v-model="nodesnumber">
+<h2>How jobs/year?</h2>
+<input type="number" v-model="jobsyear">
+<h2>How many hours/job?</h2>
+<input type="number" v-model="hoursjob">
+<hr>
+<button @click="showResult=true" data-xtra='now' >Evaluate Annual Costs </button>
+
+<div v-if="showResult" class="result">
+<div>
+<span v-if="result != 'invalid'">The Annual Cost is : {{calcTotal()}} </span> 
+<span v-else>{{calcTotal()}} </span>
+</div>
+<span v-for="(el,ind) in currencies" v-if="selectcurrency == el.value">
+Selected currency is: {{el.name}}
+</div>
+</div>
+</div>
+
+<!-- Script -->
+<script>
+const app = new Vue({
+    el: '#app',
+    data: {
+      showResult:false,
+      valueAB:0,
+      result:'',
+      selectnode:'',
+      selecttimezone:'',
+ selectcurrency:'',
+ currencyname:'elleh',
+      nodesnumber:16,
+      jobsyear:100,
+      hoursjob:100,
+    datas: [{timezone:'Europe North',
+      content :
+      {'H16r':1.965120,
+      'H16mr':2.145750,
+      'HC':null,
+      'HB':null,
+      'HBv2':null,
+      'NV6':1.887600,
+      'NV12sv3':2.480500,
+      'NV48sv3':9.917900}
+    },{timezone:'Europe West',
+    content :
+    {'H16r':2.089320,
+    'H16mr':2.282250,
+    'HC':6.424080,
+    'HB':4.623840,
+    'HBv2':9.594000,
+    'NV6':2.129400,
+    'NV12sv3':2.923300,
+    'NV48sv3':11.685000}
+  },{timezone:'India Central',
+  content :
+  {'H16r':2.019400,
+  'H16mr':2.205750,
+  'HC':null,
+  'HB':null,
+  'HBv2':null,
+  'NV6':null,
+  'NV12sv3':3.271800,
+  'NV48sv3':13.087200}
+},{timezone:'Japan East',
+content :
+{'H16r':2.318400,
+'H16mr':2.532750,
+'HC':7.166640,
+'HB':null,
+'HBv2':3.239000,
+'NV6':2.464800,
+'NV12sv3':3.239000,
+'NV48sv3':12.956000
+}
+},{timezone:'US East',
+content :
+{'H16r':1.828960,
+'H16mr':1.998000,
+'HC':4.942080,
+'HB':3.556800,
+'HBv2':7.380000,
+'NV6':1.778400,
+'NV12sv3':2.337000,
+'NV48sv3':9.348000}
+},{timezone:'US North Central',
+content :
+{'H16r':1.829880,
+'H16mr':1.998750,
+'HC':null,
+'HB':null,
+'HBv2':null,
+'NV6':1.778400,
+'NV12sv3':null,
+'NV48sv3':null}
+},{timezone:'US South Central',
+content :
+{'H16r':null,
+'H16mr':null,
+'HC':7.142200,
+'HB':null,
+'HBv2':8.118000,
+'NV6':2.357500,
+'NV12sv3':2.804400,
+'NV48sv3':11.217600}
+},{timezone:'US West',
+content :
+{'H16r':1.965120
+,
+'H16mr':2.145750,
+'HC':null,
+'HB':null,
+'HBv2':null,
+'NV6':null,
+'NV12sv3':2.337000,
+'NV48sv3':9.348000}
+},{timezone:'US West 2',
+content :
+{'H16r':null,
+'H16mr':null,
+'HC':6.494400,
+'HB':null,
+'HBv2':7.380000,
+'NV6':null,
+'NV12sv3':2.337000,
+'NV48sv3':9.348000}
+},
+ 
+  ]
+,
+currencies :
+[
+{'name':'INTERNATIONAL USD',
+'value':1},
+{'name':'EUROPE EUR',
+'value':0.91},
+{'name':'INDIA INR',
+'value':71},
+{'name':'INDIA USD',
+'value':1.1},
+{'name':'BRAZIL BRL',
+'value':3.6},
+{'name' :'CANADA CAD',
+'value':1.33},
+{'name':'CHINA USD',
+'value':1.2},
+{'name':'THAIWAN USD',
+'value':1},
+{'name':'UK GBP',
+'value':0.7},
+{'name':'SOUTH KOREA KRW',
+'value':1200},
+{'name':'JAPAN JPY',
+'value':110},
+{'name':'NORTH AMERICA USD',
+'value':1},
+{'name':'Elastic Currency Units',
+'value':1}
+]
+   
+    }
+  ,
+    methods: {
+      
+
+    calcTotal(){
+      for(var i=0;i<this.datas.length;i++){
+        if(this.datas[i].timezone ==this.selecttimezone){
+          this.valueAB= this.datas[i].content[this.selectnode];
+          if(this.valueAB != null){
+          this.result=parseFloat((this.valueAB * this.nodesnumber * this.hoursjob * this.jobsyear * this.selectcurrency).toFixed(2)).toLocaleString('en');}
+          else {
+            this.result='invalid';
+          }
+        }
+      }
+      return this.result ;
+    }
+  },
+    mounted(){
+    }
+    
+
+});
+
+
+
+
+
+</script>
+</body>
+</html>
